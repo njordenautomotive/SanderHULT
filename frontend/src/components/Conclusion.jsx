@@ -92,12 +92,27 @@ export default function Conclusion() {
                 </p>
             </motion.div>
 
-            <footer className="mt-20 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-                <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
-                    Data · 2021–2023 Power Five · QB · RB · WR · TE
+            <footer className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div data-testid="credit-block">
+                    <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-2">
+                        Project credit
+                    </div>
+                    <div className="font-heading text-2xl md:text-3xl font-black uppercase text-white leading-tight">
+                        Group 5 · Hult International
+                        <br />
+                        Business School · BOS1
+                    </div>
+                    <div className="mt-2 text-xs font-mono uppercase tracking-[0.2em] text-[#a1a1aa]">
+                        Data Visualization Module
+                    </div>
                 </div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
-                    Built with D3 + Framer Motion
+                <div className="flex flex-col gap-1 md:items-end">
+                    <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
+                        Data · 2021–2023 Power Five · QB · RB · WR · TE
+                    </div>
+                    <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
+                        Built with D3 + Framer Motion
+                    </div>
                 </div>
             </footer>
         </section>

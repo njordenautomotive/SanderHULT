@@ -26,12 +26,17 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="flex items-center gap-3 mb-6"
+                    className="flex flex-col gap-2 mb-6"
                 >
-                    <span className="w-10 h-[2px] bg-[#ffcc00]" />
-                    <span className="text-[11px] font-mono uppercase tracking-[0.35em] text-[#a1a1aa]">
-                        Data Visualization · 2021–2023 · Power Five
-                    </span>
+                    <div className="flex items-center gap-3">
+                        <span className="w-10 h-[2px] bg-[#ffcc00]" />
+                        <span className="text-[11px] font-mono uppercase tracking-[0.35em] text-[#a1a1aa]">
+                            Data Visualization · 2021–2023 · Power Five
+                        </span>
+                    </div>
+                    <div className="text-[10px] font-mono uppercase tracking-[0.35em] text-[#71717a] pl-[52px]">
+                        Group 5 · Hult International Business School · BOS1
+                    </div>
                 </motion.div>
 
                 <motion.h1

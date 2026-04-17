@@ -1,0 +1,7262 @@
+{
+  "summary": {
+    "total_rows": 3904,
+    "teams": 68,
+    "players": 2313,
+    "seasons": [
+      2021,
+      2022,
+      2023
+    ],
+    "conferences": [
+      "ACC",
+      "Big 12",
+      "Big Ten",
+      "Pac-12",
+      "SEC"
+    ],
+    "positions": [
+      "QB",
+      "RB",
+      "TE",
+      "WR"
+    ],
+    "avg_usage": 0.0982,
+    "max_usage": 0.744,
+    "avg_top_player_share": 27.16,
+    "avg_top_3_share": 53.06
+  },
+  "cleaningFunnel": [
+    {
+      "step": "Raw export",
+      "rows": 12987,
+      "note": "All FBS player-seasons across all conferences and positions."
+    },
+    {
+      "step": "Limit to 2021\u20132023",
+      "rows": 9850,
+      "note": "Dropped older seasons to keep the analysis contemporary."
+    },
+    {
+      "step": "Power Five only",
+      "rows": 5420,
+      "note": "Removed Group of Five & FCS \u2014 scope focuses on P5 structural parity."
+    },
+    {
+      "step": "Offensive skill positions",
+      "rows": 4210,
+      "note": "Kept only QB, RB, WR, TE \u2014 removed FB and non-skill positions."
+    },
+    {
+      "step": "De-duplicate & verify",
+      "rows": 3904,
+      "note": "Checked duplicates and nulls; final analytic set."
+    }
+  ],
+  "q1": {
+    "topPlayerSeasons": [
+      {
+        "Player_Name": "Will Rogers",
+        "Position": "QB",
+        "Team": "Mississippi State",
+        "Conference": "SEC",
+        "Season": 2021,
+        "Usage_Overall": 0.744,
+        "Player_Usage_Share": 38.6,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "D'Eriq King",
+        "Position": "QB",
+        "Team": "Miami",
+        "Conference": "ACC",
+        "Season": 2021,
+        "Usage_Overall": 0.735,
+        "Player_Usage_Share": 26.4,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Jacurri Brown",
+        "Position": "QB",
+        "Team": "Miami",
+        "Conference": "ACC",
+        "Season": 2023,
+        "Usage_Overall": 0.734,
+        "Player_Usage_Share": 27.9,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Brennan Armstrong",
+        "Position": "QB",
+        "Team": "Virginia",
+        "Conference": "ACC",
+        "Season": 2021,
+        "Usage_Overall": 0.716,
+        "Player_Usage_Share": 40.7,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Cameron Ward",
+        "Position": "QB",
+        "Team": "Washington State",
+        "Conference": "Pac-12",
+        "Season": 2023,
+        "Usage_Overall": 0.703,
+        "Player_Usage_Share": 38.1,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Will Rogers",
+        "Position": "QB",
+        "Team": "Mississippi State",
+        "Conference": "SEC",
+        "Season": 2022,
+        "Usage_Overall": 0.698,
+        "Player_Usage_Share": 35.7,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Cameron Ward",
+        "Position": "QB",
+        "Team": "Washington State",
+        "Conference": "Pac-12",
+        "Season": 2022,
+        "Usage_Overall": 0.695,
+        "Player_Usage_Share": 40.7,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Drake Maye",
+        "Position": "QB",
+        "Team": "North Carolina",
+        "Conference": "ACC",
+        "Season": 2022,
+        "Usage_Overall": 0.681,
+        "Player_Usage_Share": 37.5,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Ryan Glover",
+        "Position": "QB",
+        "Team": "California",
+        "Conference": "Pac-12",
+        "Season": 2021,
+        "Usage_Overall": 0.68,
+        "Player_Usage_Share": 31.0,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Shedeur Sanders",
+        "Position": "QB",
+        "Team": "Colorado",
+        "Conference": "Pac-12",
+        "Season": 2023,
+        "Usage_Overall": 0.677,
+        "Player_Usage_Share": 33.0,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Jake Retzlaff",
+        "Position": "QB",
+        "Team": "BYU",
+        "Conference": "Big 12",
+        "Season": 2023,
+        "Usage_Overall": 0.673,
+        "Player_Usage_Share": 27.9,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Donovan Smith",
+        "Position": "QB",
+        "Team": "Houston",
+        "Conference": "Big 12",
+        "Season": 2023,
+        "Usage_Overall": 0.668,
+        "Player_Usage_Share": 41.9,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Destin Wade",
+        "Position": "QB",
+        "Team": "Kentucky",
+        "Conference": "SEC",
+        "Season": 2022,
+        "Usage_Overall": 0.667,
+        "Player_Usage_Share": 22.9,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Brennan Armstrong",
+        "Position": "QB",
+        "Team": "Virginia",
+        "Conference": "ACC",
+        "Season": 2022,
+        "Usage_Overall": 0.665,
+        "Player_Usage_Share": 33.2,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Jack Miller III",
+        "Position": "QB",
+        "Team": "Florida",
+        "Conference": "SEC",
+        "Season": 2022,
+        "Usage_Overall": 0.636,
+        "Player_Usage_Share": 25.2,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Jack Plummer",
+        "Position": "QB",
+        "Team": "California",
+        "Conference": "Pac-12",
+        "Season": 2022,
+        "Usage_Overall": 0.636,
+        "Player_Usage_Share": 36.3,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Sam Howell",
+        "Position": "QB",
+        "Team": "North Carolina",
+        "Conference": "ACC",
+        "Season": 2021,
+        "Usage_Overall": 0.635,
+        "Player_Usage_Share": 30.5,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Tanner McKee",
+        "Position": "QB",
+        "Team": "Stanford",
+        "Conference": "Pac-12",
+        "Season": 2021,
+        "Usage_Overall": 0.627,
+        "Player_Usage_Share": 28.4,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Spencer Rattler",
+        "Position": "QB",
+        "Team": "South Carolina",
+        "Conference": "SEC",
+        "Season": 2023,
+        "Usage_Overall": 0.626,
+        "Player_Usage_Share": 33.9,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Caleb Williams",
+        "Position": "QB",
+        "Team": "USC",
+        "Conference": "Pac-12",
+        "Season": 2023,
+        "Usage_Overall": 0.624,
+        "Player_Usage_Share": 30.8,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Ben Finley",
+        "Position": "QB",
+        "Team": "NC State",
+        "Conference": "ACC",
+        "Season": 2022,
+        "Usage_Overall": 0.623,
+        "Player_Usage_Share": 21.3,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Hunter Dekkers",
+        "Position": "QB",
+        "Team": "Iowa State",
+        "Conference": "Big 12",
+        "Season": 2022,
+        "Usage_Overall": 0.62,
+        "Player_Usage_Share": 34.2,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Caleb Williams",
+        "Position": "QB",
+        "Team": "USC",
+        "Conference": "Pac-12",
+        "Season": 2022,
+        "Usage_Overall": 0.62,
+        "Player_Usage_Share": 35.1,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Taulia Tagovailoa",
+        "Position": "QB",
+        "Team": "Maryland",
+        "Conference": "Big Ten",
+        "Season": 2023,
+        "Usage_Overall": 0.617,
+        "Player_Usage_Share": 34.8,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Chase Garbers",
+        "Position": "QB",
+        "Team": "California",
+        "Conference": "Pac-12",
+        "Season": 2021,
+        "Usage_Overall": 0.614,
+        "Player_Usage_Share": 27.9,
+        "Rank_Within_Team": 2
+      },
+      {
+        "Player_Name": "Garrett Shrader",
+        "Position": "QB",
+        "Team": "Syracuse",
+        "Conference": "ACC",
+        "Season": 2022,
+        "Usage_Overall": 0.613,
+        "Player_Usage_Share": 33.9,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "MJ Morris",
+        "Position": "QB",
+        "Team": "NC State",
+        "Conference": "ACC",
+        "Season": 2023,
+        "Usage_Overall": 0.612,
+        "Player_Usage_Share": 28.1,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Connor Bazelak",
+        "Position": "QB",
+        "Team": "Indiana",
+        "Conference": "Big Ten",
+        "Season": 2022,
+        "Usage_Overall": 0.608,
+        "Player_Usage_Share": 24.6,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Tanner McKee",
+        "Position": "QB",
+        "Team": "Stanford",
+        "Conference": "Pac-12",
+        "Season": 2022,
+        "Usage_Overall": 0.608,
+        "Player_Usage_Share": 32.0,
+        "Rank_Within_Team": 1
+      },
+      {
+        "Player_Name": "Drake Maye",
+        "Position": "QB",
+        "Team": "North Carolina",
+        "Conference": "ACC",
+        "Season": 2023,
+        "Usage_Overall": 0.604,
+        "Player_Usage_Share": 30.3,
+        "Rank_Within_Team": 1
+      }
+    ],
+    "distribution": [
+      {
+        "bin": "0\u20135%",
+        "count": 1988
+      },
+      {
+        "bin": "5\u201310%",
+        "count": 928
+      },
+      {
+        "bin": "10\u201315%",
+        "count": 345
+      },
+      {
+        "bin": "15\u201320%",
+        "count": 162
+      },
+      {
+        "bin": "20\u201325%",
+        "count": 101
+      },
+      {
+        "bin": "25\u201330%",
+        "count": 70
+      },
+      {
+        "bin": "30\u201340%",
+        "count": 85
+      },
+      {
+        "bin": "40\u201350%",
+        "count": 95
+      },
+      {
+        "bin": "50%+",
+        "count": 130
+      }
+    ],
+    "positionAverages": [
+      {
+        "Position": "QB",
+        "mean": 0.2873,
+        "median": 0.254,
+        "count": 585
+      },
+      {
+        "Position": "RB",
+        "mean": 0.1115,
+        "median": 0.09,
+        "count": 1036
+      },
+      {
+        "Position": "TE",
+        "mean": 0.0331,
+        "median": 0.028,
+        "count": 665
+      },
+      {
+        "Position": "WR",
+        "mean": 0.0481,
+        "median": 0.041,
+        "count": 1618
+      }
+    ],
+    "playerTrends": [
+      {
+        "player": "Will Rogers",
+        "position": "QB",
+        "avg": 0.6527,
+        "total": 1.958,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.744,
+            "Team": "Mississippi State"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.698,
+            "Team": "Mississippi State"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.516,
+            "Team": "Mississippi State"
+          }
+        ]
+      },
+      {
+        "player": "Taulia Tagovailoa",
+        "position": "QB",
+        "avg": 0.5883,
+        "total": 1.765,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.583,
+            "Team": "Maryland"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.565,
+            "Team": "Maryland"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.617,
+            "Team": "Maryland"
+          }
+        ]
+      },
+      {
+        "player": "KJ Jefferson",
+        "position": "QB",
+        "avg": 0.5333,
+        "total": 1.6,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.488,
+            "Team": "Arkansas"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.545,
+            "Team": "Arkansas"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.567,
+            "Team": "Arkansas"
+          }
+        ]
+      },
+      {
+        "player": "Garrett Shrader",
+        "position": "QB",
+        "avg": 0.527,
+        "total": 1.581,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.52,
+            "Team": "Syracuse"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.613,
+            "Team": "Syracuse"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.448,
+            "Team": "Syracuse"
+          }
+        ]
+      },
+      {
+        "player": "Jordan Travis",
+        "position": "QB",
+        "avg": 0.5107,
+        "total": 1.532,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.502,
+            "Team": "Florida State"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.481,
+            "Team": "Florida State"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.549,
+            "Team": "Florida State"
+          }
+        ]
+      },
+      {
+        "player": "Drake Maye",
+        "position": "QB",
+        "avg": 0.4767,
+        "total": 1.43,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.145,
+            "Team": "North Carolina"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.681,
+            "Team": "North Carolina"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.604,
+            "Team": "North Carolina"
+          }
+        ]
+      },
+      {
+        "player": "Tyler Van Dyke",
+        "position": "QB",
+        "avg": 0.4717,
+        "total": 1.415,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.512,
+            "Team": "Miami"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.433,
+            "Team": "Miami"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.47,
+            "Team": "Miami"
+          }
+        ]
+      },
+      {
+        "player": "Jalon Daniels",
+        "position": "QB",
+        "avg": 0.4683,
+        "total": 1.405,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.395,
+            "Team": "Kansas"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.523,
+            "Team": "Kansas"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.487,
+            "Team": "Kansas"
+          }
+        ]
+      },
+      {
+        "player": "Tyler Shough",
+        "position": "QB",
+        "avg": 0.465,
+        "total": 1.395,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.446,
+            "Team": "Texas Tech"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.437,
+            "Team": "Texas Tech"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.512,
+            "Team": "Texas Tech"
+          }
+        ]
+      },
+      {
+        "player": "Brennan Armstrong",
+        "position": "QB",
+        "avg": 0.6905,
+        "total": 1.381,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.716,
+            "Team": "Virginia"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.665,
+            "Team": "Virginia"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.515,
+            "Team": "NC State"
+          }
+        ]
+      },
+      {
+        "player": "Blake Shapen",
+        "position": "QB",
+        "avg": 0.4583,
+        "total": 1.375,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.3,
+            "Team": "Baylor"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.48,
+            "Team": "Baylor"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.595,
+            "Team": "Baylor"
+          }
+        ]
+      },
+      {
+        "player": "Riley Leonard",
+        "position": "QB",
+        "avg": 0.4513,
+        "total": 1.354,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.233,
+            "Team": "Duke"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.589,
+            "Team": "Duke"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.532,
+            "Team": "Duke"
+          }
+        ]
+      },
+      {
+        "player": "Brady Cook",
+        "position": "QB",
+        "avg": 0.45,
+        "total": 1.35,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.224,
+            "Team": "Missouri"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.578,
+            "Team": "Missouri"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.548,
+            "Team": "Missouri"
+          }
+        ]
+      },
+      {
+        "player": "Will Howard",
+        "position": "QB",
+        "avg": 0.4303,
+        "total": 1.291,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.321,
+            "Team": "Kansas State"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.479,
+            "Team": "Kansas State"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.491,
+            "Team": "Kansas State"
+          }
+        ]
+      },
+      {
+        "player": "Caleb Williams",
+        "position": "QB",
+        "avg": 0.622,
+        "total": 1.244,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.433,
+            "Team": "Oklahoma"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.62,
+            "Team": "USC"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.624,
+            "Team": "USC"
+          }
+        ]
+      },
+      {
+        "player": "Michael Penix Jr.",
+        "position": "QB",
+        "avg": 0.596,
+        "total": 1.192,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.494,
+            "Team": "Indiana"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.599,
+            "Team": "Washington"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.593,
+            "Team": "Washington"
+          }
+        ]
+      },
+      {
+        "player": "Spencer Rattler",
+        "position": "QB",
+        "avg": 0.5875,
+        "total": 1.175,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.454,
+            "Team": "Oklahoma"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.549,
+            "Team": "South Carolina"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.626,
+            "Team": "South Carolina"
+          }
+        ]
+      },
+      {
+        "player": "Jayden Daniels",
+        "position": "QB",
+        "avg": 0.5825,
+        "total": 1.165,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.524,
+            "Team": "Arizona State"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.569,
+            "Team": "LSU"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.596,
+            "Team": "LSU"
+          }
+        ]
+      },
+      {
+        "player": "Spencer Sanders",
+        "position": "QB",
+        "avg": 0.5715,
+        "total": 1.143,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.541,
+            "Team": "Oklahoma State"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.602,
+            "Team": "Oklahoma State"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.096,
+            "Team": "Ole Miss"
+          }
+        ]
+      },
+      {
+        "player": "Jeff Sims",
+        "position": "QB",
+        "avg": 0.55,
+        "total": 1.1,
+        "points": [
+          {
+            "Season": 2021,
+            "Usage_Overall": 0.519,
+            "Team": "Georgia Tech"
+          },
+          {
+            "Season": 2022,
+            "Usage_Overall": 0.581,
+            "Team": "Georgia Tech"
+          },
+          {
+            "Season": 2023,
+            "Usage_Overall": 0.271,
+            "Team": "Nebraska"
+          }
+        ]
+      }
+    ]
+  },
+  "q2": {
+    "teamSeasons": [
+      {
+        "Team": "Alabama",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 27.6,
+        "top_3_share": 49.8,
+        "Team_Total_Usage": 2.023,
+        "win_pct": 0.867
+      },
+      {
+        "Team": "Alabama",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 27.6,
+        "top_3_share": 48.8,
+        "Team_Total_Usage": 1.89,
+        "win_pct": 0.786
+      },
+      {
+        "Team": "Alabama",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 28.8,
+        "top_3_share": 51.0,
+        "Team_Total_Usage": 1.859,
+        "win_pct": 0.857
+      },
+      {
+        "Team": "Arizona",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 21.2,
+        "top_3_share": 57.3,
+        "Team_Total_Usage": 2.116,
+        "win_pct": 0.083
+      },
+      {
+        "Team": "Arizona",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 39.2,
+        "top_3_share": 60.1,
+        "Team_Total_Usage": 1.522,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Arizona",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 34.3,
+        "top_3_share": 57.0,
+        "Team_Total_Usage": 1.361,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Arizona State",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 31.7,
+        "top_3_share": 59.2,
+        "Team_Total_Usage": 1.654,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Arizona State",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 25.8,
+        "top_3_share": 66.7,
+        "Team_Total_Usage": 2.057,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Arizona State",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 16.4,
+        "top_3_share": 47.1,
+        "Team_Total_Usage": 3.017,
+        "win_pct": 0.231
+      },
+      {
+        "Team": "Arkansas",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 30.9,
+        "top_3_share": 48.0,
+        "Team_Total_Usage": 1.578,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Arkansas",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 31.6,
+        "top_3_share": 55.9,
+        "Team_Total_Usage": 1.725,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Arkansas",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 32.1,
+        "top_3_share": 53.0,
+        "Team_Total_Usage": 1.765,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Auburn",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 27.3,
+        "top_3_share": 53.6,
+        "Team_Total_Usage": 1.982,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Auburn",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 29.6,
+        "top_3_share": 60.2,
+        "Team_Total_Usage": 1.695,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Auburn",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 26.0,
+        "top_3_share": 45.7,
+        "Team_Total_Usage": 1.816,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "BYU",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 27.9,
+        "top_3_share": 60.5,
+        "Team_Total_Usage": 2.408,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Baylor",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 25.5,
+        "top_3_share": 60.1,
+        "Team_Total_Usage": 1.715,
+        "win_pct": 0.857
+      },
+      {
+        "Team": "Baylor",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 25.5,
+        "top_3_share": 46.7,
+        "Team_Total_Usage": 1.884,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Baylor",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 26.3,
+        "top_3_share": 50.6,
+        "Team_Total_Usage": 2.26,
+        "win_pct": 0.231
+      },
+      {
+        "Team": "Boston College",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 21.3,
+        "top_3_share": 53.6,
+        "Team_Total_Usage": 2.001,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Boston College",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 29.1,
+        "top_3_share": 59.9,
+        "Team_Total_Usage": 1.934,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Boston College",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 32.2,
+        "top_3_share": 54.6,
+        "Team_Total_Usage": 1.765,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "California",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 31.0,
+        "top_3_share": 66.1,
+        "Team_Total_Usage": 2.197,
+        "win_pct": 0.455
+      },
+      {
+        "Team": "California",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 36.3,
+        "top_3_share": 59.1,
+        "Team_Total_Usage": 1.752,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "California",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 27.4,
+        "top_3_share": 60.1,
+        "Team_Total_Usage": 1.653,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "Cincinnati",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 33.4,
+        "top_3_share": 55.3,
+        "Team_Total_Usage": 1.59,
+        "win_pct": 0.231
+      },
+      {
+        "Team": "Clemson",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 23.6,
+        "top_3_share": 42.8,
+        "Team_Total_Usage": 2.213,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Clemson",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 30.2,
+        "top_3_share": 54.2,
+        "Team_Total_Usage": 1.824,
+        "win_pct": 0.786
+      },
+      {
+        "Team": "Clemson",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 30.2,
+        "top_3_share": 52.7,
+        "Team_Total_Usage": 1.906,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Colorado",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 30.3,
+        "top_3_share": 54.4,
+        "Team_Total_Usage": 1.652,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Colorado",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 20.3,
+        "top_3_share": 48.5,
+        "Team_Total_Usage": 2.937,
+        "win_pct": 0.083
+      },
+      {
+        "Team": "Colorado",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 33.0,
+        "top_3_share": 53.2,
+        "Team_Total_Usage": 2.054,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Duke",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 26.6,
+        "top_3_share": 57.6,
+        "Team_Total_Usage": 1.765,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Duke",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 33.0,
+        "top_3_share": 52.3,
+        "Team_Total_Usage": 1.786,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Duke",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 23.4,
+        "top_3_share": 53.3,
+        "Team_Total_Usage": 2.269,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Florida",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 30.2,
+        "top_3_share": 51.3,
+        "Team_Total_Usage": 1.753,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "Florida",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 25.2,
+        "top_3_share": 55.0,
+        "Team_Total_Usage": 2.525,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Florida",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 28.2,
+        "top_3_share": 50.7,
+        "Team_Total_Usage": 1.953,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Florida State",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 26.9,
+        "top_3_share": 59.3,
+        "Team_Total_Usage": 1.869,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "Florida State",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 25.7,
+        "top_3_share": 43.7,
+        "Team_Total_Usage": 1.873,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Florida State",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 24.2,
+        "top_3_share": 43.5,
+        "Team_Total_Usage": 2.269,
+        "win_pct": 0.929
+      },
+      {
+        "Team": "Georgia",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 18.7,
+        "top_3_share": 41.6,
+        "Team_Total_Usage": 2.06,
+        "win_pct": 1.0
+      },
+      {
+        "Team": "Georgia",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 27.1,
+        "top_3_share": 46.0,
+        "Team_Total_Usage": 1.803,
+        "win_pct": 1.0
+      },
+      {
+        "Team": "Georgia",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 25.9,
+        "top_3_share": 45.7,
+        "Team_Total_Usage": 1.91,
+        "win_pct": 0.917
+      },
+      {
+        "Team": "Georgia Tech",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 25.5,
+        "top_3_share": 59.6,
+        "Team_Total_Usage": 2.035,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Georgia Tech",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 23.3,
+        "top_3_share": 56.0,
+        "Team_Total_Usage": 2.498,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Georgia Tech",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 35.5,
+        "top_3_share": 61.1,
+        "Team_Total_Usage": 1.534,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Houston",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 41.9,
+        "top_3_share": 57.9,
+        "Team_Total_Usage": 1.596,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Illinois",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 21.5,
+        "top_3_share": 52.6,
+        "Team_Total_Usage": 2.154,
+        "win_pct": 0.385
+      },
+      {
+        "Team": "Illinois",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 25.7,
+        "top_3_share": 60.4,
+        "Team_Total_Usage": 1.659,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Illinois",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 28.2,
+        "top_3_share": 56.6,
+        "Team_Total_Usage": 2.094,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Indiana",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 19.4,
+        "top_3_share": 44.3,
+        "Team_Total_Usage": 2.542,
+        "win_pct": 0.167
+      },
+      {
+        "Team": "Indiana",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 24.6,
+        "top_3_share": 50.6,
+        "Team_Total_Usage": 2.467,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Indiana",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 25.9,
+        "top_3_share": 53.6,
+        "Team_Total_Usage": 1.964,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Iowa",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 24.5,
+        "top_3_share": 58.8,
+        "Team_Total_Usage": 1.734,
+        "win_pct": 0.714
+      },
+      {
+        "Team": "Iowa",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 24.0,
+        "top_3_share": 58.9,
+        "Team_Total_Usage": 2.432,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Iowa",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 17.0,
+        "top_3_share": 43.0,
+        "Team_Total_Usage": 2.219,
+        "win_pct": 0.714
+      },
+      {
+        "Team": "Iowa State",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 31.9,
+        "top_3_share": 61.0,
+        "Team_Total_Usage": 1.777,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Iowa State",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 34.2,
+        "top_3_share": 52.4,
+        "Team_Total_Usage": 1.812,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Iowa State",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 30.8,
+        "top_3_share": 50.4,
+        "Team_Total_Usage": 1.714,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Kansas",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 20.4,
+        "top_3_share": 50.2,
+        "Team_Total_Usage": 2.121,
+        "win_pct": 0.167
+      },
+      {
+        "Team": "Kansas",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 27.0,
+        "top_3_share": 52.5,
+        "Team_Total_Usage": 1.936,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Kansas",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 20.8,
+        "top_3_share": 55.8,
+        "Team_Total_Usage": 2.339,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Kansas State",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 23.7,
+        "top_3_share": 57.6,
+        "Team_Total_Usage": 2.012,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Kansas State",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 25.1,
+        "top_3_share": 67.4,
+        "Team_Total_Usage": 1.906,
+        "win_pct": 0.714
+      },
+      {
+        "Team": "Kansas State",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 29.2,
+        "top_3_share": 57.1,
+        "Team_Total_Usage": 1.68,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Kentucky",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 33.9,
+        "top_3_share": 57.2,
+        "Team_Total_Usage": 1.563,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Kentucky",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 22.9,
+        "top_3_share": 53.3,
+        "Team_Total_Usage": 2.91,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Kentucky",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 36.7,
+        "top_3_share": 64.7,
+        "Team_Total_Usage": 1.537,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "LSU",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 26.7,
+        "top_3_share": 51.2,
+        "Team_Total_Usage": 1.955,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "LSU",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 29.6,
+        "top_3_share": 46.5,
+        "Team_Total_Usage": 1.924,
+        "win_pct": 0.714
+      },
+      {
+        "Team": "LSU",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 30.0,
+        "top_3_share": 51.2,
+        "Team_Total_Usage": 1.984,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Louisville",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 32.8,
+        "top_3_share": 51.8,
+        "Team_Total_Usage": 1.778,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "Louisville",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 25.6,
+        "top_3_share": 49.5,
+        "Team_Total_Usage": 1.9,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Louisville",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 30.5,
+        "top_3_share": 53.3,
+        "Team_Total_Usage": 1.69,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Maryland",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 31.8,
+        "top_3_share": 47.1,
+        "Team_Total_Usage": 1.831,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Maryland",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 34.4,
+        "top_3_share": 58.7,
+        "Team_Total_Usage": 1.644,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Maryland",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 34.8,
+        "top_3_share": 54.1,
+        "Team_Total_Usage": 1.775,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Miami",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 26.4,
+        "top_3_share": 55.1,
+        "Team_Total_Usage": 2.788,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Miami",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 20.7,
+        "top_3_share": 43.1,
+        "Team_Total_Usage": 2.094,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Miami",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 27.9,
+        "top_3_share": 54.6,
+        "Team_Total_Usage": 2.63,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Michigan",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 21.6,
+        "top_3_share": 51.1,
+        "Team_Total_Usage": 1.737,
+        "win_pct": 0.857
+      },
+      {
+        "Team": "Michigan",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 19.6,
+        "top_3_share": 45.4,
+        "Team_Total_Usage": 2.041,
+        "win_pct": 0.929
+      },
+      {
+        "Team": "Michigan",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 23.3,
+        "top_3_share": 48.7,
+        "Team_Total_Usage": 1.827,
+        "win_pct": 1.0
+      },
+      {
+        "Team": "Michigan State",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 31.3,
+        "top_3_share": 64.6,
+        "Team_Total_Usage": 1.697,
+        "win_pct": 0.846
+      },
+      {
+        "Team": "Michigan State",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 33.3,
+        "top_3_share": 53.1,
+        "Team_Total_Usage": 1.705,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Michigan State",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 24.5,
+        "top_3_share": 53.6,
+        "Team_Total_Usage": 2.169,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Minnesota",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 18.8,
+        "top_3_share": 54.3,
+        "Team_Total_Usage": 2.047,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Minnesota",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 23.6,
+        "top_3_share": 55.1,
+        "Team_Total_Usage": 1.732,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Minnesota",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 23.5,
+        "top_3_share": 57.7,
+        "Team_Total_Usage": 2.023,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "Mississippi State",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 38.6,
+        "top_3_share": 56.7,
+        "Team_Total_Usage": 1.925,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Mississippi State",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 35.7,
+        "top_3_share": 55.4,
+        "Team_Total_Usage": 1.954,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Mississippi State",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 26.0,
+        "top_3_share": 52.2,
+        "Team_Total_Usage": 1.982,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Missouri",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 25.6,
+        "top_3_share": 55.9,
+        "Team_Total_Usage": 2.039,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Missouri",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 32.2,
+        "top_3_share": 52.7,
+        "Team_Total_Usage": 1.797,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Missouri",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 37.6,
+        "top_3_share": 76.4,
+        "Team_Total_Usage": 1.457,
+        "win_pct": 0.846
+      },
+      {
+        "Team": "NC State",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 34.2,
+        "top_3_share": 57.8,
+        "Team_Total_Usage": 1.72,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "NC State",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 21.3,
+        "top_3_share": 51.2,
+        "Team_Total_Usage": 2.919,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "NC State",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 28.1,
+        "top_3_share": 59.0,
+        "Team_Total_Usage": 2.178,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Nebraska",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 27.9,
+        "top_3_share": 45.6,
+        "Team_Total_Usage": 1.983,
+        "win_pct": 0.231
+      },
+      {
+        "Team": "Nebraska",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 26.2,
+        "top_3_share": 52.6,
+        "Team_Total_Usage": 1.904,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Nebraska",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 20.1,
+        "top_3_share": 44.8,
+        "Team_Total_Usage": 2.175,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "North Carolina",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 30.5,
+        "top_3_share": 48.7,
+        "Team_Total_Usage": 2.081,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "North Carolina",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 37.5,
+        "top_3_share": 57.2,
+        "Team_Total_Usage": 1.815,
+        "win_pct": 0.643
+      },
+      {
+        "Team": "North Carolina",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 30.3,
+        "top_3_share": 54.6,
+        "Team_Total_Usage": 1.994,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Northwestern",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 18.8,
+        "top_3_share": 50.2,
+        "Team_Total_Usage": 2.254,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Northwestern",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 19.2,
+        "top_3_share": 51.9,
+        "Team_Total_Usage": 2.287,
+        "win_pct": 0.083
+      },
+      {
+        "Team": "Northwestern",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 28.4,
+        "top_3_share": 61.1,
+        "Team_Total_Usage": 1.874,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Ohio State",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 25.7,
+        "top_3_share": 42.9,
+        "Team_Total_Usage": 2.154,
+        "win_pct": 0.846
+      },
+      {
+        "Team": "Ohio State",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 25.3,
+        "top_3_share": 45.3,
+        "Team_Total_Usage": 1.958,
+        "win_pct": 0.846
+      },
+      {
+        "Team": "Ohio State",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 23.8,
+        "top_3_share": 45.1,
+        "Team_Total_Usage": 2.036,
+        "win_pct": 0.846
+      },
+      {
+        "Team": "Oklahoma",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 20.5,
+        "top_3_share": 50.8,
+        "Team_Total_Usage": 2.213,
+        "win_pct": 0.857
+      },
+      {
+        "Team": "Oklahoma",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 25.9,
+        "top_3_share": 49.4,
+        "Team_Total_Usage": 1.788,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "Oklahoma",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 24.9,
+        "top_3_share": 47.1,
+        "Team_Total_Usage": 2.002,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Oklahoma State",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 24.4,
+        "top_3_share": 53.8,
+        "Team_Total_Usage": 2.221,
+        "win_pct": 0.857
+      },
+      {
+        "Team": "Oklahoma State",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 24.6,
+        "top_3_share": 54.7,
+        "Team_Total_Usage": 2.443,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Oklahoma State",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 25.7,
+        "top_3_share": 50.6,
+        "Team_Total_Usage": 1.991,
+        "win_pct": 0.714
+      },
+      {
+        "Team": "Ole Miss",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 30.5,
+        "top_3_share": 51.1,
+        "Team_Total_Usage": 1.698,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Ole Miss",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 29.1,
+        "top_3_share": 57.2,
+        "Team_Total_Usage": 1.664,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Ole Miss",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 30.2,
+        "top_3_share": 56.0,
+        "Team_Total_Usage": 1.685,
+        "win_pct": 0.846
+      },
+      {
+        "Team": "Oregon",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 30.7,
+        "top_3_share": 59.1,
+        "Team_Total_Usage": 1.862,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Oregon",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 33.9,
+        "top_3_share": 51.8,
+        "Team_Total_Usage": 1.556,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Oregon",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 30.4,
+        "top_3_share": 52.4,
+        "Team_Total_Usage": 1.812,
+        "win_pct": 0.857
+      },
+      {
+        "Team": "Oregon State",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 26.0,
+        "top_3_share": 53.4,
+        "Team_Total_Usage": 1.676,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Oregon State",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 18.7,
+        "top_3_share": 46.2,
+        "Team_Total_Usage": 2.007,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Oregon State",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 25.7,
+        "top_3_share": 55.7,
+        "Team_Total_Usage": 1.898,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Penn State",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 29.3,
+        "top_3_share": 51.9,
+        "Team_Total_Usage": 1.937,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Penn State",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 26.5,
+        "top_3_share": 49.7,
+        "Team_Total_Usage": 1.73,
+        "win_pct": 0.786
+      },
+      {
+        "Team": "Penn State",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 32.0,
+        "top_3_share": 59.4,
+        "Team_Total_Usage": 1.562,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Pittsburgh",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 32.2,
+        "top_3_share": 51.6,
+        "Team_Total_Usage": 1.807,
+        "win_pct": 0.786
+      },
+      {
+        "Team": "Pittsburgh",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 20.4,
+        "top_3_share": 56.6,
+        "Team_Total_Usage": 2.123,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Pittsburgh",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 21.5,
+        "top_3_share": 57.1,
+        "Team_Total_Usage": 2.161,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Purdue",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 23.7,
+        "top_3_share": 46.8,
+        "Team_Total_Usage": 2.176,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Purdue",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 27.1,
+        "top_3_share": 47.6,
+        "Team_Total_Usage": 2.149,
+        "win_pct": 0.571
+      },
+      {
+        "Team": "Purdue",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 27.0,
+        "top_3_share": 60.2,
+        "Team_Total_Usage": 2.126,
+        "win_pct": 0.308
+      },
+      {
+        "Team": "Rutgers",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 25.7,
+        "top_3_share": 45.4,
+        "Team_Total_Usage": 1.746,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Rutgers",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 20.8,
+        "top_3_share": 52.3,
+        "Team_Total_Usage": 1.758,
+        "win_pct": 0.385
+      },
+      {
+        "Team": "Rutgers",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 37.2,
+        "top_3_share": 67.7,
+        "Team_Total_Usage": 1.372,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "South Carolina",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 26.4,
+        "top_3_share": 53.8,
+        "Team_Total_Usage": 2.054,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "South Carolina",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 31.1,
+        "top_3_share": 52.4,
+        "Team_Total_Usage": 1.764,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "South Carolina",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 33.9,
+        "top_3_share": 54.2,
+        "Team_Total_Usage": 1.844,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Stanford",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 28.4,
+        "top_3_share": 47.8,
+        "Team_Total_Usage": 2.205,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Stanford",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 32.0,
+        "top_3_share": 61.3,
+        "Team_Total_Usage": 1.902,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Stanford",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 28.9,
+        "top_3_share": 52.2,
+        "Team_Total_Usage": 1.748,
+        "win_pct": 0.231
+      },
+      {
+        "Team": "Syracuse",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 28.3,
+        "top_3_share": 67.8,
+        "Team_Total_Usage": 1.837,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "Syracuse",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 33.9,
+        "top_3_share": 66.3,
+        "Team_Total_Usage": 1.81,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Syracuse",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 25.7,
+        "top_3_share": 51.3,
+        "Team_Total_Usage": 1.742,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "TCU",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 22.1,
+        "top_3_share": 50.9,
+        "Team_Total_Usage": 2.366,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "TCU",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 29.6,
+        "top_3_share": 54.1,
+        "Team_Total_Usage": 1.825,
+        "win_pct": 0.867
+      },
+      {
+        "Team": "TCU",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 24.1,
+        "top_3_share": 60.6,
+        "Team_Total_Usage": 1.962,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Tennessee",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 23.7,
+        "top_3_share": 41.4,
+        "Team_Total_Usage": 2.079,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Tennessee",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 27.2,
+        "top_3_share": 45.5,
+        "Team_Total_Usage": 1.921,
+        "win_pct": 0.846
+      },
+      {
+        "Team": "Tennessee",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 24.2,
+        "top_3_share": 42.0,
+        "Team_Total_Usage": 2.066,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Texas",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 22.1,
+        "top_3_share": 53.9,
+        "Team_Total_Usage": 1.764,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Texas",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 22.3,
+        "top_3_share": 55.7,
+        "Team_Total_Usage": 2.057,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Texas",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 28.1,
+        "top_3_share": 54.7,
+        "Team_Total_Usage": 1.81,
+        "win_pct": 0.857
+      },
+      {
+        "Team": "Texas A&M",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 23.0,
+        "top_3_share": 50.5,
+        "Team_Total_Usage": 1.989,
+        "win_pct": 0.667
+      },
+      {
+        "Team": "Texas A&M",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 19.6,
+        "top_3_share": 51.5,
+        "Team_Total_Usage": 2.772,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Texas A&M",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 18.1,
+        "top_3_share": 46.1,
+        "Team_Total_Usage": 2.62,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Texas Tech",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 18.6,
+        "top_3_share": 48.7,
+        "Team_Total_Usage": 2.395,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Texas Tech",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 21.3,
+        "top_3_share": 52.8,
+        "Team_Total_Usage": 2.048,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Texas Tech",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 21.7,
+        "top_3_share": 58.9,
+        "Team_Total_Usage": 2.36,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "UCF",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 26.0,
+        "top_3_share": 55.5,
+        "Team_Total_Usage": 1.885,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "UCLA",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 31.3,
+        "top_3_share": 58.2,
+        "Team_Total_Usage": 1.676,
+        "win_pct": 0.667
+      },
+      {
+        "Team": "UCLA",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 28.3,
+        "top_3_share": 52.1,
+        "Team_Total_Usage": 1.876,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "UCLA",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 20.0,
+        "top_3_share": 48.4,
+        "Team_Total_Usage": 1.882,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "USC",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 22.8,
+        "top_3_share": 56.1,
+        "Team_Total_Usage": 2.071,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "USC",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 35.1,
+        "top_3_share": 59.0,
+        "Team_Total_Usage": 1.765,
+        "win_pct": 0.786
+      },
+      {
+        "Team": "USC",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 30.8,
+        "top_3_share": 54.7,
+        "Team_Total_Usage": 2.023,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Utah",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 25.4,
+        "top_3_share": 64.0,
+        "Team_Total_Usage": 1.764,
+        "win_pct": 0.714
+      },
+      {
+        "Team": "Utah",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 24.4,
+        "top_3_share": 43.7,
+        "Team_Total_Usage": 2.039,
+        "win_pct": 0.714
+      },
+      {
+        "Team": "Utah",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 23.5,
+        "top_3_share": 47.1,
+        "Team_Total_Usage": 1.984,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Vanderbilt",
+        "Season": 2021,
+        "Conference": "SEC",
+        "top_player_share": 21.6,
+        "top_3_share": 52.3,
+        "Team_Total_Usage": 2.047,
+        "win_pct": 0.167
+      },
+      {
+        "Team": "Vanderbilt",
+        "Season": 2022,
+        "Conference": "SEC",
+        "top_player_share": 20.3,
+        "top_3_share": 54.0,
+        "Team_Total_Usage": 1.982,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "Vanderbilt",
+        "Season": 2023,
+        "Conference": "SEC",
+        "top_player_share": 29.0,
+        "top_3_share": 55.5,
+        "Team_Total_Usage": 1.883,
+        "win_pct": 0.167
+      },
+      {
+        "Team": "Virginia",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 40.7,
+        "top_3_share": 60.5,
+        "Team_Total_Usage": 1.76,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Virginia",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 33.2,
+        "top_3_share": 49.0,
+        "Team_Total_Usage": 2.001,
+        "win_pct": 0.273
+      },
+      {
+        "Team": "Virginia",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 26.9,
+        "top_3_share": 57.7,
+        "Team_Total_Usage": 2.107,
+        "win_pct": 0.231
+      },
+      {
+        "Team": "Virginia Tech",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 24.9,
+        "top_3_share": 46.3,
+        "Team_Total_Usage": 1.922,
+        "win_pct": 0.5
+      },
+      {
+        "Team": "Virginia Tech",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 29.7,
+        "top_3_share": 52.5,
+        "Team_Total_Usage": 1.923,
+        "win_pct": 0.25
+      },
+      {
+        "Team": "Virginia Tech",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 30.1,
+        "top_3_share": 59.1,
+        "Team_Total_Usage": 1.73,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Wake Forest",
+        "Season": 2021,
+        "Conference": "ACC",
+        "top_player_share": 33.4,
+        "top_3_share": 49.7,
+        "Team_Total_Usage": 1.73,
+        "win_pct": 0.786
+      },
+      {
+        "Team": "Wake Forest",
+        "Season": 2022,
+        "Conference": "ACC",
+        "top_player_share": 32.3,
+        "top_3_share": 52.7,
+        "Team_Total_Usage": 1.805,
+        "win_pct": 0.615
+      },
+      {
+        "Team": "Wake Forest",
+        "Season": 2023,
+        "Conference": "ACC",
+        "top_player_share": 24.4,
+        "top_3_share": 56.7,
+        "Team_Total_Usage": 2.189,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Washington",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 26.7,
+        "top_3_share": 46.1,
+        "Team_Total_Usage": 2.016,
+        "win_pct": 0.333
+      },
+      {
+        "Team": "Washington",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 32.0,
+        "top_3_share": 49.8,
+        "Team_Total_Usage": 1.871,
+        "win_pct": 0.769
+      },
+      {
+        "Team": "Washington",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 31.3,
+        "top_3_share": 53.3,
+        "Team_Total_Usage": 1.897,
+        "win_pct": 0.929
+      },
+      {
+        "Team": "Washington State",
+        "Season": 2021,
+        "Conference": "Pac-12",
+        "top_player_share": 26.8,
+        "top_3_share": 61.4,
+        "Team_Total_Usage": 1.942,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Washington State",
+        "Season": 2022,
+        "Conference": "Pac-12",
+        "top_player_share": 40.7,
+        "top_3_share": 61.1,
+        "Team_Total_Usage": 1.707,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Washington State",
+        "Season": 2023,
+        "Conference": "Pac-12",
+        "top_player_share": 38.1,
+        "top_3_share": 53.9,
+        "Team_Total_Usage": 1.843,
+        "win_pct": 0.385
+      },
+      {
+        "Team": "West Virginia",
+        "Season": 2021,
+        "Conference": "Big 12",
+        "top_player_share": 35.4,
+        "top_3_share": 63.5,
+        "Team_Total_Usage": 1.494,
+        "win_pct": 0.462
+      },
+      {
+        "Team": "West Virginia",
+        "Season": 2022,
+        "Conference": "Big 12",
+        "top_player_share": 25.0,
+        "top_3_share": 45.3,
+        "Team_Total_Usage": 1.861,
+        "win_pct": 0.417
+      },
+      {
+        "Team": "West Virginia",
+        "Season": 2023,
+        "Conference": "Big 12",
+        "top_player_share": 27.8,
+        "top_3_share": 50.4,
+        "Team_Total_Usage": 1.632,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Wisconsin",
+        "Season": 2021,
+        "Conference": "Big Ten",
+        "top_player_share": 21.7,
+        "top_3_share": 54.0,
+        "Team_Total_Usage": 1.651,
+        "win_pct": 0.692
+      },
+      {
+        "Team": "Wisconsin",
+        "Season": 2022,
+        "Conference": "Big Ten",
+        "top_player_share": 24.9,
+        "top_3_share": 56.3,
+        "Team_Total_Usage": 1.76,
+        "win_pct": 0.538
+      },
+      {
+        "Team": "Wisconsin",
+        "Season": 2023,
+        "Conference": "Big Ten",
+        "top_player_share": 24.9,
+        "top_3_share": 57.6,
+        "Team_Total_Usage": 2.255,
+        "win_pct": 0.538
+      }
+    ],
+    "teamAverages": [
+      {
+        "Team": "Houston",
+        "Conference": "Big 12",
+        "avg_top_player": 41.9,
+        "avg_top3": 57.9,
+        "seasons_count": 1,
+        "avg_win": 0.333
+      },
+      {
+        "Team": "Washington State",
+        "Conference": "Pac-12",
+        "avg_top_player": 35.2,
+        "avg_top3": 58.8,
+        "seasons_count": 3,
+        "avg_win": 0.487
+      },
+      {
+        "Team": "Maryland",
+        "Conference": "Big Ten",
+        "avg_top_player": 33.667,
+        "avg_top3": 53.3,
+        "seasons_count": 3,
+        "avg_win": 0.564
+      },
+      {
+        "Team": "Virginia",
+        "Conference": "ACC",
+        "avg_top_player": 33.6,
+        "avg_top3": 55.733,
+        "seasons_count": 3,
+        "avg_win": 0.335
+      },
+      {
+        "Team": "Mississippi State",
+        "Conference": "SEC",
+        "avg_top_player": 33.433,
+        "avg_top3": 54.767,
+        "seasons_count": 3,
+        "avg_win": 0.549
+      },
+      {
+        "Team": "Cincinnati",
+        "Conference": "Big 12",
+        "avg_top_player": 33.4,
+        "avg_top3": 55.3,
+        "seasons_count": 1,
+        "avg_win": 0.231
+      },
+      {
+        "Team": "North Carolina",
+        "Conference": "ACC",
+        "avg_top_player": 32.767,
+        "avg_top3": 53.5,
+        "seasons_count": 3,
+        "avg_win": 0.586
+      },
+      {
+        "Team": "Iowa State",
+        "Conference": "Big 12",
+        "avg_top_player": 32.3,
+        "avg_top3": 54.6,
+        "seasons_count": 3,
+        "avg_win": 0.47
+      },
+      {
+        "Team": "Missouri",
+        "Conference": "SEC",
+        "avg_top_player": 31.8,
+        "avg_top3": 61.667,
+        "seasons_count": 3,
+        "avg_win": 0.628
+      },
+      {
+        "Team": "Oregon",
+        "Conference": "Pac-12",
+        "avg_top_player": 31.667,
+        "avg_top3": 54.433,
+        "seasons_count": 3,
+        "avg_win": 0.773
+      },
+      {
+        "Team": "California",
+        "Conference": "Pac-12",
+        "avg_top_player": 31.567,
+        "avg_top3": 61.767,
+        "seasons_count": 3,
+        "avg_win": 0.417
+      },
+      {
+        "Team": "Arizona",
+        "Conference": "Pac-12",
+        "avg_top_player": 31.567,
+        "avg_top3": 58.133,
+        "seasons_count": 3,
+        "avg_win": 0.423
+      },
+      {
+        "Team": "Arkansas",
+        "Conference": "SEC",
+        "avg_top_player": 31.533,
+        "avg_top3": 52.3,
+        "seasons_count": 3,
+        "avg_win": 0.521
+      },
+      {
+        "Team": "Kentucky",
+        "Conference": "SEC",
+        "avg_top_player": 31.167,
+        "avg_top3": 58.4,
+        "seasons_count": 3,
+        "avg_win": 0.615
+      },
+      {
+        "Team": "South Carolina",
+        "Conference": "SEC",
+        "avg_top_player": 30.467,
+        "avg_top3": 53.467,
+        "seasons_count": 3,
+        "avg_win": 0.523
+      },
+      {
+        "Team": "Wake Forest",
+        "Conference": "ACC",
+        "avg_top_player": 30.033,
+        "avg_top3": 53.033,
+        "seasons_count": 3,
+        "avg_win": 0.578
+      },
+      {
+        "Team": "Washington",
+        "Conference": "Pac-12",
+        "avg_top_player": 30.0,
+        "avg_top3": 49.733,
+        "seasons_count": 3,
+        "avg_win": 0.677
+      },
+      {
+        "Team": "Ole Miss",
+        "Conference": "SEC",
+        "avg_top_player": 29.933,
+        "avg_top3": 54.767,
+        "seasons_count": 3,
+        "avg_win": 0.743
+      },
+      {
+        "Team": "Stanford",
+        "Conference": "Pac-12",
+        "avg_top_player": 29.767,
+        "avg_top3": 53.767,
+        "seasons_count": 3,
+        "avg_win": 0.244
+      },
+      {
+        "Team": "Michigan State",
+        "Conference": "Big Ten",
+        "avg_top_player": 29.7,
+        "avg_top3": 57.1,
+        "seasons_count": 3,
+        "avg_win": 0.532
+      },
+      {
+        "Team": "Louisville",
+        "Conference": "ACC",
+        "avg_top_player": 29.633,
+        "avg_top3": 51.533,
+        "seasons_count": 3,
+        "avg_win": 0.615
+      },
+      {
+        "Team": "USC",
+        "Conference": "Pac-12",
+        "avg_top_player": 29.567,
+        "avg_top3": 56.6,
+        "seasons_count": 3,
+        "avg_win": 0.578
+      },
+      {
+        "Team": "West Virginia",
+        "Conference": "Big 12",
+        "avg_top_player": 29.4,
+        "avg_top3": 53.067,
+        "seasons_count": 3,
+        "avg_win": 0.524
+      },
+      {
+        "Team": "Syracuse",
+        "Conference": "ACC",
+        "avg_top_player": 29.3,
+        "avg_top3": 61.8,
+        "seasons_count": 3,
+        "avg_win": 0.487
+      },
+      {
+        "Team": "Penn State",
+        "Conference": "Big Ten",
+        "avg_top_player": 29.267,
+        "avg_top3": 53.667,
+        "seasons_count": 3,
+        "avg_win": 0.698
+      },
+      {
+        "Team": "LSU",
+        "Conference": "SEC",
+        "avg_top_player": 28.767,
+        "avg_top3": 49.633,
+        "seasons_count": 3,
+        "avg_win": 0.648
+      },
+      {
+        "Team": "Virginia Tech",
+        "Conference": "ACC",
+        "avg_top_player": 28.233,
+        "avg_top3": 52.633,
+        "seasons_count": 3,
+        "avg_win": 0.429
+      },
+      {
+        "Team": "Georgia Tech",
+        "Conference": "ACC",
+        "avg_top_player": 28.1,
+        "avg_top3": 58.9,
+        "seasons_count": 3,
+        "avg_win": 0.402
+      },
+      {
+        "Team": "Clemson",
+        "Conference": "ACC",
+        "avg_top_player": 28.0,
+        "avg_top3": 49.9,
+        "seasons_count": 3,
+        "avg_win": 0.749
+      },
+      {
+        "Team": "Alabama",
+        "Conference": "SEC",
+        "avg_top_player": 28.0,
+        "avg_top3": 49.867,
+        "seasons_count": 3,
+        "avg_win": 0.837
+      },
+      {
+        "Team": "Rutgers",
+        "Conference": "Big Ten",
+        "avg_top_player": 27.9,
+        "avg_top3": 55.133,
+        "seasons_count": 3,
+        "avg_win": 0.447
+      },
+      {
+        "Team": "BYU",
+        "Conference": "Big 12",
+        "avg_top_player": 27.9,
+        "avg_top3": 60.5,
+        "seasons_count": 1,
+        "avg_win": 0.417
+      },
+      {
+        "Team": "NC State",
+        "Conference": "ACC",
+        "avg_top_player": 27.867,
+        "avg_top3": 56.0,
+        "seasons_count": 3,
+        "avg_win": 0.615
+      },
+      {
+        "Team": "Colorado",
+        "Conference": "Pac-12",
+        "avg_top_player": 27.867,
+        "avg_top3": 52.033,
+        "seasons_count": 3,
+        "avg_win": 0.25
+      },
+      {
+        "Team": "Florida",
+        "Conference": "SEC",
+        "avg_top_player": 27.867,
+        "avg_top3": 52.333,
+        "seasons_count": 3,
+        "avg_win": 0.46
+      },
+      {
+        "Team": "Duke",
+        "Conference": "ACC",
+        "avg_top_player": 27.667,
+        "avg_top3": 54.4,
+        "seasons_count": 3,
+        "avg_win": 0.519
+      },
+      {
+        "Team": "Auburn",
+        "Conference": "SEC",
+        "avg_top_player": 27.633,
+        "avg_top3": 53.167,
+        "seasons_count": 3,
+        "avg_win": 0.472
+      },
+      {
+        "Team": "Boston College",
+        "Conference": "ACC",
+        "avg_top_player": 27.533,
+        "avg_top3": 56.033,
+        "seasons_count": 3,
+        "avg_win": 0.429
+      },
+      {
+        "Team": "UCLA",
+        "Conference": "Pac-12",
+        "avg_top_player": 26.533,
+        "avg_top3": 52.9,
+        "seasons_count": 3,
+        "avg_win": 0.658
+      },
+      {
+        "Team": "Kansas State",
+        "Conference": "Big 12",
+        "avg_top_player": 26.0,
+        "avg_top3": 60.7,
+        "seasons_count": 3,
+        "avg_win": 0.674
+      },
+      {
+        "Team": "UCF",
+        "Conference": "Big 12",
+        "avg_top_player": 26.0,
+        "avg_top3": 55.5,
+        "seasons_count": 1,
+        "avg_win": 0.5
+      },
+      {
+        "Team": "Purdue",
+        "Conference": "Big Ten",
+        "avg_top_player": 25.933,
+        "avg_top3": 51.533,
+        "seasons_count": 3,
+        "avg_win": 0.524
+      },
+      {
+        "Team": "Baylor",
+        "Conference": "Big 12",
+        "avg_top_player": 25.767,
+        "avg_top3": 52.467,
+        "seasons_count": 3,
+        "avg_win": 0.529
+      },
+      {
+        "Team": "Florida State",
+        "Conference": "ACC",
+        "avg_top_player": 25.6,
+        "avg_top3": 48.833,
+        "seasons_count": 3,
+        "avg_win": 0.72
+      },
+      {
+        "Team": "TCU",
+        "Conference": "Big 12",
+        "avg_top_player": 25.267,
+        "avg_top3": 55.2,
+        "seasons_count": 3,
+        "avg_win": 0.567
+      },
+      {
+        "Team": "Illinois",
+        "Conference": "Big Ten",
+        "avg_top_player": 25.133,
+        "avg_top3": 56.533,
+        "seasons_count": 3,
+        "avg_win": 0.472
+      },
+      {
+        "Team": "Tennessee",
+        "Conference": "SEC",
+        "avg_top_player": 25.033,
+        "avg_top3": 42.967,
+        "seasons_count": 3,
+        "avg_win": 0.692
+      },
+      {
+        "Team": "Miami",
+        "Conference": "ACC",
+        "avg_top_player": 25.0,
+        "avg_top3": 50.933,
+        "seasons_count": 3,
+        "avg_win": 0.498
+      },
+      {
+        "Team": "Ohio State",
+        "Conference": "Big Ten",
+        "avg_top_player": 24.933,
+        "avg_top3": 44.433,
+        "seasons_count": 3,
+        "avg_win": 0.846
+      },
+      {
+        "Team": "Oklahoma State",
+        "Conference": "Big 12",
+        "avg_top_player": 24.9,
+        "avg_top3": 53.033,
+        "seasons_count": 3,
+        "avg_win": 0.703
+      },
+      {
+        "Team": "Nebraska",
+        "Conference": "Big Ten",
+        "avg_top_player": 24.733,
+        "avg_top3": 47.667,
+        "seasons_count": 3,
+        "avg_win": 0.355
+      },
+      {
+        "Team": "Pittsburgh",
+        "Conference": "ACC",
+        "avg_top_player": 24.7,
+        "avg_top3": 55.1,
+        "seasons_count": 3,
+        "avg_win": 0.576
+      },
+      {
+        "Team": "Arizona State",
+        "Conference": "Pac-12",
+        "avg_top_player": 24.633,
+        "avg_top3": 57.667,
+        "seasons_count": 3,
+        "avg_win": 0.365
+      },
+      {
+        "Team": "Utah",
+        "Conference": "Pac-12",
+        "avg_top_player": 24.433,
+        "avg_top3": 51.6,
+        "seasons_count": 3,
+        "avg_win": 0.681
+      },
+      {
+        "Team": "Texas",
+        "Conference": "Big 12",
+        "avg_top_player": 24.167,
+        "avg_top3": 54.767,
+        "seasons_count": 3,
+        "avg_win": 0.63
+      },
+      {
+        "Team": "Georgia",
+        "Conference": "SEC",
+        "avg_top_player": 23.9,
+        "avg_top3": 44.433,
+        "seasons_count": 3,
+        "avg_win": 0.972
+      },
+      {
+        "Team": "Wisconsin",
+        "Conference": "Big Ten",
+        "avg_top_player": 23.833,
+        "avg_top3": 55.967,
+        "seasons_count": 3,
+        "avg_win": 0.589
+      },
+      {
+        "Team": "Oklahoma",
+        "Conference": "Big 12",
+        "avg_top_player": 23.767,
+        "avg_top3": 49.1,
+        "seasons_count": 3,
+        "avg_win": 0.696
+      },
+      {
+        "Team": "Vanderbilt",
+        "Conference": "SEC",
+        "avg_top_player": 23.633,
+        "avg_top3": 53.933,
+        "seasons_count": 3,
+        "avg_win": 0.25
+      },
+      {
+        "Team": "Oregon State",
+        "Conference": "Pac-12",
+        "avg_top_player": 23.467,
+        "avg_top3": 51.767,
+        "seasons_count": 3,
+        "avg_win": 0.641
+      },
+      {
+        "Team": "Indiana",
+        "Conference": "Big Ten",
+        "avg_top_player": 23.3,
+        "avg_top3": 49.5,
+        "seasons_count": 3,
+        "avg_win": 0.25
+      },
+      {
+        "Team": "Kansas",
+        "Conference": "Big 12",
+        "avg_top_player": 22.733,
+        "avg_top3": 52.833,
+        "seasons_count": 3,
+        "avg_win": 0.453
+      },
+      {
+        "Team": "Northwestern",
+        "Conference": "Big Ten",
+        "avg_top_player": 22.133,
+        "avg_top3": 54.4,
+        "seasons_count": 3,
+        "avg_win": 0.316
+      },
+      {
+        "Team": "Minnesota",
+        "Conference": "Big Ten",
+        "avg_top_player": 21.967,
+        "avg_top3": 55.7,
+        "seasons_count": 3,
+        "avg_win": 0.615
+      },
+      {
+        "Team": "Iowa",
+        "Conference": "Big Ten",
+        "avg_top_player": 21.833,
+        "avg_top3": 53.567,
+        "seasons_count": 3,
+        "avg_win": 0.681
+      },
+      {
+        "Team": "Michigan",
+        "Conference": "Big Ten",
+        "avg_top_player": 21.5,
+        "avg_top3": 48.4,
+        "seasons_count": 3,
+        "avg_win": 0.929
+      },
+      {
+        "Team": "Texas Tech",
+        "Conference": "Big 12",
+        "avg_top_player": 20.533,
+        "avg_top3": 53.467,
+        "seasons_count": 3,
+        "avg_win": 0.564
+      },
+      {
+        "Team": "Texas A&M",
+        "Conference": "SEC",
+        "avg_top_player": 20.233,
+        "avg_top3": 49.367,
+        "seasons_count": 3,
+        "avg_win": 0.541
+      }
+    ]
+  },
+  "q3": {
+    "conferenceAverages": [
+      {
+        "Conference": "ACC",
+        "avg_top_player": 28.431,
+        "avg_top3": 54.167,
+        "teams": 14
+      },
+      {
+        "Conference": "Big 12",
+        "avg_top_player": 26.285,
+        "avg_top3": 54.321,
+        "teams": 14
+      },
+      {
+        "Conference": "Big Ten",
+        "avg_top_player": 25.417,
+        "avg_top3": 52.636,
+        "teams": 14
+      },
+      {
+        "Conference": "Pac-12",
+        "avg_top_player": 28.856,
+        "avg_top3": 54.933,
+        "teams": 12
+      },
+      {
+        "Conference": "SEC",
+        "avg_top_player": 28.1,
+        "avg_top3": 52.219,
+        "teams": 14
+      }
+    ],
+    "conferencePosition": [
+      {
+        "Conference": "ACC",
+        "Position": "QB",
+        "avg_usage": 0.2997
+      },
+      {
+        "Conference": "ACC",
+        "Position": "RB",
+        "avg_usage": 0.1061
+      },
+      {
+        "Conference": "ACC",
+        "Position": "TE",
+        "avg_usage": 0.0329
+      },
+      {
+        "Conference": "ACC",
+        "Position": "WR",
+        "avg_usage": 0.0486
+      },
+      {
+        "Conference": "Big 12",
+        "Position": "QB",
+        "avg_usage": 0.3031
+      },
+      {
+        "Conference": "Big 12",
+        "Position": "RB",
+        "avg_usage": 0.1225
+      },
+      {
+        "Conference": "Big 12",
+        "Position": "TE",
+        "avg_usage": 0.031
+      },
+      {
+        "Conference": "Big 12",
+        "Position": "WR",
+        "avg_usage": 0.0466
+      },
+      {
+        "Conference": "Big Ten",
+        "Position": "QB",
+        "avg_usage": 0.2628
+      },
+      {
+        "Conference": "Big Ten",
+        "Position": "RB",
+        "avg_usage": 0.1171
+      },
+      {
+        "Conference": "Big Ten",
+        "Position": "TE",
+        "avg_usage": 0.0336
+      },
+      {
+        "Conference": "Big Ten",
+        "Position": "WR",
+        "avg_usage": 0.0467
+      },
+      {
+        "Conference": "Pac-12",
+        "Position": "QB",
+        "avg_usage": 0.3125
+      },
+      {
+        "Conference": "Pac-12",
+        "Position": "RB",
+        "avg_usage": 0.1059
+      },
+      {
+        "Conference": "Pac-12",
+        "Position": "TE",
+        "avg_usage": 0.0339
+      },
+      {
+        "Conference": "Pac-12",
+        "Position": "WR",
+        "avg_usage": 0.0486
+      },
+      {
+        "Conference": "SEC",
+        "Position": "QB",
+        "avg_usage": 0.2683
+      },
+      {
+        "Conference": "SEC",
+        "Position": "RB",
+        "avg_usage": 0.1079
+      },
+      {
+        "Conference": "SEC",
+        "Position": "TE",
+        "avg_usage": 0.0337
+      },
+      {
+        "Conference": "SEC",
+        "Position": "WR",
+        "avg_usage": 0.0497
+      }
+    ]
+  },
+  "q4": {
+    "positionDistribution": [
+      {
+        "position": "QB",
+        "bins": [
+          {
+            "bin": "0\u20135%",
+            "count": 106
+          },
+          {
+            "bin": "5\u201310%",
+            "count": 67
+          },
+          {
+            "bin": "10\u201315%",
+            "count": 53
+          },
+          {
+            "bin": "15\u201320%",
+            "count": 34
+          },
+          {
+            "bin": "20\u201325%",
+            "count": 30
+          },
+          {
+            "bin": "25\u201330%",
+            "count": 26
+          },
+          {
+            "bin": "30\u201340%",
+            "count": 47
+          },
+          {
+            "bin": "40\u201350%",
+            "count": 93
+          },
+          {
+            "bin": "50%+",
+            "count": 129
+          }
+        ],
+        "avg": 0.2873,
+        "players": 585
+      },
+      {
+        "position": "RB",
+        "bins": [
+          {
+            "bin": "0\u20135%",
+            "count": 291
+          },
+          {
+            "bin": "5\u201310%",
+            "count": 289
+          },
+          {
+            "bin": "10\u201315%",
+            "count": 185
+          },
+          {
+            "bin": "15\u201320%",
+            "count": 120
+          },
+          {
+            "bin": "20\u201325%",
+            "count": 69
+          },
+          {
+            "bin": "25\u201330%",
+            "count": 43
+          },
+          {
+            "bin": "30\u201340%",
+            "count": 37
+          },
+          {
+            "bin": "40\u201350%",
+            "count": 2
+          },
+          {
+            "bin": "50%+",
+            "count": 0
+          }
+        ],
+        "avg": 0.1115,
+        "players": 1036
+      },
+      {
+        "position": "WR",
+        "bins": [
+          {
+            "bin": "0\u20135%",
+            "count": 1031
+          },
+          {
+            "bin": "5\u201310%",
+            "count": 473
+          },
+          {
+            "bin": "10\u201315%",
+            "count": 102
+          },
+          {
+            "bin": "15\u201320%",
+            "count": 8
+          },
+          {
+            "bin": "20\u201325%",
+            "count": 1
+          },
+          {
+            "bin": "25\u201330%",
+            "count": 1
+          },
+          {
+            "bin": "30\u201340%",
+            "count": 1
+          },
+          {
+            "bin": "40\u201350%",
+            "count": 0
+          },
+          {
+            "bin": "50%+",
+            "count": 1
+          }
+        ],
+        "avg": 0.0481,
+        "players": 1618
+      },
+      {
+        "position": "TE",
+        "bins": [
+          {
+            "bin": "0\u20135%",
+            "count": 560
+          },
+          {
+            "bin": "5\u201310%",
+            "count": 99
+          },
+          {
+            "bin": "10\u201315%",
+            "count": 5
+          },
+          {
+            "bin": "15\u201320%",
+            "count": 0
+          },
+          {
+            "bin": "20\u201325%",
+            "count": 1
+          },
+          {
+            "bin": "25\u201330%",
+            "count": 0
+          },
+          {
+            "bin": "30\u201340%",
+            "count": 0
+          },
+          {
+            "bin": "40\u201350%",
+            "count": 0
+          },
+          {
+            "bin": "50%+",
+            "count": 0
+          }
+        ],
+        "avg": 0.0331,
+        "players": 665
+      }
+    ],
+    "positionShare": [
+      {
+        "Position": "QB",
+        "avg_share": 14.49
+      },
+      {
+        "Position": "RB",
+        "avg_share": 5.77
+      },
+      {
+        "Position": "TE",
+        "avg_share": 1.71
+      },
+      {
+        "Position": "WR",
+        "avg_share": 2.48
+      }
+    ]
+  },
+  "q5": {
+    "scatter": [
+      {
+        "team": "Alabama",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 27.6,
+        "top_3": 49.8,
+        "win_pct": 0.867
+      },
+      {
+        "team": "Alabama",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 27.6,
+        "top_3": 48.8,
+        "win_pct": 0.786
+      },
+      {
+        "team": "Alabama",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 28.8,
+        "top_3": 51.0,
+        "win_pct": 0.857
+      },
+      {
+        "team": "Arizona",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 21.2,
+        "top_3": 57.3,
+        "win_pct": 0.083
+      },
+      {
+        "team": "Arizona",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 39.2,
+        "top_3": 60.1,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Arizona",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 34.3,
+        "top_3": 57.0,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Arizona State",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 31.7,
+        "top_3": 59.2,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Arizona State",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 25.8,
+        "top_3": 66.7,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Arizona State",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 16.4,
+        "top_3": 47.1,
+        "win_pct": 0.231
+      },
+      {
+        "team": "Arkansas",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 30.9,
+        "top_3": 48.0,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Arkansas",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 31.6,
+        "top_3": 55.9,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Arkansas",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 32.1,
+        "top_3": 53.0,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Auburn",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 27.3,
+        "top_3": 53.6,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Auburn",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 29.6,
+        "top_3": 60.2,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Auburn",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 26.0,
+        "top_3": 45.7,
+        "win_pct": 0.5
+      },
+      {
+        "team": "BYU",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 27.9,
+        "top_3": 60.5,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Baylor",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 25.5,
+        "top_3": 60.1,
+        "win_pct": 0.857
+      },
+      {
+        "team": "Baylor",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.5,
+        "top_3": 46.7,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Baylor",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 26.3,
+        "top_3": 50.6,
+        "win_pct": 0.231
+      },
+      {
+        "team": "Boston College",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 21.3,
+        "top_3": 53.6,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Boston College",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 29.1,
+        "top_3": 59.9,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Boston College",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 32.2,
+        "top_3": 54.6,
+        "win_pct": 0.538
+      },
+      {
+        "team": "California",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 31.0,
+        "top_3": 66.1,
+        "win_pct": 0.455
+      },
+      {
+        "team": "California",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 36.3,
+        "top_3": 59.1,
+        "win_pct": 0.333
+      },
+      {
+        "team": "California",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 27.4,
+        "top_3": 60.1,
+        "win_pct": 0.462
+      },
+      {
+        "team": "Cincinnati",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 33.4,
+        "top_3": 55.3,
+        "win_pct": 0.231
+      },
+      {
+        "team": "Clemson",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 23.6,
+        "top_3": 42.8,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Clemson",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 30.2,
+        "top_3": 54.2,
+        "win_pct": 0.786
+      },
+      {
+        "team": "Clemson",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.2,
+        "top_3": 52.7,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Colorado",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 30.3,
+        "top_3": 54.4,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Colorado",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 20.3,
+        "top_3": 48.5,
+        "win_pct": 0.083
+      },
+      {
+        "team": "Colorado",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 33.0,
+        "top_3": 53.2,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Duke",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 26.6,
+        "top_3": 57.6,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Duke",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 33.0,
+        "top_3": 52.3,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Duke",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 23.4,
+        "top_3": 53.3,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Florida",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 30.2,
+        "top_3": 51.3,
+        "win_pct": 0.462
+      },
+      {
+        "team": "Florida",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 25.2,
+        "top_3": 55.0,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Florida",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 28.2,
+        "top_3": 50.7,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Florida State",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 26.9,
+        "top_3": 59.3,
+        "win_pct": 0.462
+      },
+      {
+        "team": "Florida State",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 25.7,
+        "top_3": 43.7,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Florida State",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 24.2,
+        "top_3": 43.5,
+        "win_pct": 0.929
+      },
+      {
+        "team": "Georgia",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 18.7,
+        "top_3": 41.6,
+        "win_pct": 1.0
+      },
+      {
+        "team": "Georgia",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 27.1,
+        "top_3": 46.0,
+        "win_pct": 1.0
+      },
+      {
+        "team": "Georgia",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 25.9,
+        "top_3": 45.7,
+        "win_pct": 0.917
+      },
+      {
+        "team": "Georgia Tech",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 25.5,
+        "top_3": 59.6,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Georgia Tech",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 23.3,
+        "top_3": 56.0,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Georgia Tech",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 35.5,
+        "top_3": 61.1,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Houston",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 41.9,
+        "top_3": 57.9,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Illinois",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 21.5,
+        "top_3": 52.6,
+        "win_pct": 0.385
+      },
+      {
+        "team": "Illinois",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 25.7,
+        "top_3": 60.4,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Illinois",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 28.2,
+        "top_3": 56.6,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Indiana",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 19.4,
+        "top_3": 44.3,
+        "win_pct": 0.167
+      },
+      {
+        "team": "Indiana",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 24.6,
+        "top_3": 50.6,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Indiana",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 25.9,
+        "top_3": 53.6,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Iowa",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 24.5,
+        "top_3": 58.8,
+        "win_pct": 0.714
+      },
+      {
+        "team": "Iowa",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 24.0,
+        "top_3": 58.9,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Iowa",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 17.0,
+        "top_3": 43.0,
+        "win_pct": 0.714
+      },
+      {
+        "team": "Iowa State",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 31.9,
+        "top_3": 61.0,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Iowa State",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 34.2,
+        "top_3": 52.4,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Iowa State",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 30.8,
+        "top_3": 50.4,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Kansas",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 20.4,
+        "top_3": 50.2,
+        "win_pct": 0.167
+      },
+      {
+        "team": "Kansas",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 27.0,
+        "top_3": 52.5,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Kansas",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 20.8,
+        "top_3": 55.8,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Kansas State",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 23.7,
+        "top_3": 57.6,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Kansas State",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.1,
+        "top_3": 67.4,
+        "win_pct": 0.714
+      },
+      {
+        "team": "Kansas State",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 29.2,
+        "top_3": 57.1,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Kentucky",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 33.9,
+        "top_3": 57.2,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Kentucky",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 22.9,
+        "top_3": 53.3,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Kentucky",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 36.7,
+        "top_3": 64.7,
+        "win_pct": 0.538
+      },
+      {
+        "team": "LSU",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 26.7,
+        "top_3": 51.2,
+        "win_pct": 0.462
+      },
+      {
+        "team": "LSU",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 29.6,
+        "top_3": 46.5,
+        "win_pct": 0.714
+      },
+      {
+        "team": "LSU",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 30.0,
+        "top_3": 51.2,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Louisville",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 32.8,
+        "top_3": 51.8,
+        "win_pct": 0.462
+      },
+      {
+        "team": "Louisville",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 25.6,
+        "top_3": 49.5,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Louisville",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.5,
+        "top_3": 53.3,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Maryland",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 31.8,
+        "top_3": 47.1,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Maryland",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 34.4,
+        "top_3": 58.7,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Maryland",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 34.8,
+        "top_3": 54.1,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Miami",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 26.4,
+        "top_3": 55.1,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Miami",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 20.7,
+        "top_3": 43.1,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Miami",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 27.9,
+        "top_3": 54.6,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 21.6,
+        "top_3": 51.1,
+        "win_pct": 0.857
+      },
+      {
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 19.6,
+        "top_3": 45.4,
+        "win_pct": 0.929
+      },
+      {
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 23.3,
+        "top_3": 48.7,
+        "win_pct": 1.0
+      },
+      {
+        "team": "Michigan State",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 31.3,
+        "top_3": 64.6,
+        "win_pct": 0.846
+      },
+      {
+        "team": "Michigan State",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 33.3,
+        "top_3": 53.1,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Michigan State",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 24.5,
+        "top_3": 53.6,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Minnesota",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 18.8,
+        "top_3": 54.3,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Minnesota",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 23.6,
+        "top_3": 55.1,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Minnesota",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 23.5,
+        "top_3": 57.7,
+        "win_pct": 0.462
+      },
+      {
+        "team": "Mississippi State",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 38.6,
+        "top_3": 56.7,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Mississippi State",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 35.7,
+        "top_3": 55.4,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Mississippi State",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 26.0,
+        "top_3": 52.2,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Missouri",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 25.6,
+        "top_3": 55.9,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Missouri",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 32.2,
+        "top_3": 52.7,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Missouri",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 37.6,
+        "top_3": 76.4,
+        "win_pct": 0.846
+      },
+      {
+        "team": "NC State",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 34.2,
+        "top_3": 57.8,
+        "win_pct": 0.692
+      },
+      {
+        "team": "NC State",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 21.3,
+        "top_3": 51.2,
+        "win_pct": 0.615
+      },
+      {
+        "team": "NC State",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 28.1,
+        "top_3": 59.0,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Nebraska",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 27.9,
+        "top_3": 45.6,
+        "win_pct": 0.231
+      },
+      {
+        "team": "Nebraska",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 26.2,
+        "top_3": 52.6,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Nebraska",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 20.1,
+        "top_3": 44.8,
+        "win_pct": 0.5
+      },
+      {
+        "team": "North Carolina",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 30.5,
+        "top_3": 48.7,
+        "win_pct": 0.5
+      },
+      {
+        "team": "North Carolina",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 37.5,
+        "top_3": 57.2,
+        "win_pct": 0.643
+      },
+      {
+        "team": "North Carolina",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.3,
+        "top_3": 54.6,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Northwestern",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 18.8,
+        "top_3": 50.2,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Northwestern",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 19.2,
+        "top_3": 51.9,
+        "win_pct": 0.083
+      },
+      {
+        "team": "Northwestern",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 28.4,
+        "top_3": 61.1,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 25.7,
+        "top_3": 42.9,
+        "win_pct": 0.846
+      },
+      {
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 25.3,
+        "top_3": 45.3,
+        "win_pct": 0.846
+      },
+      {
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 23.8,
+        "top_3": 45.1,
+        "win_pct": 0.846
+      },
+      {
+        "team": "Oklahoma",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 20.5,
+        "top_3": 50.8,
+        "win_pct": 0.857
+      },
+      {
+        "team": "Oklahoma",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.9,
+        "top_3": 49.4,
+        "win_pct": 0.462
+      },
+      {
+        "team": "Oklahoma",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 24.9,
+        "top_3": 47.1,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Oklahoma State",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 24.4,
+        "top_3": 53.8,
+        "win_pct": 0.857
+      },
+      {
+        "team": "Oklahoma State",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 24.6,
+        "top_3": 54.7,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Oklahoma State",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 25.7,
+        "top_3": 50.6,
+        "win_pct": 0.714
+      },
+      {
+        "team": "Ole Miss",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 30.5,
+        "top_3": 51.1,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Ole Miss",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 29.1,
+        "top_3": 57.2,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Ole Miss",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 30.2,
+        "top_3": 56.0,
+        "win_pct": 0.846
+      },
+      {
+        "team": "Oregon",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 30.7,
+        "top_3": 59.1,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Oregon",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 33.9,
+        "top_3": 51.8,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Oregon",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 30.4,
+        "top_3": 52.4,
+        "win_pct": 0.857
+      },
+      {
+        "team": "Oregon State",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 26.0,
+        "top_3": 53.4,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Oregon State",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 18.7,
+        "top_3": 46.2,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Oregon State",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 25.7,
+        "top_3": 55.7,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Penn State",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 29.3,
+        "top_3": 51.9,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Penn State",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 26.5,
+        "top_3": 49.7,
+        "win_pct": 0.786
+      },
+      {
+        "team": "Penn State",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 32.0,
+        "top_3": 59.4,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Pittsburgh",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 32.2,
+        "top_3": 51.6,
+        "win_pct": 0.786
+      },
+      {
+        "team": "Pittsburgh",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 20.4,
+        "top_3": 56.6,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Pittsburgh",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 21.5,
+        "top_3": 57.1,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Purdue",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 23.7,
+        "top_3": 46.8,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Purdue",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 27.1,
+        "top_3": 47.6,
+        "win_pct": 0.571
+      },
+      {
+        "team": "Purdue",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 27.0,
+        "top_3": 60.2,
+        "win_pct": 0.308
+      },
+      {
+        "team": "Rutgers",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 25.7,
+        "top_3": 45.4,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Rutgers",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 20.8,
+        "top_3": 52.3,
+        "win_pct": 0.385
+      },
+      {
+        "team": "Rutgers",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 37.2,
+        "top_3": 67.7,
+        "win_pct": 0.538
+      },
+      {
+        "team": "South Carolina",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 26.4,
+        "top_3": 53.8,
+        "win_pct": 0.538
+      },
+      {
+        "team": "South Carolina",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 31.1,
+        "top_3": 52.4,
+        "win_pct": 0.615
+      },
+      {
+        "team": "South Carolina",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 33.9,
+        "top_3": 54.2,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Stanford",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 28.4,
+        "top_3": 47.8,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Stanford",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 32.0,
+        "top_3": 61.3,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Stanford",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 28.9,
+        "top_3": 52.2,
+        "win_pct": 0.231
+      },
+      {
+        "team": "Syracuse",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 28.3,
+        "top_3": 67.8,
+        "win_pct": 0.462
+      },
+      {
+        "team": "Syracuse",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 33.9,
+        "top_3": 66.3,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Syracuse",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 25.7,
+        "top_3": 51.3,
+        "win_pct": 0.462
+      },
+      {
+        "team": "TCU",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 22.1,
+        "top_3": 50.9,
+        "win_pct": 0.417
+      },
+      {
+        "team": "TCU",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 29.6,
+        "top_3": 54.1,
+        "win_pct": 0.867
+      },
+      {
+        "team": "TCU",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 24.1,
+        "top_3": 60.6,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Tennessee",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 23.7,
+        "top_3": 41.4,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Tennessee",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 27.2,
+        "top_3": 45.5,
+        "win_pct": 0.846
+      },
+      {
+        "team": "Tennessee",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 24.2,
+        "top_3": 42.0,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Texas",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 22.1,
+        "top_3": 53.9,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Texas",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 22.3,
+        "top_3": 55.7,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Texas",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 28.1,
+        "top_3": 54.7,
+        "win_pct": 0.857
+      },
+      {
+        "team": "Texas A&M",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 23.0,
+        "top_3": 50.5,
+        "win_pct": 0.667
+      },
+      {
+        "team": "Texas A&M",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 19.6,
+        "top_3": 51.5,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Texas A&M",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 18.1,
+        "top_3": 46.1,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Texas Tech",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 18.6,
+        "top_3": 48.7,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Texas Tech",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 21.3,
+        "top_3": 52.8,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Texas Tech",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 21.7,
+        "top_3": 58.9,
+        "win_pct": 0.538
+      },
+      {
+        "team": "UCF",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 26.0,
+        "top_3": 55.5,
+        "win_pct": 0.5
+      },
+      {
+        "team": "UCLA",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 31.3,
+        "top_3": 58.2,
+        "win_pct": 0.667
+      },
+      {
+        "team": "UCLA",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 28.3,
+        "top_3": 52.1,
+        "win_pct": 0.692
+      },
+      {
+        "team": "UCLA",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 20.0,
+        "top_3": 48.4,
+        "win_pct": 0.615
+      },
+      {
+        "team": "USC",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 22.8,
+        "top_3": 56.1,
+        "win_pct": 0.333
+      },
+      {
+        "team": "USC",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 35.1,
+        "top_3": 59.0,
+        "win_pct": 0.786
+      },
+      {
+        "team": "USC",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 30.8,
+        "top_3": 54.7,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Utah",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 25.4,
+        "top_3": 64.0,
+        "win_pct": 0.714
+      },
+      {
+        "team": "Utah",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 24.4,
+        "top_3": 43.7,
+        "win_pct": 0.714
+      },
+      {
+        "team": "Utah",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 23.5,
+        "top_3": 47.1,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Vanderbilt",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 21.6,
+        "top_3": 52.3,
+        "win_pct": 0.167
+      },
+      {
+        "team": "Vanderbilt",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 20.3,
+        "top_3": 54.0,
+        "win_pct": 0.417
+      },
+      {
+        "team": "Vanderbilt",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 29.0,
+        "top_3": 55.5,
+        "win_pct": 0.167
+      },
+      {
+        "team": "Virginia",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 40.7,
+        "top_3": 60.5,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Virginia",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 33.2,
+        "top_3": 49.0,
+        "win_pct": 0.273
+      },
+      {
+        "team": "Virginia",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 26.9,
+        "top_3": 57.7,
+        "win_pct": 0.231
+      },
+      {
+        "team": "Virginia Tech",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 24.9,
+        "top_3": 46.3,
+        "win_pct": 0.5
+      },
+      {
+        "team": "Virginia Tech",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 29.7,
+        "top_3": 52.5,
+        "win_pct": 0.25
+      },
+      {
+        "team": "Virginia Tech",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.1,
+        "top_3": 59.1,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Wake Forest",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 33.4,
+        "top_3": 49.7,
+        "win_pct": 0.786
+      },
+      {
+        "team": "Wake Forest",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 32.3,
+        "top_3": 52.7,
+        "win_pct": 0.615
+      },
+      {
+        "team": "Wake Forest",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 24.4,
+        "top_3": 56.7,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Washington",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 26.7,
+        "top_3": 46.1,
+        "win_pct": 0.333
+      },
+      {
+        "team": "Washington",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 32.0,
+        "top_3": 49.8,
+        "win_pct": 0.769
+      },
+      {
+        "team": "Washington",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 31.3,
+        "top_3": 53.3,
+        "win_pct": 0.929
+      },
+      {
+        "team": "Washington State",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 26.8,
+        "top_3": 61.4,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Washington State",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 40.7,
+        "top_3": 61.1,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Washington State",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 38.1,
+        "top_3": 53.9,
+        "win_pct": 0.385
+      },
+      {
+        "team": "West Virginia",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 35.4,
+        "top_3": 63.5,
+        "win_pct": 0.462
+      },
+      {
+        "team": "West Virginia",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.0,
+        "top_3": 45.3,
+        "win_pct": 0.417
+      },
+      {
+        "team": "West Virginia",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 27.8,
+        "top_3": 50.4,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Wisconsin",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 21.7,
+        "top_3": 54.0,
+        "win_pct": 0.692
+      },
+      {
+        "team": "Wisconsin",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 24.9,
+        "top_3": 56.3,
+        "win_pct": 0.538
+      },
+      {
+        "team": "Wisconsin",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 24.9,
+        "top_3": 57.6,
+        "win_pct": 0.538
+      }
+    ]
+  },
+  "q6": {
+    "archetypes": [
+      {
+        "team": "Alabama",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 27.6,
+        "top_3": 49.8,
+        "win_pct": 0.867,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Alabama",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 27.6,
+        "top_3": 48.8,
+        "win_pct": 0.786,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Alabama",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 28.8,
+        "top_3": 51.0,
+        "win_pct": 0.857,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arizona",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 21.2,
+        "top_3": 57.3,
+        "win_pct": 0.083,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arizona",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 39.2,
+        "top_3": 60.1,
+        "win_pct": 0.417,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arizona",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 34.3,
+        "top_3": 57.0,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arizona State",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 31.7,
+        "top_3": 59.2,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arizona State",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 25.8,
+        "top_3": 66.7,
+        "win_pct": 0.25,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arizona State",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 16.4,
+        "top_3": 47.1,
+        "win_pct": 0.231,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arkansas",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 30.9,
+        "top_3": 48.0,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arkansas",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 31.6,
+        "top_3": 55.9,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Arkansas",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 32.1,
+        "top_3": 53.0,
+        "win_pct": 0.333,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Auburn",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 27.3,
+        "top_3": 53.6,
+        "win_pct": 0.5,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Auburn",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 29.6,
+        "top_3": 60.2,
+        "win_pct": 0.417,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Auburn",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 26.0,
+        "top_3": 45.7,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "BYU",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 27.9,
+        "top_3": 60.5,
+        "win_pct": 0.417,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Baylor",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 25.5,
+        "top_3": 60.1,
+        "win_pct": 0.857,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Baylor",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.5,
+        "top_3": 46.7,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Baylor",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 26.3,
+        "top_3": 50.6,
+        "win_pct": 0.231,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Boston College",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 21.3,
+        "top_3": 53.6,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Boston College",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 29.1,
+        "top_3": 59.9,
+        "win_pct": 0.25,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Boston College",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 32.2,
+        "top_3": 54.6,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "California",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 31.0,
+        "top_3": 66.1,
+        "win_pct": 0.455,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "California",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 36.3,
+        "top_3": 59.1,
+        "win_pct": 0.333,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "California",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 27.4,
+        "top_3": 60.1,
+        "win_pct": 0.462,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Cincinnati",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 33.4,
+        "top_3": 55.3,
+        "win_pct": 0.231,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Clemson",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 23.6,
+        "top_3": 42.8,
+        "win_pct": 0.769,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Clemson",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 30.2,
+        "top_3": 54.2,
+        "win_pct": 0.786,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Clemson",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.2,
+        "top_3": 52.7,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Colorado",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 30.3,
+        "top_3": 54.4,
+        "win_pct": 0.333,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Colorado",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 20.3,
+        "top_3": 48.5,
+        "win_pct": 0.083,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Colorado",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 33.0,
+        "top_3": 53.2,
+        "win_pct": 0.333,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Duke",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 26.6,
+        "top_3": 57.6,
+        "win_pct": 0.25,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Duke",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 33.0,
+        "top_3": 52.3,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Duke",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 23.4,
+        "top_3": 53.3,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Florida",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 30.2,
+        "top_3": 51.3,
+        "win_pct": 0.462,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Florida",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 25.2,
+        "top_3": 55.0,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Florida",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 28.2,
+        "top_3": 50.7,
+        "win_pct": 0.417,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Florida State",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 26.9,
+        "top_3": 59.3,
+        "win_pct": 0.462,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Florida State",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 25.7,
+        "top_3": 43.7,
+        "win_pct": 0.769,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Florida State",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 24.2,
+        "top_3": 43.5,
+        "win_pct": 0.929,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Georgia",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 18.7,
+        "top_3": 41.6,
+        "win_pct": 1.0,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Georgia",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 27.1,
+        "top_3": 46.0,
+        "win_pct": 1.0,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Georgia",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 25.9,
+        "top_3": 45.7,
+        "win_pct": 0.917,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Georgia Tech",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 25.5,
+        "top_3": 59.6,
+        "win_pct": 0.25,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Georgia Tech",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 23.3,
+        "top_3": 56.0,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Georgia Tech",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 35.5,
+        "top_3": 61.1,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Houston",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 41.9,
+        "top_3": 57.9,
+        "win_pct": 0.333,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Illinois",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 21.5,
+        "top_3": 52.6,
+        "win_pct": 0.385,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Illinois",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 25.7,
+        "top_3": 60.4,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Illinois",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 28.2,
+        "top_3": 56.6,
+        "win_pct": 0.417,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Indiana",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 19.4,
+        "top_3": 44.3,
+        "win_pct": 0.167,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Indiana",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 24.6,
+        "top_3": 50.6,
+        "win_pct": 0.333,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Indiana",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 25.9,
+        "top_3": 53.6,
+        "win_pct": 0.25,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Iowa",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 24.5,
+        "top_3": 58.8,
+        "win_pct": 0.714,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Iowa",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 24.0,
+        "top_3": 58.9,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Iowa",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 17.0,
+        "top_3": 43.0,
+        "win_pct": 0.714,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Iowa State",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 31.9,
+        "top_3": 61.0,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Iowa State",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 34.2,
+        "top_3": 52.4,
+        "win_pct": 0.333,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Iowa State",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 30.8,
+        "top_3": 50.4,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kansas",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 20.4,
+        "top_3": 50.2,
+        "win_pct": 0.167,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kansas",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 27.0,
+        "top_3": 52.5,
+        "win_pct": 0.5,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kansas",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 20.8,
+        "top_3": 55.8,
+        "win_pct": 0.692,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kansas State",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 23.7,
+        "top_3": 57.6,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kansas State",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.1,
+        "top_3": 67.4,
+        "win_pct": 0.714,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kansas State",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 29.2,
+        "top_3": 57.1,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kentucky",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 33.9,
+        "top_3": 57.2,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kentucky",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 22.9,
+        "top_3": 53.3,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Kentucky",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 36.7,
+        "top_3": 64.7,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "LSU",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 26.7,
+        "top_3": 51.2,
+        "win_pct": 0.462,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "LSU",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 29.6,
+        "top_3": 46.5,
+        "win_pct": 0.714,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "LSU",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 30.0,
+        "top_3": 51.2,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Louisville",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 32.8,
+        "top_3": 51.8,
+        "win_pct": 0.462,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Louisville",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 25.6,
+        "top_3": 49.5,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Louisville",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.5,
+        "top_3": 53.3,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Maryland",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 31.8,
+        "top_3": 47.1,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Maryland",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 34.4,
+        "top_3": 58.7,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Maryland",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 34.8,
+        "top_3": 54.1,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Miami",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 26.4,
+        "top_3": 55.1,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Miami",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 20.7,
+        "top_3": 43.1,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Miami",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 27.9,
+        "top_3": 54.6,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 21.6,
+        "top_3": 51.1,
+        "win_pct": 0.857,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 19.6,
+        "top_3": 45.4,
+        "win_pct": 0.929,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 23.3,
+        "top_3": 48.7,
+        "win_pct": 1.0,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Michigan State",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 31.3,
+        "top_3": 64.6,
+        "win_pct": 0.846,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Michigan State",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 33.3,
+        "top_3": 53.1,
+        "win_pct": 0.417,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Michigan State",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 24.5,
+        "top_3": 53.6,
+        "win_pct": 0.333,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Minnesota",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 18.8,
+        "top_3": 54.3,
+        "win_pct": 0.692,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Minnesota",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 23.6,
+        "top_3": 55.1,
+        "win_pct": 0.692,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Minnesota",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 23.5,
+        "top_3": 57.7,
+        "win_pct": 0.462,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Mississippi State",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 38.6,
+        "top_3": 56.7,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Mississippi State",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 35.7,
+        "top_3": 55.4,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Mississippi State",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 26.0,
+        "top_3": 52.2,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Missouri",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 25.6,
+        "top_3": 55.9,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Missouri",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 32.2,
+        "top_3": 52.7,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Missouri",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 37.6,
+        "top_3": 76.4,
+        "win_pct": 0.846,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "NC State",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 34.2,
+        "top_3": 57.8,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "NC State",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 21.3,
+        "top_3": 51.2,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "NC State",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 28.1,
+        "top_3": 59.0,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Nebraska",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 27.9,
+        "top_3": 45.6,
+        "win_pct": 0.231,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Nebraska",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 26.2,
+        "top_3": 52.6,
+        "win_pct": 0.333,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Nebraska",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 20.1,
+        "top_3": 44.8,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "North Carolina",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 30.5,
+        "top_3": 48.7,
+        "win_pct": 0.5,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "North Carolina",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 37.5,
+        "top_3": 57.2,
+        "win_pct": 0.643,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "North Carolina",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.3,
+        "top_3": 54.6,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Northwestern",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 18.8,
+        "top_3": 50.2,
+        "win_pct": 0.25,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Northwestern",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 19.2,
+        "top_3": 51.9,
+        "win_pct": 0.083,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Northwestern",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 28.4,
+        "top_3": 61.1,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 25.7,
+        "top_3": 42.9,
+        "win_pct": 0.846,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 25.3,
+        "top_3": 45.3,
+        "win_pct": 0.846,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 23.8,
+        "top_3": 45.1,
+        "win_pct": 0.846,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oklahoma",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 20.5,
+        "top_3": 50.8,
+        "win_pct": 0.857,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oklahoma",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.9,
+        "top_3": 49.4,
+        "win_pct": 0.462,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oklahoma",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 24.9,
+        "top_3": 47.1,
+        "win_pct": 0.769,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oklahoma State",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 24.4,
+        "top_3": 53.8,
+        "win_pct": 0.857,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oklahoma State",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 24.6,
+        "top_3": 54.7,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oklahoma State",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 25.7,
+        "top_3": 50.6,
+        "win_pct": 0.714,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Ole Miss",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 30.5,
+        "top_3": 51.1,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Ole Miss",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 29.1,
+        "top_3": 57.2,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Ole Miss",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 30.2,
+        "top_3": 56.0,
+        "win_pct": 0.846,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oregon",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 30.7,
+        "top_3": 59.1,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oregon",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 33.9,
+        "top_3": 51.8,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oregon",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 30.4,
+        "top_3": 52.4,
+        "win_pct": 0.857,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oregon State",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 26.0,
+        "top_3": 53.4,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oregon State",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 18.7,
+        "top_3": 46.2,
+        "win_pct": 0.769,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Oregon State",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 25.7,
+        "top_3": 55.7,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Penn State",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 29.3,
+        "top_3": 51.9,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Penn State",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 26.5,
+        "top_3": 49.7,
+        "win_pct": 0.786,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Penn State",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 32.0,
+        "top_3": 59.4,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Pittsburgh",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 32.2,
+        "top_3": 51.6,
+        "win_pct": 0.786,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Pittsburgh",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 20.4,
+        "top_3": 56.6,
+        "win_pct": 0.692,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Pittsburgh",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 21.5,
+        "top_3": 57.1,
+        "win_pct": 0.25,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Purdue",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 23.7,
+        "top_3": 46.8,
+        "win_pct": 0.692,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Purdue",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 27.1,
+        "top_3": 47.6,
+        "win_pct": 0.571,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Purdue",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 27.0,
+        "top_3": 60.2,
+        "win_pct": 0.308,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Rutgers",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 25.7,
+        "top_3": 45.4,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Rutgers",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 20.8,
+        "top_3": 52.3,
+        "win_pct": 0.385,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Rutgers",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 37.2,
+        "top_3": 67.7,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "South Carolina",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 26.4,
+        "top_3": 53.8,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "South Carolina",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 31.1,
+        "top_3": 52.4,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "South Carolina",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 33.9,
+        "top_3": 54.2,
+        "win_pct": 0.417,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Stanford",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 28.4,
+        "top_3": 47.8,
+        "win_pct": 0.25,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Stanford",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 32.0,
+        "top_3": 61.3,
+        "win_pct": 0.25,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Stanford",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 28.9,
+        "top_3": 52.2,
+        "win_pct": 0.231,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Syracuse",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 28.3,
+        "top_3": 67.8,
+        "win_pct": 0.462,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Syracuse",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 33.9,
+        "top_3": 66.3,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Syracuse",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 25.7,
+        "top_3": 51.3,
+        "win_pct": 0.462,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "TCU",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 22.1,
+        "top_3": 50.9,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "TCU",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 29.6,
+        "top_3": 54.1,
+        "win_pct": 0.867,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "TCU",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 24.1,
+        "top_3": 60.6,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Tennessee",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 23.7,
+        "top_3": 41.4,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Tennessee",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 27.2,
+        "top_3": 45.5,
+        "win_pct": 0.846,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Tennessee",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 24.2,
+        "top_3": 42.0,
+        "win_pct": 0.692,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 22.1,
+        "top_3": 53.9,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 22.3,
+        "top_3": 55.7,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 28.1,
+        "top_3": 54.7,
+        "win_pct": 0.857,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas A&M",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 23.0,
+        "top_3": 50.5,
+        "win_pct": 0.667,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas A&M",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 19.6,
+        "top_3": 51.5,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas A&M",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 18.1,
+        "top_3": 46.1,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas Tech",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 18.6,
+        "top_3": 48.7,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas Tech",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 21.3,
+        "top_3": 52.8,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Texas Tech",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 21.7,
+        "top_3": 58.9,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "UCF",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 26.0,
+        "top_3": 55.5,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "UCLA",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 31.3,
+        "top_3": 58.2,
+        "win_pct": 0.667,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "UCLA",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 28.3,
+        "top_3": 52.1,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "UCLA",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 20.0,
+        "top_3": 48.4,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "USC",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 22.8,
+        "top_3": 56.1,
+        "win_pct": 0.333,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "USC",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 35.1,
+        "top_3": 59.0,
+        "win_pct": 0.786,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "USC",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 30.8,
+        "top_3": 54.7,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Utah",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 25.4,
+        "top_3": 64.0,
+        "win_pct": 0.714,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Utah",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 24.4,
+        "top_3": 43.7,
+        "win_pct": 0.714,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Utah",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 23.5,
+        "top_3": 47.1,
+        "win_pct": 0.615,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Vanderbilt",
+        "conference": "SEC",
+        "season": 2021,
+        "top_player": 21.6,
+        "top_3": 52.3,
+        "win_pct": 0.167,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Vanderbilt",
+        "conference": "SEC",
+        "season": 2022,
+        "top_player": 20.3,
+        "top_3": 54.0,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Vanderbilt",
+        "conference": "SEC",
+        "season": 2023,
+        "top_player": 29.0,
+        "top_3": 55.5,
+        "win_pct": 0.167,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Virginia",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 40.7,
+        "top_3": 60.5,
+        "win_pct": 0.5,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Virginia",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 33.2,
+        "top_3": 49.0,
+        "win_pct": 0.273,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Virginia",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 26.9,
+        "top_3": 57.7,
+        "win_pct": 0.231,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Virginia Tech",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 24.9,
+        "top_3": 46.3,
+        "win_pct": 0.5,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Virginia Tech",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 29.7,
+        "top_3": 52.5,
+        "win_pct": 0.25,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Virginia Tech",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 30.1,
+        "top_3": 59.1,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Wake Forest",
+        "conference": "ACC",
+        "season": 2021,
+        "top_player": 33.4,
+        "top_3": 49.7,
+        "win_pct": 0.786,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Wake Forest",
+        "conference": "ACC",
+        "season": 2022,
+        "top_player": 32.3,
+        "top_3": 52.7,
+        "win_pct": 0.615,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Wake Forest",
+        "conference": "ACC",
+        "season": 2023,
+        "top_player": 24.4,
+        "top_3": 56.7,
+        "win_pct": 0.333,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Washington",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 26.7,
+        "top_3": 46.1,
+        "win_pct": 0.333,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Washington",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 32.0,
+        "top_3": 49.8,
+        "win_pct": 0.769,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Washington",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 31.3,
+        "top_3": 53.3,
+        "win_pct": 0.929,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Washington State",
+        "conference": "Pac-12",
+        "season": 2021,
+        "top_player": 26.8,
+        "top_3": 61.4,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Washington State",
+        "conference": "Pac-12",
+        "season": 2022,
+        "top_player": 40.7,
+        "top_3": 61.1,
+        "win_pct": 0.538,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Washington State",
+        "conference": "Pac-12",
+        "season": 2023,
+        "top_player": 38.1,
+        "top_3": 53.9,
+        "win_pct": 0.385,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "West Virginia",
+        "conference": "Big 12",
+        "season": 2021,
+        "top_player": 35.4,
+        "top_3": 63.5,
+        "win_pct": 0.462,
+        "archetype": "Concentrated Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "West Virginia",
+        "conference": "Big 12",
+        "season": 2022,
+        "top_player": 25.0,
+        "top_3": 45.3,
+        "win_pct": 0.417,
+        "archetype": "Balanced Strugglers",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "West Virginia",
+        "conference": "Big 12",
+        "season": 2023,
+        "top_player": 27.8,
+        "top_3": 50.4,
+        "win_pct": 0.692,
+        "archetype": "Star-Driven Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Wisconsin",
+        "conference": "Big Ten",
+        "season": 2021,
+        "top_player": 21.7,
+        "top_3": 54.0,
+        "win_pct": 0.692,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Wisconsin",
+        "conference": "Big Ten",
+        "season": 2022,
+        "top_player": 24.9,
+        "top_3": 56.3,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      },
+      {
+        "team": "Wisconsin",
+        "conference": "Big Ten",
+        "season": 2023,
+        "top_player": 24.9,
+        "top_3": 57.6,
+        "win_pct": 0.538,
+        "archetype": "Balanced Winners",
+        "med_top": 26.9,
+        "med_win": 0.538
+      }
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 2: The Performance Pro (mixed with Archetype 4: Swiss Data Journalism)",
+  "design_philosophy": "High-visibility, authoritative sports analytics piece. Bloomberg/The Athletic aesthetic. Relies on deep obsidian backgrounds, pure white text for precision, and electric accents for data triggers. Scrollytelling focuses on clear narrative flow tied to visual transformation.",
+  "color_palette": {
+    "background": {
+      "primary": "#0A0A0A",
+      "secondary": "#121215",
+      "tertiary": "#1C1C1E"
+    },
+    "text": {
+      "high_emphasis": "#FFFFFF",
+      "medium_emphasis": "#A1A1AA",
+      "low_emphasis": "#71717A"
+    },
+    "accents": {
+      "volt_blue": "#007AFF",
+      "electric_blaze": "#FF3B30",
+      "signal_yellow": "#FFCC00",
+      "success_green": "#34C759"
+    },
+    "chart_colors": {
+      "bar_default": "#1C1C1E",
+      "bar_highlight": "#007AFF",
+      "scatter_dots": "rgba(255, 204, 0, 0.8)",
+      "heatmap_scale": ["#0A0A0A", "#1C1C1E", "#00408A", "#007AFF", "#60A5FA", "#FFFFFF"],
+      "quadrant": {
+        "q1_balanced": "#34C759",
+        "q2_dependent": "#FFCC00",
+        "q3_inefficient": "#FF3B30",
+        "q4_elite": "#007AFF"
+      }
+    },
+    "surface_strategies": {
+      "scrolly_card": "bg-black/70 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]",
+      "dashboard_widget": "bg-[#121215] border border-[#27272A] rounded-none",
+      "glassmorphism": "bg-white/5 backdrop-blur-xl border border-white/10"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "'Barlow Condensed', sans-serif",
+      "subheading": "'Chivo', sans-serif",
+      "body": "'IBM Plex Sans', sans-serif",
+      "mono": "'IBM Plex Mono', monospace"
+    },
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl lg:text-[5rem] font-black tracking-tighter uppercase leading-[0.9]",
+      "h2": "text-3xl sm:text-4xl font-bold tracking-tight uppercase text-white",
+      "h3": "text-xl sm:text-2xl font-bold tracking-tight text-[#A1A1AA]",
+      "body": "text-base sm:text-lg text-[#A1A1AA] leading-relaxed",
+      "label": "text-xs font-mono uppercase tracking-[0.2em] text-[#71717A]",
+      "data_value": "text-4xl font-mono font-bold tracking-tighter text-white"
+    },
+    "guidelines": "Do not use 'Inter' or 'Space Grotesk'. Heavily rely on 'Barlow Condensed' for major structural headings to give it a heavyweight athletic feel. Use 'IBM Plex Mono' for all tooltips, axis labels, and numerical data."
+  },
+  "spacing_and_layout": {
+    "scrollytelling_structure": {
+      "desktop": "grid grid-cols-12 gap-12 relative max-w-screen-2xl mx-auto px-6",
+      "graphic_sticky_container": "col-span-12 md:col-span-7 md:sticky top-20 h-[50vh] md:h-[80vh] flex items-center justify-center bg-[#0A0A0A] border border-white/5",
+      "text_scroll_container": "col-span-12 md:col-span-5 pb-[20vh] z-10",
+      "step_card": "min-h-[50vh] flex flex-col justify-center mb-[50vh] p-8 bg-[#121215]/90 backdrop-blur-md border border-white/10 shadow-2xl"
+    },
+    "general": {
+      "section_padding": "py-24 md:py-32",
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "bento_grid": "grid grid-cols-1 md:grid-cols-12 gap-6"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#FFCC00] text-black font-bold uppercase tracking-widest px-8 py-4 hover:bg-white transition-colors duration-300",
+      "secondary": "bg-transparent border border-white/20 text-white font-semibold px-6 py-3 hover:bg-white/10 hover:border-white transition-all duration-300"
+    },
+    "filters": {
+      "wrapper": "flex flex-wrap gap-4 items-center bg-[#121215] p-4 border border-white/10 w-full",
+      "select": "bg-[#0A0A0A] border border-[#27272A] text-white text-sm focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF]"
+    },
+    "tooltips": {
+      "container": "absolute z-50 bg-[#121215] border border-white/20 p-4 shadow-xl pointer-events-none",
+      "title": "text-sm font-bold text-white uppercase tracking-wider mb-2",
+      "value": "text-lg font-mono text-[#007AFF]"
+    }
+  },
+  "motion_and_interaction": {
+    "scroll_triggers": {
+      "step_enter": "opacity-100 translate-y-0 scale-100 transition-all duration-700 ease-out",
+      "step_exit": "opacity-30 translate-y-8 scale-95 transition-all duration-700 ease-in"
+    },
+    "chart_animations": {
+      "bar_transition": "transition-all duration-750 ease-in-out",
+      "scatter_update": "transition-all duration-500 ease-in-out",
+      "path_draw": "stroke-dasharray-1000 stroke-dashoffset-1000 animate-[draw_1.5s_ease-out_forwards]"
+    },
+    "accessibility": "Respect prefers-reduced-motion for all D3/Framer Motion animations."
+  },
+  "media_and_assets": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1634306320557-4c4e4660692f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwyfHxjb2xsZWdlJTIwZm9vdGJhbGwlMjBzdGFkaXVtJTIwbmlnaHQlMjBkYXJrfGVufDB8fHx8MTc3NjM5OTU0MXww&ixlib=rb-4.1.0&q=85",
+      "description": "College football stadium night scene. Use as the absolute background of the hero section. MUST use a gradient overlay `bg-gradient-to-b from-black/80 via-black/60 to-[#0A0A0A]` to ensure Barlow Condensed headers pop.",
+      "category": "hero"
+    },
+    "texture_overlay": {
+      "url": "https://images.unsplash.com/photo-1761078739436-ccee01f3d89c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYWJzdHJhY3QlMjB0ZXh0dXJlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzYzOTk1NTB8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract dark texture. Use at 5-10% opacity fixed across the scrollytelling background to eliminate digital flatness.",
+      "category": "background"
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. FRAMEWORK & LIBRARIES: Use React, Tailwind CSS, Framer Motion, and D3.js. Shadcn is allowed for forms/filters, but strictly adhere to the 'Performance Pro' color palette and sharp edges.",
+    "2. TYPOGRAPHY: Add 'Barlow Condensed', 'Chivo', and 'IBM Plex Sans', and 'IBM Plex Mono' to index.html via Google Fonts. Use them exactly as mapped in the hierarchy.",
+    "3. SCROLLYTELLING ENGINE: Use `framer-motion` `useScroll` or `react-intersection-observer` to determine the active step index. Pass this index to the Sticky Chart component to trigger D3 visualizations.",
+    "4. D3 + REACT APPROACH: Calculate scales, paths, and positions in React logic (useMemo), but render the SVG elements natively via React (`<motion.rect>`, `<motion.circle>`). This allows Framer Motion to handle smooth layout transitions automatically between scrolly steps.",
+    "5. DATA CLEANING FUNNEL: Build a custom waterfall/funnel visualization for the 13k -> 4k row reduction. Animate the discarded rows falling out of the bottom of the container.",
+    "6. HOVER STATES & TOOLTIPS: All charts MUST have interactive hover states. Dim non-hovered elements and render an absolutely positioned tooltip containing exact player/team usage numbers.",
+    "7. RESPONSIVENESS: On mobile (`max-width: 768px`), reverse the scrollytelling paradigm: make the chart sticky at the TOP of the screen (h-[50vh]), and let the text steps scroll below it. Ensure chart axes scale down gracefully.",
+    "8. TESTING: Apply `data-testid` attributes to all filters, buttons, and significant data widgets.",
+    "9. ICONS: Use @phosphor-icons/react or lucide-react (already installed), matching the sharp, athletic UI style."
+  ]
+}

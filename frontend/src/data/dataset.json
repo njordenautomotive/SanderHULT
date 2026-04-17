@@ -29,28 +29,18 @@
   "cleaningFunnel": [
     {
       "step": "Raw export",
-      "rows": 12987,
-      "note": "All FBS player-seasons across all conferences and positions."
+      "rows": 12880,
+      "note": "All FBS player-seasons across every conference and position in the source file."
     },
     {
-      "step": "Limit to 2021\u20132023",
-      "rows": 9850,
-      "note": "Dropped older seasons to keep the analysis contemporary."
+      "step": "Drop non-Power-Five conferences",
+      "rows": 3922,
+      "note": "Removed AAC, ASUN, CUSA, Ind, INDAA, MAC, MWC, SBC, WAC + blanks \u2014 10 conference buckets."
     },
     {
-      "step": "Power Five only",
-      "rows": 5420,
-      "note": "Removed Group of Five & FCS \u2014 scope focuses on P5 structural parity."
-    },
-    {
-      "step": "Offensive skill positions",
-      "rows": 4210,
-      "note": "Kept only QB, RB, WR, TE \u2014 removed FB and non-skill positions."
-    },
-    {
-      "step": "De-duplicate & verify",
+      "step": "Drop FB position",
       "rows": 3904,
-      "note": "Checked duplicates and nulls; final analytic set."
+      "note": "Removed the fullback position; kept QB, RB, WR, TE as the four analytic positions."
     }
   ],
   "q1": {

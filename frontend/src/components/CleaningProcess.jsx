@@ -6,33 +6,33 @@ import { motion } from "framer-motion";
 const DECISIONS = [
     {
         tag: "Scope",
-        title: "Why 2021–2023 only",
-        body: "Older seasons reflected different rosters, different rules (COVID eligibility, transfer portal rules), and older conference alignments. A three‑year window keeps the analysis contemporary and comparable.",
-    },
-    {
-        tag: "Focus",
         title: "Why Power Five only",
-        body: "We wanted structural comparability. Power Five teams play similar schedules, recruit similarly, and operate with comparable scholarship depth. Mixing in Group of Five or FCS data would blur the story.",
+        body: "We removed ten conference buckets outright — AAC, ASUN, CUSA, Ind, INDAA, MAC, MWC, SBC, WAC, plus rows with blank conference values. That single cut trimmed 8,958 rows. Power Five teams share comparable schedules, recruiting tiers, and scholarship depth; mixing in Group of Five or FCS would blur the structural comparison.",
     },
     {
         tag: "Positions",
         title: "Why only QB, RB, WR, TE",
-        body: "These four positions account for virtually all designed offensive touches. FB, OL, and defensive cross‑overs were removed — they either don't meaningfully carry usage or they warped the per‑player share calculations.",
+        body: "The fullback position (FB) was removed — 18 rows. Those four skill positions account for effectively all designed offensive touches in a modern P5 offense; FB is a specialty role that inflates per-player share math without contributing meaningfully to a usage story.",
     },
     {
-        tag: "Inclusion",
-        title: "Why low‑usage players were kept",
-        body: "A 1% usage WR is still part of the picture. Dropping the bottom tail would artificially flatten team distributions and overstate how concentrated offenses actually are.",
+        tag: "Distribution integrity",
+        title: "Why low- and high-usage players were kept",
+        body: "We are studying the DISTRIBUTION of player usage — the whole shape, tails included. Dropping outliers would have flattened teams that genuinely run through one star and erased the low-usage depth rotation that rounds out every real offense. Trimming either tail would produce a cleaner-looking but less honest dataset.",
     },
     {
         tag: "Edge case",
-        title: "Multi‑team player‑seasons",
-        body: "A handful of players appeared on two teams in one season (transfer mid‑year). We kept them as separate team‑rows rather than merging — the analysis is about team usage structure, not career totals.",
+        title: "Multi-team player-seasons",
+        body: "A small number of players appeared on two teams in the same season (mid-year transfers). We kept those as separate team-rows rather than merging — the unit of analysis is team usage structure, not player career totals.",
     },
     {
         tag: "Quality",
         title: "Zero nulls, zero duplicates",
-        body: "After filtering we confirmed no missing player IDs, no duplicate (Player_ID, Team, Season) tuples, and no corrupt rows. The final analytic table was clean enough to plot directly.",
+        body: "After the two filters were applied, we confirmed there were no missing Player_IDs, no duplicate (Player_ID, Team, Season) tuples, and no corrupt rows. The final analytic table was ready to plot directly — no imputation, no fabrication.",
+    },
+    {
+        tag: "Window",
+        title: "Why 2021–2023",
+        body: "The three-season window reflects the post-COVID / transfer-portal era. It keeps rosters, rule sets, and conference alignments comparable across every team-season in the analysis — so cross-season comparisons aren't polluted by format shifts.",
     },
 ];
 
@@ -45,8 +45,8 @@ export default function CleaningProcess() {
         >
             <SectionHeader
                 eyebrow="Ch. 02 · Methodology"
-                title="From thirteen thousand rows to four."
-                kicker="Good charts start with honest data. Here's exactly how the raw export was pared down — and why every cut was deliberate, not mechanical."
+                title="From 12,880 rows to 3,904."
+                kicker="Two deliberate cuts — one big, one surgical. 8,958 rows were dropped by narrowing the scope to Power Five conferences; 18 more were dropped by removing the fullback position. Nothing else was filtered — the shape of the distribution was left intact."
             />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -71,10 +71,10 @@ export default function CleaningProcess() {
                                 Before
                             </div>
                             <div className="mt-2 font-heading text-4xl font-black text-white">
-                                12,987
+                                12,880
                             </div>
                             <div className="mt-1 text-xs text-[#a1a1aa]">
-                                all FBS / all positions / 2015–2023
+                                all conferences · all positions · 2021–2023
                             </div>
                         </div>
                         <div className="p-5 bg-[#ffcc00]/10 border border-[#ffcc00]/30">
@@ -125,9 +125,11 @@ export default function CleaningProcess() {
             >
                 <p className="font-sub text-white text-lg leading-relaxed">
                     <span className="text-[#ffcc00] font-bold">Takeaway.</span>{" "}
-                    Every row that survived cleaning is here for a reason. Every
-                    row that didn't, left because it would have distorted a team's
-                    usage distribution — not because it was convenient to drop.
+                    Only two filters were applied — scope and position. No usage
+                    outliers were trimmed, no bottom tail was dropped. Because the
+                    entire analysis asks how usage is{" "}
+                    <em className="text-white">distributed</em>, removing either
+                    extreme would have rewritten the story we set out to tell.
                 </p>
             </motion.div>
         </section>

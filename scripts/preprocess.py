@@ -256,11 +256,9 @@ if scatter:
 
 # ---------- Cleaning funnel ----------
 cleaning_funnel = [
-    {"step": "Raw export", "rows": 12987, "note": "All FBS player-seasons across all conferences and positions."},
-    {"step": "Limit to 2021–2023", "rows": 9850, "note": "Dropped older seasons to keep the analysis contemporary."},
-    {"step": "Power Five only", "rows": 5420, "note": "Removed Group of Five & FCS — scope focuses on P5 structural parity."},
-    {"step": "Offensive skill positions", "rows": 4210, "note": "Kept only QB, RB, WR, TE — removed FB and non-skill positions."},
-    {"step": "De-duplicate & verify", "rows": int(len(df)), "note": "Checked duplicates and nulls; final analytic set."},
+    {"step": "Raw export", "rows": 12880, "note": "All FBS player-seasons across every conference and position in the source file."},
+    {"step": "Drop non-Power-Five conferences", "rows": 3922, "note": "Removed AAC, ASUN, CUSA, Ind, INDAA, MAC, MWC, SBC, WAC + blanks — 10 conference buckets."},
+    {"step": "Drop FB position", "rows": int(len(df)), "note": "Removed the fullback position; kept QB, RB, WR, TE as the four analytic positions."},
 ]
 
 summary_stats = {

@@ -13,6 +13,7 @@ import Q4Positions from "./components/Q4Positions";
 import Q5Performance from "./components/Q5Performance";
 import Q6Archetypes from "./components/Q6Archetypes";
 import Conclusion from "./components/Conclusion";
+import CleanedData from "./components/CleanedData";
 import { FilterProvider } from "./lib/filters";
 
 const Home = () => {
@@ -44,6 +45,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/cleaned-data" element={<CleanedData />} />
             </Routes>
         </BrowserRouter>
     );

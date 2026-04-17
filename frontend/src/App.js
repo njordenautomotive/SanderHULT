@@ -5,6 +5,7 @@ import FilterBar from "./components/FilterBar";
 import Hero from "./components/Hero";
 import UsageExplainer from "./components/UsageExplainer";
 import CleaningProcess from "./components/CleaningProcess";
+import ColumnDocumentation from "./components/ColumnDocumentation";
 import VizDesignProcess from "./components/VizDesignProcess";
 import Q1TopPlayers from "./components/Q1TopPlayers";
 import Q2TeamDependency from "./components/Q2TeamDependency";
@@ -14,6 +15,7 @@ import Q5Performance from "./components/Q5Performance";
 import Q6Archetypes from "./components/Q6Archetypes";
 import Conclusion from "./components/Conclusion";
 import CleanedData from "./components/CleanedData";
+import RawData from "./components/RawData";
 import { FilterProvider } from "./lib/filters";
 
 const Home = () => {
@@ -26,6 +28,7 @@ const Home = () => {
                     <Hero />
                     <UsageExplainer />
                     <CleaningProcess />
+                    <ColumnDocumentation />
                     <VizDesignProcess />
                     <Q1TopPlayers />
                     <Q2TeamDependency />
@@ -46,6 +49,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/cleaned-data" element={<CleanedData />} />
+                <Route path="/raw-data" element={<RawData />} />
             </Routes>
         </BrowserRouter>
     );

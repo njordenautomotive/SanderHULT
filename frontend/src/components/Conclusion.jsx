@@ -108,13 +108,22 @@ export default function Conclusion() {
                     </div>
                 </div>
                 <div className="flex flex-col gap-3 md:items-end">
-                    <Link
-                        to="/cleaned-data"
-                        data-testid="footer-cleaned-data-link"
-                        className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-black bg-[#ffcc00] px-4 py-2.5 hover:bg-white transition-colors"
-                    >
-                        Cleaned Data <span>→</span>
-                    </Link>
+                    <div className="flex flex-wrap gap-2 md:justify-end">
+                        <Link
+                            to="/raw-data"
+                            data-testid="footer-raw-data-link"
+                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-white bg-[#ff3b30] px-4 py-2.5 hover:bg-white hover:text-black transition-colors"
+                        >
+                            Raw Data <span>→</span>
+                        </Link>
+                        <Link
+                            to="/cleaned-data"
+                            data-testid="footer-cleaned-data-link"
+                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-black bg-[#ffcc00] px-4 py-2.5 hover:bg-white transition-colors"
+                        >
+                            Cleaned Data <span>→</span>
+                        </Link>
+                    </div>
                     <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
                         Data · 2021–2023 Power Five · QB · RB · WR · TE
                     </div>

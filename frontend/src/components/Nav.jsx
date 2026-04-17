@@ -4,6 +4,7 @@ const LINKS = [
     { id: "hero", label: "Intro" },
     { id: "overview", label: "What is Usage" },
     { id: "cleaning", label: "Data Cleaning" },
+    { id: "columns", label: "Column Audit" },
     { id: "design", label: "Viz Design" },
     { id: "q1", label: "Q1 Players" },
     { id: "q2", label: "Q2 Teams" },

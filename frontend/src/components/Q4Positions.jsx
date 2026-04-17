@@ -1,33 +1,82 @@
+import { useMemo } from "react";
 import SectionHeader from "./SectionHeader";
 import Histogram from "./charts/Histogram";
 import BarChart from "./charts/BarChart";
-import { q4 } from "../lib/data";
+import { dataset } from "../lib/data";
+import { useFilters } from "../lib/filters";
 import { POSITION_COLORS } from "../lib/constants";
 
 export default function Q4Positions() {
-    const series = q4.positionDistribution.map((p) => ({
+    const { season, conference } = useFilters();
+
+    const rows = useMemo(
+        () =>
+            dataset.raw.filter((r) => {
+                if (season !== "all" && r.season !== season) return false;
+                if (conference !== "all" && r.conference !== conference) return false;
+                return true;
+            }),
+        [season, conference]
+    );
+
+    const { edges, labels } = dataset.bins;
+
+    const positionDistribution = useMemo(() => {
+        return ["QB", "RB", "WR", "TE"].map((pos) => {
+            const sub = rows.filter((r) => r.position === pos);
+            const counts = Array(labels.length).fill(0);
+            sub.forEach((r) => {
+                for (let i = 0; i < labels.length; i++) {
+                    if (r.usage >= edges[i] && r.usage <= edges[i + 1]) {
+                        counts[i]++;
+                        break;
+                    }
+                }
+            });
+            const avg = sub.length ? sub.reduce((a, b) => a + b.usage, 0) / sub.length : 0;
+            return {
+                position: pos,
+                bins: labels.map((lbl, i) => ({ bin: lbl, count: counts[i] })),
+                avg,
+                players: sub.length,
+            };
+        });
+    }, [rows, edges, labels]);
+
+    const avgBars = useMemo(
+        () =>
+            positionDistribution
+                .map((p) => ({
+                    label: p.position,
+                    value: p.avg,
+                    sub: `${p.players} players`,
+                    color: POSITION_COLORS[p.position],
+                }))
+                .filter((b) => b.value > 0)
+                .sort((a, b) => b.value - a.value),
+        [positionDistribution]
+    );
+
+    const shareBars = useMemo(() => {
+        const grp = {};
+        rows.forEach((r) => {
+            if (!grp[r.position]) grp[r.position] = [];
+            grp[r.position].push(r.share);
+        });
+        return Object.entries(grp)
+            .map(([pos, arr]) => ({
+                label: pos,
+                value: arr.reduce((a, b) => a + b, 0) / arr.length,
+                color: POSITION_COLORS[pos],
+            }))
+            .sort((a, b) => b.value - a.value);
+    }, [rows]);
+
+    const series = positionDistribution.map((p) => ({
         label: p.position,
         color: POSITION_COLORS[p.position],
         bins: p.bins,
     }));
-    const categories = q4.positionDistribution[0].bins.map((b) => b.bin);
-
-    const avgBars = q4.positionDistribution
-        .map((p) => ({
-            label: p.position,
-            value: p.avg,
-            sub: `${p.players} players`,
-            color: POSITION_COLORS[p.position],
-        }))
-        .sort((a, b) => b.value - a.value);
-
-    const shareBars = q4.positionShare
-        .map((s) => ({
-            label: s.Position,
-            value: s.avg_share,
-            color: POSITION_COLORS[s.Position],
-        }))
-        .sort((a, b) => b.value - a.value);
 
     return (
         <section
@@ -36,7 +85,7 @@ export default function Q4Positions() {
             className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-b from-[#0a0a0a] via-[#0c0c0f] to-[#0a0a0a]"
         >
             <SectionHeader
-                eyebrow="Question 04"
+                eyebrow={`Question 04${season !== "all" ? ` · ${season}` : ""}${conference !== "all" ? ` · ${conference}` : ""}`}
                 title="How does usage vary by position?"
                 kicker="Every offense is built from four archetypes. Their usage profiles look nothing alike — and that structural asymmetry is the reason naive rankings need position context."
             />
@@ -52,7 +101,7 @@ export default function Q4Positions() {
                     </p>
                     <Histogram
                         series={series}
-                        categories={categories}
+                        categories={labels}
                         yLabel="# PLAYER-SEASONS"
                         dataTestId="q4-histogram"
                     />
@@ -62,31 +111,39 @@ export default function Q4Positions() {
                         <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
                             Avg Usage_Overall
                         </div>
-                        <BarChart
-                            data={avgBars}
-                            valueFormat={(v) => v.toFixed(3)}
-                            barHeight={28}
-                            padding={{ top: 8, right: 70, bottom: 28, left: 50 }}
-                            dataTestId="q4-avg-usage"
-                        />
+                        {avgBars.length ? (
+                            <BarChart
+                                data={avgBars}
+                                valueFormat={(v) => v.toFixed(3)}
+                                barHeight={28}
+                                padding={{ top: 8, right: 70, bottom: 28, left: 50 }}
+                                dataTestId="q4-avg-usage"
+                            />
+                        ) : (
+                            <div className="text-[#71717a] text-sm py-8">No matches.</div>
+                        )}
                     </div>
                     <div className="p-6 bg-[#121215] border border-white/10">
                         <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
                             Avg Player Usage Share (%)
                         </div>
-                        <BarChart
-                            data={shareBars}
-                            valueFormat={(v) => `${v.toFixed(1)}%`}
-                            barHeight={28}
-                            padding={{ top: 8, right: 80, bottom: 28, left: 50 }}
-                            dataTestId="q4-avg-share"
-                        />
+                        {shareBars.length ? (
+                            <BarChart
+                                data={shareBars}
+                                valueFormat={(v) => `${v.toFixed(1)}%`}
+                                barHeight={28}
+                                padding={{ top: 8, right: 80, bottom: 28, left: 50 }}
+                                dataTestId="q4-avg-share"
+                            />
+                        ) : (
+                            <div className="text-[#71717a] text-sm py-8">No matches.</div>
+                        )}
                     </div>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {q4.positionDistribution.map((p) => (
+                {positionDistribution.map((p) => (
                     <div
                         key={p.position}
                         className="p-5 bg-[#0a0a0a] border border-white/10 hover:border-white/30 transition-colors"

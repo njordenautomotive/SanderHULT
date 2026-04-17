@@ -21,6 +21,7 @@ export default function Scatter({
     colorBy = "conference",
     showTrend = true,
     quadrants = null, // { xMid, yMid }
+    highlightTeam = null,
     dataTestId,
 }) {
     const [ref, inView] = useInView({ threshold: 0.2 });
@@ -171,18 +172,29 @@ export default function Scatter({
                 {points.map((p, i) => {
                     const c = p.color || CONFERENCE_COLORS[p[colorBy]] || COLORS.volt;
                     const isHover = hover?.idx === i;
+                    const isHighlight = highlightTeam && p.team === highlightTeam;
+                    const isDimmed = highlightTeam && !isHighlight && !isHover;
                     return (
                         <motion.circle
                             key={`${p.team}-${p.season}-${i}`}
                             cx={x(p.x)}
                             cy={y(p.y)}
-                            fill={c}
-                            stroke={isHover ? "#fff" : "none"}
-                            strokeWidth={isHover ? 2 : 0}
+                            fill={isHighlight ? COLORS.signal : c}
+                            stroke={isHover || isHighlight ? "#fff" : "none"}
+                            strokeWidth={isHover ? 2 : isHighlight ? 2 : 0}
                             initial={{ r: 0, opacity: 0 }}
                             animate={
                                 inView
-                                    ? { r: isHover ? 8 : 5.5, opacity: hover && !isHover ? 0.25 : 0.85 }
+                                    ? {
+                                          r: isHover ? 9 : isHighlight ? 8 : 5.5,
+                                          opacity: isDimmed
+                                              ? 0.15
+                                              : hover && !isHover
+                                                ? 0.25
+                                                : isHighlight
+                                                  ? 1
+                                                  : 0.85,
+                                      }
                                     : { r: 0, opacity: 0 }
                             }
                             transition={{ duration: 0.6, delay: 0.02 * i }}

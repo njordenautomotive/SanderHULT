@@ -1,16 +1,54 @@
+import { useMemo } from "react";
 import SectionHeader from "./SectionHeader";
 import Scatter from "./charts/Scatter";
-import { q5 } from "../lib/data";
+import { dataset } from "../lib/data";
+import { useFilters } from "../lib/filters";
 
 export default function Q5Performance() {
-    const points = q5.scatter.map((s) => ({
+    const { season, conference, team } = useFilters();
+
+    // Build team-season records with joined win%
+    const joined = useMemo(() => {
+        const winMap = {};
+        dataset.wins.forEach((w) => {
+            winMap[`${w.team}__${w.season}`] = w.win_pct;
+        });
+        const map = {};
+        dataset.raw.forEach((r) => {
+            const k = `${r.team}__${r.season}`;
+            if (!map[k]) {
+                map[k] = {
+                    team: r.team,
+                    conference: r.conference,
+                    season: r.season,
+                    top_player: r.top_player_share,
+                    top_3: r.top3_share,
+                };
+            }
+        });
+        return Object.values(map)
+            .map((t) => ({ ...t, win_pct: winMap[`${t.team}__${t.season}`] }))
+            .filter((t) => t.win_pct !== undefined);
+    }, []);
+
+    const filtered = useMemo(
+        () =>
+            joined.filter((j) => {
+                if (season !== "all" && j.season !== season) return false;
+                if (conference !== "all" && j.conference !== conference) return false;
+                return true;
+            }),
+        [joined, season, conference]
+    );
+
+    const pts1 = filtered.map((s) => ({
         x: s.top_player,
         y: s.win_pct,
         team: s.team,
         conference: s.conference,
         season: s.season,
     }));
-    const points3 = q5.scatter.map((s) => ({
+    const pts3 = filtered.map((s) => ({
         x: s.top_3,
         y: s.win_pct,
         team: s.team,
@@ -25,7 +63,7 @@ export default function Q5Performance() {
             className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
         >
             <SectionHeader
-                eyebrow="Question 05"
+                eyebrow={`Question 05${season !== "all" ? ` · ${season}` : ""}${conference !== "all" ? ` · ${conference}` : ""}`}
                 title="Does concentration predict winning?"
                 kicker="Each dot is a team-season. Horizontal axis = how much of the offense one player owned. Vertical axis = season win percentage. Colored by conference."
             />
@@ -44,30 +82,54 @@ export default function Q5Performance() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="p-6 bg-[#121215] border border-white/10">
-                    <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
-                        Win % vs Top Player Share
+                    <div className="flex items-center justify-between mb-3">
+                        <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
+                            Win % vs Top Player Share
+                        </div>
+                        <div className="text-[10px] font-mono text-[#71717a]">
+                            n = {pts1.length}
+                        </div>
                     </div>
-                    <Scatter
-                        points={points}
-                        xLabel="TOP PLAYER SHARE (%)"
-                        yLabel="WIN %"
-                        xDomain={[15, 45]}
-                        yDomain={[0, 1]}
-                        dataTestId="q5-scatter-top"
-                    />
+                    {pts1.length ? (
+                        <Scatter
+                            points={pts1}
+                            xLabel="TOP PLAYER SHARE (%)"
+                            yLabel="WIN %"
+                            xDomain={[15, 45]}
+                            yDomain={[0, 1]}
+                            highlightTeam={team}
+                            dataTestId="q5-scatter-top"
+                        />
+                    ) : (
+                        <div className="text-[#71717a] text-sm py-16 text-center">
+                            No team-seasons match the filters.
+                        </div>
+                    )}
                 </div>
                 <div className="p-6 bg-[#121215] border border-white/10">
-                    <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
-                        Win % vs Top 3 Share
+                    <div className="flex items-center justify-between mb-3">
+                        <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
+                            Win % vs Top 3 Share
+                        </div>
+                        <div className="text-[10px] font-mono text-[#71717a]">
+                            n = {pts3.length}
+                        </div>
                     </div>
-                    <Scatter
-                        points={points3}
-                        xLabel="TOP 3 SHARE (%)"
-                        yLabel="WIN %"
-                        xDomain={[35, 75]}
-                        yDomain={[0, 1]}
-                        dataTestId="q5-scatter-top3"
-                    />
+                    {pts3.length ? (
+                        <Scatter
+                            points={pts3}
+                            xLabel="TOP 3 SHARE (%)"
+                            yLabel="WIN %"
+                            xDomain={[35, 75]}
+                            yDomain={[0, 1]}
+                            highlightTeam={team}
+                            dataTestId="q5-scatter-top3"
+                        />
+                    ) : (
+                        <div className="text-[#71717a] text-sm py-16 text-center">
+                            No team-seasons match the filters.
+                        </div>
+                    )}
                 </div>
             </div>
 

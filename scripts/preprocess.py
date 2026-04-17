@@ -297,6 +297,26 @@ payload = {
     },
     "q5": {"scatter": scatter},
     "q6": {"archetypes": archetypes},
+    "raw": [
+        {
+            "season": int(r["Season"]),
+            "player": r["Player_Name"],
+            "position": r["Position"],
+            "team": r["Team"],
+            "conference": r["Conference"],
+            "usage": round(float(r["Usage_Overall"]), 4),
+            "share": round(float(r["Player_Usage_Share_f"]), 2),
+            "rank": int(r["Rank_Within_Team"]),
+            "top_player_share": round(float(r["Top_Player_Share_f"]), 2),
+            "top3_share": round(float(r["Top_3_Share_f"]), 2),
+        }
+        for _, r in df.iterrows()
+    ],
+    "wins": [
+        {"team": k[0], "season": int(k[1]), "win_pct": round(v, 3)}
+        for k, v in WINS.items()
+    ],
+    "bins": {"edges": usage_bins, "labels": bin_labels},
 }
 
 with (OUT / "dataset.json").open("w", encoding="utf-8") as f:

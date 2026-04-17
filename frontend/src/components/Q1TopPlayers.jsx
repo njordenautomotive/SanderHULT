@@ -1,42 +1,92 @@
+import { useMemo } from "react";
 import SectionHeader from "./SectionHeader";
 import BarChart from "./charts/BarChart";
 import Histogram from "./charts/Histogram";
 import LineChart from "./charts/LineChart";
-import { q1 } from "../lib/data";
+import { dataset } from "../lib/data";
+import { useFilters, applyFilters } from "../lib/filters";
 import { POSITION_COLORS } from "../lib/constants";
 
 export default function Q1TopPlayers() {
-    const topBars = q1.topPlayerSeasons.slice(0, 15).map((p) => ({
-        label: `${p.Player_Name} · ${p.Team} ${p.Season}`,
-        value: p.Usage_Overall,
-        sub: p.Position,
-        color: POSITION_COLORS[p.Position],
-    }));
+    const { season, conference, team } = useFilters();
 
-    const positionAvgBars = q1.positionAverages
-        .sort((a, b) => b.mean - a.mean)
-        .map((p) => ({
-            label: p.Position,
-            value: p.mean,
-            sub: `n = ${p.count}`,
-            color: POSITION_COLORS[p.Position],
+    const filteredRows = useMemo(
+        () => applyFilters(dataset.raw, { season, conference, team }),
+        [season, conference, team]
+    );
+
+    const topBars = useMemo(
+        () =>
+            [...filteredRows]
+                .sort((a, b) => b.usage - a.usage)
+                .slice(0, 15)
+                .map((p) => ({
+                    label: `${p.player} · ${p.team} ${p.season}`,
+                    value: p.usage,
+                    sub: p.position,
+                    color: POSITION_COLORS[p.position],
+                })),
+        [filteredRows]
+    );
+
+    const positionAvgBars = useMemo(() => {
+        const groups = {};
+        filteredRows.forEach((r) => {
+            if (!groups[r.position]) groups[r.position] = [];
+            groups[r.position].push(r.usage);
+        });
+        return Object.entries(groups)
+            .map(([pos, arr]) => ({
+                label: pos,
+                value: arr.reduce((a, b) => a + b, 0) / (arr.length || 1),
+                sub: `n = ${arr.length}`,
+                color: POSITION_COLORS[pos],
+            }))
+            .sort((a, b) => b.value - a.value);
+    }, [filteredRows]);
+
+    const { edges, labels } = dataset.bins;
+    const distribution = useMemo(() => {
+        const counts = Array(labels.length).fill(0);
+        filteredRows.forEach((r) => {
+            for (let i = 0; i < labels.length; i++) {
+                const lo = edges[i];
+                const hi = edges[i + 1];
+                if (r.usage >= lo && r.usage <= hi) {
+                    counts[i]++;
+                    break;
+                }
+            }
+        });
+        return labels.map((lbl, i) => ({ bin: lbl, count: counts[i] }));
+    }, [filteredRows, edges, labels]);
+
+    // Three-year players - only show when no single-season filter is active
+    const trendSeries = useMemo(() => {
+        if (season !== "all") return [];
+        const pool = conference === "all" ? dataset.q1.playerTrends : dataset.q1.playerTrends
+            .filter((p) => dataset.raw.some(
+                (r) => r.player === p.player && r.conference === conference
+            ));
+        return pool.slice(0, 5).map((p, i) => ({
+            name: p.player,
+            color: ["#ffcc00", "#007aff", "#34c759", "#ff3b30", "#a78bfa"][i],
+            points: p.points.map((pt) => ({ x: pt.Season, y: pt.Usage_Overall })),
         }));
+    }, [season, conference]);
 
-    // Pick top 5 trends
-    const trendSeries = q1.playerTrends.slice(0, 5).map((p, i) => ({
-        name: p.player,
-        color: ["#ffcc00", "#007aff", "#34c759", "#ff3b30", "#a78bfa"][i],
-        points: p.points.map((pt) => ({ x: pt.Season, y: pt.Usage_Overall })),
-    }));
+    const distSeries = [{ label: "All players", color: "#007aff", bins: distribution }];
 
-    const distSeries = [
-        {
-            label: "All players",
-            color: "#007aff",
-            bins: q1.distribution,
-        },
-    ];
-    const categories = q1.distribution.map((d) => d.bin);
+    const filterTag =
+        season !== "all" || conference !== "all" || team
+            ? `${[
+                  season !== "all" ? season : null,
+                  conference !== "all" ? conference : null,
+                  team,
+              ]
+                  .filter(Boolean)
+                  .join(" · ")}`
+            : null;
 
     return (
         <section
@@ -45,7 +95,7 @@ export default function Q1TopPlayers() {
             className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
         >
             <SectionHeader
-                eyebrow="Question 01"
+                eyebrow={`Question 01${filterTag ? ` · ${filterTag}` : ""}`}
                 title="Which player-seasons dominated offensive usage?"
                 kicker="Usage_Overall caps near 1.0 (a full offensive load). A handful of quarterbacks sit at the very top — and the gap between the top and the median is enormous."
             />
@@ -57,16 +107,22 @@ export default function Q1TopPlayers() {
                             Top 15 Player-Seasons
                         </div>
                         <div className="text-[11px] font-mono text-[#a1a1aa]">
-                            Usage_Overall
+                            n = {filteredRows.length.toLocaleString()}
                         </div>
                     </div>
-                    <BarChart
-                        data={topBars}
-                        valueFormat={(v) => v.toFixed(3)}
-                        xLabel="USAGE OVERALL"
-                        padding={{ top: 16, right: 80, bottom: 32, left: 220 }}
-                        dataTestId="q1-top-bars"
-                    />
+                    {topBars.length ? (
+                        <BarChart
+                            data={topBars}
+                            valueFormat={(v) => v.toFixed(3)}
+                            xLabel="USAGE OVERALL"
+                            padding={{ top: 16, right: 80, bottom: 32, left: 220 }}
+                            dataTestId="q1-top-bars"
+                        />
+                    ) : (
+                        <div className="text-[#71717a] text-sm py-12 text-center">
+                            No player-seasons match the current filters.
+                        </div>
+                    )}
                 </div>
 
                 <div className="lg:col-span-5 space-y-5">
@@ -74,13 +130,19 @@ export default function Q1TopPlayers() {
                         <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-2">
                             Average Usage by Position
                         </div>
-                        <BarChart
-                            data={positionAvgBars}
-                            valueFormat={(v) => v.toFixed(3)}
-                            barHeight={32}
-                            padding={{ top: 12, right: 80, bottom: 32, left: 60 }}
-                            dataTestId="q1-position-avg"
-                        />
+                        {positionAvgBars.length ? (
+                            <BarChart
+                                data={positionAvgBars}
+                                valueFormat={(v) => v.toFixed(3)}
+                                barHeight={32}
+                                padding={{ top: 12, right: 80, bottom: 32, left: 60 }}
+                                dataTestId="q1-position-avg"
+                            />
+                        ) : (
+                            <div className="text-[#71717a] text-sm py-8 text-center">
+                                No matches.
+                            </div>
+                        )}
                     </div>
                     <div className="p-6 bg-[#0a0a0a] border border-[#ffcc00]/30">
                         <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#ffcc00] mb-2">
@@ -98,7 +160,7 @@ export default function Q1TopPlayers() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
                 <div className="lg:col-span-7 p-6 bg-[#121215] border border-white/10">
                     <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-2">
-                        Usage Distribution · All Players
+                        Usage Distribution
                     </div>
                     <p className="text-xs text-[#a1a1aa] mb-4 font-sub">
                         Over half of all Power Five skill players sit under 5% usage. The
@@ -106,7 +168,7 @@ export default function Q1TopPlayers() {
                     </p>
                     <Histogram
                         series={distSeries}
-                        categories={categories}
+                        categories={labels}
                         yLabel="# PLAYER-SEASONS"
                         dataTestId="q1-histogram"
                     />
@@ -116,8 +178,8 @@ export default function Q1TopPlayers() {
                         Three-Year Workhorses
                     </div>
                     <p className="text-xs text-[#a1a1aa] mb-4 font-sub">
-                        Players who appeared all three seasons (2021–23) with the highest
-                        total usage.
+                        Players who appeared all three seasons with the highest total usage.
+                        {season !== "all" && " (Requires all seasons — clear season filter.)"}
                     </p>
                     {trendSeries.length ? (
                         <LineChart
@@ -127,7 +189,11 @@ export default function Q1TopPlayers() {
                             dataTestId="q1-trend-line"
                         />
                     ) : (
-                        <div className="text-[#71717a] text-sm">No multi-year players found.</div>
+                        <div className="text-[#71717a] text-sm py-12 text-center">
+                            {season !== "all"
+                                ? "Clear the season filter to see trends."
+                                : "No multi-year players match the filter."}
+                        </div>
                     )}
                 </div>
             </div>

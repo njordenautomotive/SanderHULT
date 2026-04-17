@@ -1,29 +1,98 @@
+import { useMemo } from "react";
 import SectionHeader from "./SectionHeader";
 import Scatter from "./charts/Scatter";
-import { q6 } from "../lib/data";
+import { dataset } from "../lib/data";
+import { useFilters } from "../lib/filters";
 import { ARCHETYPE_COLORS } from "../lib/constants";
 
+const median = (arr) => {
+    if (!arr.length) return 0;
+    const s = [...arr].sort((a, b) => a - b);
+    const m = Math.floor(s.length / 2);
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+
 export default function Q6Archetypes() {
-    const pts = q6.archetypes.map((a) => ({
-        x: a.top_player,
-        y: a.win_pct,
-        team: a.team,
-        season: a.season,
-        conference: a.conference,
-        archetype: a.archetype,
-        color: ARCHETYPE_COLORS[a.archetype],
-    }));
+    const { season, conference, team } = useFilters();
 
-    const med = q6.archetypes[0] || { med_top: 27, med_win: 0.54 };
+    // Base joined set (used for medians and counts) — do NOT apply filters to medians
+    const base = useMemo(() => {
+        const winMap = {};
+        dataset.wins.forEach((w) => {
+            winMap[`${w.team}__${w.season}`] = w.win_pct;
+        });
+        const map = {};
+        dataset.raw.forEach((r) => {
+            const k = `${r.team}__${r.season}`;
+            if (!map[k]) {
+                map[k] = {
+                    team: r.team,
+                    conference: r.conference,
+                    season: r.season,
+                    top_player: r.top_player_share,
+                    top_3: r.top3_share,
+                };
+            }
+        });
+        return Object.values(map)
+            .map((t) => ({ ...t, win_pct: winMap[`${t.team}__${t.season}`] }))
+            .filter((t) => t.win_pct !== undefined);
+    }, []);
 
-    // Example representatives per archetype (top by winpct)
-    const examples = {};
-    q6.archetypes.forEach((a) => {
-        if (!examples[a.archetype] || a.win_pct > examples[a.archetype].win_pct) {
-            examples[a.archetype] = a;
-        }
+    const medTop = useMemo(() => median(base.map((b) => b.top_player)), [base]);
+    const medWin = useMemo(() => median(base.map((b) => b.win_pct)), [base]);
+
+    const filtered = useMemo(
+        () =>
+            base.filter((j) => {
+                if (season !== "all" && j.season !== season) return false;
+                if (conference !== "all" && j.conference !== conference) return false;
+                return true;
+            }),
+        [base, season, conference]
+    );
+
+    const classify = (t) => {
+        if (t.top_player >= medTop && t.win_pct >= medWin) return "Star-Driven Winners";
+        if (t.top_player < medTop && t.win_pct >= medWin) return "Balanced Winners";
+        if (t.top_player >= medTop && t.win_pct < medWin) return "Concentrated Strugglers";
+        return "Balanced Strugglers";
+    };
+
+    const pts = filtered.map((a) => {
+        const arch = classify(a);
+        return {
+            x: a.top_player,
+            y: a.win_pct,
+            team: a.team,
+            season: a.season,
+            conference: a.conference,
+            archetype: arch,
+            color: ARCHETYPE_COLORS[arch],
+        };
     });
-    const exampleList = Object.values(examples).sort((a, b) => b.win_pct - a.win_pct);
+
+    const counts = useMemo(() => {
+        const c = {};
+        Object.keys(ARCHETYPE_COLORS).forEach((k) => (c[k] = []));
+        filtered.forEach((t) => {
+            const arch = classify(t);
+            c[arch].push(t);
+        });
+        return c;
+    }, [filtered, medTop, medWin]);
+
+    const representatives = useMemo(() => {
+        const r = {};
+        Object.entries(counts).forEach(([k, arr]) => {
+            r[k] = arr.length
+                ? arr.reduce((best, cur) =>
+                      !best ? cur : cur.win_pct > best.win_pct ? cur : best
+                  , null)
+                : null;
+        });
+        return r;
+    }, [counts]);
 
     return (
         <section
@@ -32,48 +101,65 @@ export default function Q6Archetypes() {
             className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-b from-[#0a0a0a] via-[#0c0c0f] to-[#0a0a0a]"
         >
             <SectionHeader
-                eyebrow="Question 06"
+                eyebrow={`Question 06${season !== "all" ? ` · ${season}` : ""}${conference !== "all" ? ` · ${conference}` : ""}`}
                 title="Balanced winners or star-driven winners?"
                 kicker="Split the scatter on the medians. Four quadrants. Four strategic identities. The distribution of team-seasons across them tells you which styles actually travel to the postseason."
             />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-8 p-6 bg-[#121215] border border-white/10 relative">
-                    <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
-                        Archetype Quadrants
+                    <div className="flex items-center justify-between mb-3">
+                        <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
+                            Archetype Quadrants
+                        </div>
+                        <div className="text-[10px] font-mono text-[#71717a]">
+                            medians · top {medTop.toFixed(1)}% · win {Math.round(medWin * 100)}%
+                        </div>
                     </div>
-                    <Scatter
-                        points={pts}
-                        xLabel="TOP PLAYER SHARE (%)"
-                        yLabel="WIN %"
-                        xDomain={[15, 45]}
-                        yDomain={[0, 1]}
-                        quadrants={{ xMid: med.med_top, yMid: med.med_win }}
-                        showTrend={false}
-                        dataTestId="q6-archetypes"
-                    />
-                    <div className="absolute top-12 left-12 text-[10px] font-mono uppercase tracking-wider text-[#34c759]">
+                    {pts.length ? (
+                        <Scatter
+                            points={pts}
+                            xLabel="TOP PLAYER SHARE (%)"
+                            yLabel="WIN %"
+                            xDomain={[15, 45]}
+                            yDomain={[0, 1]}
+                            quadrants={{ xMid: medTop, yMid: medWin }}
+                            showTrend={false}
+                            highlightTeam={team}
+                            dataTestId="q6-archetypes"
+                        />
+                    ) : (
+                        <div className="text-[#71717a] text-sm py-16 text-center">
+                            No team-seasons match the filters.
+                        </div>
+                    )}
+                    <div className="absolute top-14 left-12 text-[10px] font-mono uppercase tracking-wider text-[#34c759] pointer-events-none">
                         Balanced · Winners ↗
                     </div>
-                    <div className="absolute top-12 right-20 text-[10px] font-mono uppercase tracking-wider text-[#007aff]">
+                    <div className="absolute top-14 right-20 text-[10px] font-mono uppercase tracking-wider text-[#007aff] pointer-events-none">
                         ↖ Star · Winners
                     </div>
-                    <div className="absolute bottom-20 left-12 text-[10px] font-mono uppercase tracking-wider text-[#ffcc00]">
+                    <div className="absolute bottom-20 left-12 text-[10px] font-mono uppercase tracking-wider text-[#ffcc00] pointer-events-none">
                         Balanced · Strugglers ↘
                     </div>
-                    <div className="absolute bottom-20 right-20 text-[10px] font-mono uppercase tracking-wider text-[#ff3b30]">
+                    <div className="absolute bottom-20 right-20 text-[10px] font-mono uppercase tracking-wider text-[#ff3b30] pointer-events-none">
                         ↙ Concentrated · Strugglers
                     </div>
                 </div>
 
                 <div className="lg:col-span-4 space-y-4">
                     {Object.entries(ARCHETYPE_COLORS).map(([k, c]) => {
-                        const count = q6.archetypes.filter((a) => a.archetype === k).length;
-                        const ex = examples[k];
+                        const count = counts[k]?.length || 0;
+                        const ex = representatives[k];
+                        const containsTeam = team && counts[k]?.some((t) => t.team === team);
                         return (
                             <div
                                 key={k}
-                                className="p-5 bg-[#0a0a0a] border border-white/10"
+                                className={`p-5 bg-[#0a0a0a] border transition-all ${
+                                    containsTeam
+                                        ? "border-[#ffcc00] bg-[#ffcc00]/5"
+                                        : "border-white/10"
+                                }`}
                                 data-testid={`q6-archetype-${k.replace(/\s+/g, "-").toLowerCase()}`}
                             >
                                 <div className="flex items-center gap-2 mb-2">
@@ -98,6 +184,11 @@ export default function Q6Archetypes() {
                                     <div className="mt-3 pt-3 border-t border-white/10 text-xs text-[#a1a1aa] font-sub">
                                         <span className="text-white font-semibold">{ex.team}</span>{" "}
                                         · {ex.season} · {Math.round(ex.win_pct * 100)}% win
+                                    </div>
+                                )}
+                                {containsTeam && (
+                                    <div className="mt-2 text-[10px] font-mono uppercase tracking-[0.25em] text-[#ffcc00]">
+                                        ★ {team} appears here
                                     </div>
                                 )}
                             </div>

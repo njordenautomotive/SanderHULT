@@ -31,10 +31,10 @@ export default function Nav() {
                     : "bg-transparent"
             }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+            <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10 h-14 flex items-center justify-between gap-6">
                 <a
                     href="#hero"
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 flex-shrink-0"
                     data-testid="nav-logo"
                 >
                     <span className="w-2 h-2 bg-[#ffcc00] inline-block" />
@@ -42,12 +42,12 @@ export default function Nav() {
                         Concentration / Equation
                     </span>
                 </a>
-                <div className="hidden lg:flex gap-5">
+                <div className="hidden xl:flex gap-5 flex-1 justify-center">
                     {LINKS.map((l) => (
                         <a
                             key={l.id}
                             href={`#${l.id}`}
-                            className="text-[10px] font-mono uppercase tracking-widest text-[#a1a1aa] hover:text-white transition-colors"
+                            className="text-[10px] font-mono uppercase tracking-widest text-[#a1a1aa] hover:text-white transition-colors whitespace-nowrap"
                             data-testid={`nav-link-${l.id}`}
                         >
                             {l.label}
@@ -56,7 +56,7 @@ export default function Nav() {
                 </div>
                 <a
                     href="#cleaning"
-                    className="hidden md:inline-block text-[10px] font-mono uppercase tracking-widest text-black bg-[#ffcc00] px-3 py-1.5 hover:bg-white transition-colors"
+                    className="hidden md:inline-block text-[10px] font-mono uppercase tracking-widest text-black bg-[#ffcc00] px-3 py-1.5 hover:bg-white transition-colors flex-shrink-0"
                     data-testid="nav-cta"
                 >
                     Start

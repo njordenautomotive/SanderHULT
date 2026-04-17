@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import SectionHeader from "./SectionHeader";
 import Scatter from "./charts/Scatter";
 import { dataset } from "../lib/data";
@@ -52,12 +52,15 @@ export default function Q6Archetypes() {
         [base, season, conference]
     );
 
-    const classify = (t) => {
-        if (t.top_player >= medTop && t.win_pct >= medWin) return "Star-Driven Winners";
-        if (t.top_player < medTop && t.win_pct >= medWin) return "Balanced Winners";
-        if (t.top_player >= medTop && t.win_pct < medWin) return "Concentrated Strugglers";
-        return "Balanced Strugglers";
-    };
+    const classify = useCallback(
+        (t) => {
+            if (t.top_player >= medTop && t.win_pct >= medWin) return "Star-Driven Winners";
+            if (t.top_player < medTop && t.win_pct >= medWin) return "Balanced Winners";
+            if (t.top_player >= medTop && t.win_pct < medWin) return "Concentrated Strugglers";
+            return "Balanced Strugglers";
+        },
+        [medTop, medWin]
+    );
 
     const pts = filtered.map((a) => {
         const arch = classify(a);
@@ -80,7 +83,7 @@ export default function Q6Archetypes() {
             c[arch].push(t);
         });
         return c;
-    }, [filtered, medTop, medWin]);
+    }, [filtered, classify]);
 
     const representatives = useMemo(() => {
         const r = {};

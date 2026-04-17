@@ -4,7 +4,7 @@ import Scatter from "./charts/Scatter";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { ARCHETYPE_COLORS } from "../lib/constants";
-import { WhyBadge, WhyCallout } from "./Why";
+import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 
 const median = (arr) => {
     if (!arr.length) return 0;
@@ -223,6 +223,42 @@ export default function Q6Archetypes() {
                     your talent and your system.
                 </p>
             </div>
+
+            {filtered.length > 0 && (() => {
+                const starWinners = counts["Star-Driven Winners"]?.length || 0;
+                const balWinners = counts["Balanced Winners"]?.length || 0;
+                const concStrug = counts["Concentrated Strugglers"]?.length || 0;
+                const balStrug = counts["Balanced Strugglers"]?.length || 0;
+                const totalWinners = starWinners + balWinners;
+                const verdict =
+                    totalWinners === 0
+                        ? "no winning team-seasons under the current filter"
+                        : starWinners === balWinners
+                          ? "a dead heat"
+                          : starWinners > balWinners
+                            ? "a slight edge to star-driven winners"
+                            : "a slight edge to balanced winners";
+                const scope = [
+                    season !== "all" ? season : "2021–23",
+                    conference !== "all" ? conference : "all P5",
+                ].join(" · ");
+                return (
+                    <AnswerBlock live testId="q6-answer">
+                        Across <b className="text-white">{scope}</b> (
+                        {filtered.length} team-seasons),{" "}
+                        <b className="text-[#007aff]">{balWinners}</b> balanced
+                        winners,{" "}
+                        <b className="text-[#ffcc00]">{starWinners}</b> star-driven
+                        winners,{" "}
+                        <b className="text-[#ff3b30]">{concStrug}</b> concentrated
+                        strugglers, and{" "}
+                        <b className="text-[#34c759]">{balStrug}</b> balanced
+                        strugglers. The verdict: <b className="text-white">{verdict}</b>.
+                        Success is not a function of concentration — it's a function of
+                        fit between a team's talent and the system running it.
+                    </AnswerBlock>
+                );
+            })()}
         </section>
     );
 }

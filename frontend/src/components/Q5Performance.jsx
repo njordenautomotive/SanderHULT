@@ -3,7 +3,7 @@ import SectionHeader from "./SectionHeader";
 import Scatter from "./charts/Scatter";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
-import { WhyBadge, WhyCallout } from "./Why";
+import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 
 export default function Q5Performance() {
     const { season, conference, team } = useFilters();
@@ -159,6 +159,57 @@ export default function Q5Performance() {
                     or five.
                 </p>
             </div>
+
+            {pts1.length >= 3 && (() => {
+                const corr = (a, b) => {
+                    const n = a.length;
+                    const ma = a.reduce((x, y) => x + y, 0) / n;
+                    const mb = b.reduce((x, y) => x + y, 0) / n;
+                    let num = 0, da = 0, db = 0;
+                    for (let i = 0; i < n; i++) {
+                        num += (a[i] - ma) * (b[i] - mb);
+                        da += (a[i] - ma) ** 2;
+                        db += (b[i] - mb) ** 2;
+                    }
+                    const den = Math.sqrt(da * db);
+                    return den ? num / den : 0;
+                };
+                const r1 = corr(
+                    pts1.map((p) => p.x),
+                    pts1.map((p) => p.y)
+                );
+                const r3 = corr(
+                    pts3.map((p) => p.x),
+                    pts3.map((p) => p.y)
+                );
+                const abs = Math.abs(r1);
+                let strength;
+                if (abs < 0.15) strength = "essentially no";
+                else if (abs < 0.3) strength = "a weak";
+                else if (abs < 0.5) strength = "a moderate";
+                else strength = "a strong";
+                const direction = r1 >= 0 ? "positive" : "negative";
+                const scope = [
+                    season !== "all" ? season : "2021–23",
+                    conference !== "all" ? conference : "all P5",
+                ].join(" · ");
+                return (
+                    <AnswerBlock live testId="q5-answer">
+                        Across <b className="text-white">{scope}</b> (
+                        {pts1.length} team-seasons), the correlation between top
+                        player share and win% is{" "}
+                        <b className="text-[#ffcc00]">r = {r1.toFixed(2)}</b> — {strength}{" "}
+                        {direction} relationship. The top-3 view lands at{" "}
+                        <b className="text-[#ffcc00]">r = {r3.toFixed(2)}</b>. The
+                        conclusion:{" "}
+                        <b className="text-white">
+                            concentration alone does not predict winning
+                        </b>
+                        . Great and poor teams appear across the full range of the
+                        concentration axis.
+                    </AnswerBlock>
+                );
+            })()}
         </section>
     );
 }

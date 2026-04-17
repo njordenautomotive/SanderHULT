@@ -6,7 +6,7 @@ import LineChart from "./charts/LineChart";
 import { dataset } from "../lib/data";
 import { useFilters, applyFilters } from "../lib/filters";
 import { POSITION_COLORS } from "../lib/constants";
-import { WhyBadge, WhyCallout } from "./Why";
+import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 
 export default function Q1TopPlayers() {
     const { season, conference, team } = useFilters();
@@ -216,6 +216,20 @@ export default function Q1TopPlayers() {
                     )}
                 </div>
             </div>
+
+            <AnswerBlock testId="q1-answer">
+                Offensive usage is heavily concentrated at the top of the
+                quarterback ladder. The leading player-seasons —{" "}
+                <b className="text-[#ffcc00]">
+                    Will Rogers (Miss. State, 2021)
+                </b>{" "}
+                at 0.744 and{" "}
+                <b className="text-[#ffcc00]">D'Eriq King (Miami, 2021)</b> at
+                0.735 — sit more than{" "}
+                <b className="text-white">3× above the average Power Five skill player</b>.
+                These are dual-threat QBs whose offenses funneled nearly every
+                designed opportunity through one name.
+            </AnswerBlock>
         </section>
     );
 }

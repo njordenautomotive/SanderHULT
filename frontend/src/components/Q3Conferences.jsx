@@ -5,7 +5,7 @@ import Heatmap from "./charts/Heatmap";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { CONFERENCE_COLORS } from "../lib/constants";
-import { WhyBadge, WhyCallout } from "./Why";
+import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 
 export default function Q3Conferences() {
     const { season } = useFilters();
@@ -186,6 +186,35 @@ export default function Q3Conferences() {
                     </div>
                 </div>
             </div>
+
+            {confAgg.length > 1 && (() => {
+                const sorted = [...confAgg].sort(
+                    (a, b) => b.avg_top_player - a.avg_top_player
+                );
+                const high = sorted[0];
+                const low = sorted[sorted.length - 1];
+                const gap = (high.avg_top_player - low.avg_top_player).toFixed(1);
+                const scope = season !== "all" ? season : "2021–23";
+                return (
+                    <AnswerBlock live testId="q3-answer">
+                        Across <b className="text-white">{scope}</b>, the{" "}
+                        <b className="text-[#ffcc00]">{high.conference}</b> leans
+                        most heavily on its top player (avg{" "}
+                        <b className="text-[#ffcc00]">
+                            {high.avg_top_player.toFixed(1)}%
+                        </b>
+                        ), while the <b className="text-[#34c759]">{low.conference}</b>{" "}
+                        is the most balanced (
+                        <b className="text-[#34c759]">
+                            {low.avg_top_player.toFixed(1)}%
+                        </b>
+                        ). The full spread across every Power Five conference is just{" "}
+                        <b className="text-white">{gap} percentage points</b> — a real
+                        but modest gap. Conferences differ in style, but not in
+                        systemic structure.
+                    </AnswerBlock>
+                );
+            })()}
         </section>
     );
 }

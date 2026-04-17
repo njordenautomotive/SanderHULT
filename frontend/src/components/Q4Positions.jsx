@@ -5,7 +5,7 @@ import BarChart from "./charts/BarChart";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { POSITION_COLORS } from "../lib/constants";
-import { WhyBadge, WhyCallout } from "./Why";
+import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 
 export default function Q4Positions() {
     const { season, conference } = useFilters();
@@ -184,6 +184,27 @@ export default function Q4Positions() {
                     </div>
                 ))}
             </div>
+
+            {positionDistribution.some((p) => p.players > 0) && (() => {
+                const ranked = [...positionDistribution]
+                    .filter((p) => p.players > 0)
+                    .sort((a, b) => b.avg - a.avg);
+                const top = ranked[0];
+                const bot = ranked[ranked.length - 1];
+                const ratio = bot.avg > 0 ? (top.avg / bot.avg).toFixed(1) : "—";
+                return (
+                    <AnswerBlock live testId="q4-answer">
+                        Usage is not distributed evenly by position.{" "}
+                        <b className="text-[#ffcc00]">{top.position}s</b> carry the
+                        heaviest load (avg {top.avg.toFixed(3)}), while{" "}
+                        <b className="text-white">{bot.position}s</b> sit at the
+                        bottom ({bot.avg.toFixed(3)}) — a{" "}
+                        <b className="text-[#ffcc00]">{ratio}×</b> structural gap.
+                        Any leaderboard that doesn't control for position is ranking
+                        positions, not players.
+                    </AnswerBlock>
+                );
+            })()}
         </section>
     );
 }

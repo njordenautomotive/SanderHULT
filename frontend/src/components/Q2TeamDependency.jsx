@@ -4,7 +4,7 @@ import BarChart from "./charts/BarChart";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { CONFERENCE_COLORS } from "../lib/constants";
-import { WhyBadge, WhyCallout } from "./Why";
+import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 
 export default function Q2TeamDependency() {
     const { season, conference, team, setTeam } = useFilters();
@@ -300,6 +300,45 @@ export default function Q2TeamDependency() {
                     </div>
                 </div>
             </div>
+
+            {teamAvgs.length >= 2 && (() => {
+                const sortedDep = [...teamAvgs].sort(
+                    (a, b) => b.avg_top_player - a.avg_top_player
+                );
+                const top = sortedDep[0];
+                const bot = sortedDep[sortedDep.length - 1];
+                const mean =
+                    teamAvgs.reduce((a, b) => a + b.avg_top_player, 0) /
+                    teamAvgs.length;
+                const top3Mean =
+                    teamAvgs.reduce((a, b) => a + b.avg_top3, 0) /
+                    teamAvgs.length;
+                const scope = [
+                    season !== "all" ? season : "2021–23",
+                    conference !== "all" ? conference : "all P5",
+                ].join(" · ");
+                return (
+                    <AnswerBlock live testId="q2-answer">
+                        Across <b className="text-white">{scope}</b>, the most
+                        player-dependent team is{" "}
+                        <b className="text-[#ffcc00]">{top.team}</b> ({top.conference})
+                        with an average top-player share of{" "}
+                        <b className="text-[#ffcc00]">
+                            {top.avg_top_player.toFixed(1)}%
+                        </b>
+                        . The most balanced is{" "}
+                        <b className="text-[#34c759]">{bot.team}</b> at{" "}
+                        <b className="text-[#34c759]">
+                            {bot.avg_top_player.toFixed(1)}%
+                        </b>
+                        . The overall average across {teamAvgs.length} teams sits at{" "}
+                        <b className="text-white">{mean.toFixed(1)}%</b> top player ·{" "}
+                        <b className="text-white">{top3Mean.toFixed(1)}%</b> top-3 —
+                        confirming that most P5 offenses run a plurality of their
+                        touches through a small core.
+                    </AnswerBlock>
+                );
+            })()}
         </section>
     );
 }

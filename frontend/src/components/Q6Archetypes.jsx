@@ -4,6 +4,7 @@ import Scatter from "./charts/Scatter";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { ARCHETYPE_COLORS } from "../lib/constants";
+import { WhyBadge, WhyCallout } from "./Why";
 
 const median = (arr) => {
     if (!arr.length) return 0;
@@ -109,6 +110,13 @@ export default function Q6Archetypes() {
                 kicker="Split the scatter on the medians. Four quadrants. Four strategic identities. The distribution of team-seasons across them tells you which styles actually travel to the postseason."
             />
 
+            <WhyCallout>
+                This final question synthesizes all previous findings to classify
+                offensive strategies. It moves from analysis to insight by
+                identifying whether balanced or player-dependent systems are more
+                effective at the top of the sport.
+            </WhyCallout>
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-8 p-6 bg-[#121215] border border-white/10 relative">
                     <div className="flex items-center justify-between mb-3">
@@ -119,6 +127,11 @@ export default function Q6Archetypes() {
                             medians · top {medTop.toFixed(1)}% · win {Math.round(medWin * 100)}%
                         </div>
                     </div>
+                    <WhyBadge>
+                        A quadrant split groups team-seasons into four strategic
+                        categories, making it easy to compare outcomes across
+                        different offensive structures.
+                    </WhyBadge>
                     {pts.length ? (
                         <Scatter
                             points={pts}
@@ -136,10 +149,10 @@ export default function Q6Archetypes() {
                             No team-seasons match the filters.
                         </div>
                     )}
-                    <div className="absolute top-14 left-12 text-[10px] font-mono uppercase tracking-wider text-[#34c759] pointer-events-none">
+                    <div className="absolute top-32 left-12 text-[10px] font-mono uppercase tracking-wider text-[#34c759] pointer-events-none">
                         Balanced · Winners ↗
                     </div>
-                    <div className="absolute top-14 right-20 text-[10px] font-mono uppercase tracking-wider text-[#007aff] pointer-events-none">
+                    <div className="absolute top-32 right-20 text-[10px] font-mono uppercase tracking-wider text-[#007aff] pointer-events-none">
                         ↖ Star · Winners
                     </div>
                     <div className="absolute bottom-20 left-12 text-[10px] font-mono uppercase tracking-wider text-[#ffcc00] pointer-events-none">

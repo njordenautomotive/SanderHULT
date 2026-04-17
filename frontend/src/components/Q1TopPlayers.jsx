@@ -6,6 +6,7 @@ import LineChart from "./charts/LineChart";
 import { dataset } from "../lib/data";
 import { useFilters, applyFilters } from "../lib/filters";
 import { POSITION_COLORS } from "../lib/constants";
+import { WhyBadge, WhyCallout } from "./Why";
 
 export default function Q1TopPlayers() {
     const { season, conference, team } = useFilters();
@@ -110,6 +111,10 @@ export default function Q1TopPlayers() {
                             n = {filteredRows.length.toLocaleString()}
                         </div>
                     </div>
+                    <WhyBadge>
+                        A bar chart ranks players directly and highlights extreme
+                        values, making the most dominant player-seasons easy to spot.
+                    </WhyBadge>
                     {topBars.length ? (
                         <BarChart
                             data={topBars}
@@ -130,6 +135,11 @@ export default function Q1TopPlayers() {
                         <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-2">
                             Average Usage by Position
                         </div>
+                        <WhyBadge color="#34c759">
+                            Comparing positions explains structural differences in
+                            offensive roles and shows which positions naturally carry
+                            the most responsibility.
+                        </WhyBadge>
                         {positionAvgBars.length ? (
                             <BarChart
                                 data={positionAvgBars}
@@ -166,6 +176,10 @@ export default function Q1TopPlayers() {
                         Over half of all Power Five skill players sit under 5% usage. The
                         tail is heavy, not fat.
                     </p>
+                    <WhyBadge>
+                        A distribution reveals how usage is spread across all
+                        players — whether most sit near zero and only a few dominate.
+                    </WhyBadge>
                     <Histogram
                         series={distSeries}
                         categories={labels}
@@ -181,6 +195,11 @@ export default function Q1TopPlayers() {
                         Players who appeared all three seasons with the highest total usage.
                         {season !== "all" && " (Requires all seasons — clear season filter.)"}
                     </p>
+                    <WhyBadge color="#ff3b30">
+                        A time-based view shows whether dominant players are
+                        consistent year over year or whether offensive leadership
+                        changes each season.
+                    </WhyBadge>
                     {trendSeries.length ? (
                         <LineChart
                             series={trendSeries}

@@ -4,6 +4,7 @@ import BarChart from "./charts/BarChart";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { CONFERENCE_COLORS } from "../lib/constants";
+import { WhyBadge, WhyCallout } from "./Why";
 
 export default function Q2TeamDependency() {
     const { season, conference, team, setTeam } = useFilters();
@@ -104,6 +105,13 @@ export default function Q2TeamDependency() {
                 kicker="For every team-season, Top Player Share measures how much of the offense runs through one name. A team at 35%+ is carrying a true bellcow. Below 22% is genuinely balanced."
             />
 
+            <WhyCallout>
+                This question shifts the focus from individual players to team
+                structure. It reveals whether teams distribute offensive
+                responsibility evenly or depend heavily on a few key players — which
+                is central to understanding offensive strategy.
+            </WhyCallout>
+
             {spotlight && (
                 <div
                     data-testid="q2-spotlight"
@@ -181,6 +189,11 @@ export default function Q2TeamDependency() {
                             avg top player share
                         </div>
                     </div>
+                    <WhyBadge color="#ff3b30">
+                        Top player share is the clearest indicator of extreme
+                        concentration — it measures exactly how much of the offense
+                        runs through one name.
+                    </WhyBadge>
                     {mostDependent.length ? (
                         <BarChart
                             data={mostDependent}
@@ -206,6 +219,11 @@ export default function Q2TeamDependency() {
                             lowest top player share
                         </div>
                     </div>
+                    <WhyBadge color="#34c759">
+                        Flipping the ranking surfaces the counter-example — offenses
+                        that genuinely spread touches rather than funnel them to a
+                        single star.
+                    </WhyBadge>
                     {mostBalanced.length ? (
                         <BarChart
                             data={mostBalanced}
@@ -233,6 +251,11 @@ export default function Q2TeamDependency() {
                         Across every Power Five team, the top three contributors absorb on
                         average <b className="text-white">53%</b> of offensive usage.
                     </p>
+                    <WhyBadge color="#ffcc00">
+                        The top-three view gives a more stable read on team structure
+                        than any single player — one outlier season can't swing the
+                        whole picture.
+                    </WhyBadge>
                     {top3Ranking.length ? (
                         <BarChart
                             data={top3Ranking}

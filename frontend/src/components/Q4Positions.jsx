@@ -5,6 +5,7 @@ import BarChart from "./charts/BarChart";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { POSITION_COLORS } from "../lib/constants";
+import { WhyBadge, WhyCallout } from "./Why";
 
 export default function Q4Positions() {
     const { season, conference } = useFilters();
@@ -90,6 +91,13 @@ export default function Q4Positions() {
                 kicker="Every offense is built from four archetypes. Their usage profiles look nothing alike — and that structural asymmetry is the reason naive rankings need position context."
             />
 
+            <WhyCallout>
+                This question explores how offensive responsibility is structurally
+                assigned across positions. It helps explain whether certain positions
+                inherently carry more workload and how teams design their offenses
+                around them.
+            </WhyCallout>
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
                 <div className="lg:col-span-8 p-6 bg-[#121215] border border-white/10">
                     <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-1">
@@ -99,6 +107,10 @@ export default function Q4Positions() {
                         Grouped bars per usage bin. QBs have a bimodal split (backups vs
                         starters). WRs and RBs taper smoothly. TEs clump at the low end.
                     </p>
+                    <WhyBadge>
+                        Distribution shows whether usage within a position is evenly
+                        spread or dominated by a few players.
+                    </WhyBadge>
                     <Histogram
                         series={series}
                         categories={labels}
@@ -111,6 +123,10 @@ export default function Q4Positions() {
                         <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
                             Avg Usage_Overall
                         </div>
+                        <WhyBadge color="#34c759">
+                            Direct comparison of workload across positions, making
+                            structural role differences immediately readable.
+                        </WhyBadge>
                         {avgBars.length ? (
                             <BarChart
                                 data={avgBars}

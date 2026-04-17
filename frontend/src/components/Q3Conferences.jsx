@@ -5,6 +5,7 @@ import Heatmap from "./charts/Heatmap";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
 import { CONFERENCE_COLORS } from "../lib/constants";
+import { WhyBadge, WhyCallout } from "./Why";
 
 export default function Q3Conferences() {
     const { season } = useFilters();
@@ -93,11 +94,22 @@ export default function Q3Conferences() {
                 kicker="The Power Five aren't homogeneous. Even at the conference average level, some leagues play a more star-driven brand than others."
             />
 
+            <WhyCallout>
+                This question examines whether offensive strategies vary across
+                competitive environments. Differences across conferences may reflect
+                coaching styles, talent distribution, or systemic trends in how teams
+                structure their offenses.
+            </WhyCallout>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <div className="p-6 bg-[#121215] border border-white/10">
                     <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
                         Top Player Share · Conference Avg
                     </div>
+                    <WhyBadge>
+                        Aggregating by conference allows a direct comparison of
+                        average dependency levels across groups.
+                    </WhyBadge>
                     <BarChart
                         data={confTop}
                         valueFormat={(v) => `${v.toFixed(1)}%`}
@@ -111,6 +123,10 @@ export default function Q3Conferences() {
                     <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
                         Top 3 Share · Conference Avg
                     </div>
+                    <WhyBadge color="#ffcc00">
+                        The top-three cut smooths over single-player outliers and
+                        captures whole-offense structure at the conference level.
+                    </WhyBadge>
                     <BarChart
                         data={confTop3}
                         valueFormat={(v) => `${v.toFixed(1)}%`}
@@ -127,6 +143,11 @@ export default function Q3Conferences() {
                     <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a] mb-3">
                         Conference × Position · Avg Usage
                     </div>
+                    <WhyBadge color="#34c759">
+                        A heatmap handles two categorical axes with one continuous
+                        value — showing whether differences are consistent across
+                        positions or driven by a few extremes.
+                    </WhyBadge>
                     <Heatmap
                         data={confPos}
                         rows={conferences}

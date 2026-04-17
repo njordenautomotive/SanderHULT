@@ -3,6 +3,7 @@ import SectionHeader from "./SectionHeader";
 import Scatter from "./charts/Scatter";
 import { dataset } from "../lib/data";
 import { useFilters } from "../lib/filters";
+import { WhyBadge, WhyCallout } from "./Why";
 
 export default function Q5Performance() {
     const { season, conference, team } = useFilters();
@@ -68,6 +69,12 @@ export default function Q5Performance() {
                 kicker="Each dot is a team-season. Horizontal axis = how much of the offense one player owned. Vertical axis = season win percentage. Colored by conference."
             />
 
+            <WhyCallout>
+                This question connects structure to outcomes. It tests whether
+                relying on a few players is associated with better or worse
+                performance — turning descriptive analysis into evaluative insight.
+            </WhyCallout>
+
             <div className="mb-4 p-4 bg-[#0a0a0a] border border-[#007aff]/30">
                 <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#007aff] mb-1">
                     Note on data
@@ -90,6 +97,11 @@ export default function Q5Performance() {
                             n = {pts1.length}
                         </div>
                     </div>
+                    <WhyBadge>
+                        A scatter plot is ideal for spotting relationships between
+                        two variables — or confirming the absence of one. Isolating
+                        top-player share focuses on single-player dependency.
+                    </WhyBadge>
                     {pts1.length ? (
                         <Scatter
                             points={pts1}
@@ -115,6 +127,10 @@ export default function Q5Performance() {
                             n = {pts3.length}
                         </div>
                     </div>
+                    <WhyBadge color="#ffcc00">
+                        Using top-3 share tests whether the depth of concentration —
+                        not just a single star — is what moves the needle on winning.
+                    </WhyBadge>
                     {pts3.length ? (
                         <Scatter
                             points={pts3}

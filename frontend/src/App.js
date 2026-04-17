@@ -21,7 +21,7 @@ const Home = () => {
             <FilterProvider>
                 <Nav />
                 <FilterBar />
-                <main className="relative z-[2]">
+                <main className="relative z-[2] xl:pl-[220px] 2xl:pl-[240px]">
                     <Hero />
                     <UsageExplainer />
                     <CleaningProcess />

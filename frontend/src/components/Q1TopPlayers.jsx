@@ -16,13 +16,15 @@ export default function Q1TopPlayers() {
         [season, conference, team]
     );
 
+    const truncate = (s, n = 26) => (s.length > n ? s.slice(0, n - 1) + "…" : s);
+
     const topBars = useMemo(
         () =>
             [...filteredRows]
                 .sort((a, b) => b.usage - a.usage)
                 .slice(0, 15)
                 .map((p) => ({
-                    label: `${p.player} · ${p.team} ${p.season}`,
+                    label: truncate(`${p.player} · ${p.team} ${p.season}`, 28),
                     value: p.usage,
                     sub: p.position,
                     color: POSITION_COLORS[p.position],
@@ -118,9 +120,10 @@ export default function Q1TopPlayers() {
                     {topBars.length ? (
                         <BarChart
                             data={topBars}
+                            width={760}
                             valueFormat={(v) => v.toFixed(3)}
                             xLabel="USAGE OVERALL"
-                            padding={{ top: 16, right: 80, bottom: 32, left: 220 }}
+                            padding={{ top: 16, right: 80, bottom: 32, left: 260 }}
                             dataTestId="q1-top-bars"
                         />
                     ) : (

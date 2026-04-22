@@ -15,39 +15,27 @@ export default function Q3Conferences() {
         [season]
     );
 
-    // Build per team-season top player + top3 (dedupe by team-season key)
-    const teamSeason = useMemo(() => {
-        const map = {};
-        rows.forEach((r) => {
-            const key = `${r.team}__${r.season}`;
-            if (!map[key]) {
-                map[key] = {
-                    team: r.team,
-                    conference: r.conference,
-                    season: r.season,
-                    top_player_share: r.top_player_share,
-                    top3_share: r.top3_share,
-                };
-            }
-        });
-        return Object.values(map);
-    }, [rows]);
-
+    // Conference averages — Excel-pivot style: AVERAGE(Top_Player_Share) grouped by
+    // conference over EVERY raw player row. Each team-season contributes proportional
+    // to its player count, matching the source Excel methodology.
     const confAgg = useMemo(() => {
         const grp = {};
-        teamSeason.forEach((t) => {
-            if (!grp[t.conference]) grp[t.conference] = { top: [], top3: [], teams: new Set() };
-            grp[t.conference].top.push(t.top_player_share);
-            grp[t.conference].top3.push(t.top3_share);
-            grp[t.conference].teams.add(t.team);
+        rows.forEach((r) => {
+            if (!grp[r.conference]) {
+                grp[r.conference] = { topSum: 0, top3Sum: 0, n: 0, teams: new Set() };
+            }
+            grp[r.conference].topSum += r.top_player_share;
+            grp[r.conference].top3Sum += r.top3_share;
+            grp[r.conference].n += 1;
+            grp[r.conference].teams.add(r.team);
         });
         return Object.entries(grp).map(([c, v]) => ({
             conference: c,
-            avg_top_player: v.top.reduce((a, b) => a + b, 0) / v.top.length,
-            avg_top3: v.top3.reduce((a, b) => a + b, 0) / v.top3.length,
+            avg_top_player: v.topSum / v.n,
+            avg_top3: v.top3Sum / v.n,
             teams: v.teams.size,
         }));
-    }, [teamSeason]);
+    }, [rows]);
 
     const confPos = useMemo(() => {
         const grp = {};

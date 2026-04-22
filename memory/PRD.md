@@ -46,6 +46,14 @@ Audience: course instructor, students, sports-analytics readers.
 - Responsive dark theme with grain overlay.
 - Transparent external win% lookup for Q5/Q6 (fully disclosed in UI).
 - Preprocessing pipeline producing deterministic JSON bundle.
+- Global Filter Bar (Season/Conference/Team) — desktop sidebar + mobile dropdown.
+- Column-Level Data Cleaning Documentation + Raw and Cleaned data tables.
+- Live "Answer" block per question that updates with filters.
+- **Q2/Q3 aggregation aligned to source Excel pivot (Feb 2026 patch):**
+  team- and conference-level averages now use `AVERAGE(Top_Player_Share)` over
+  every raw player-row (weighted by player count per season) — matching the
+  user-provided Excel exactly (Houston 41.9%, Arizona 30.6%, etc.). Q2 now shows
+  Top 15 per ranking. Q5/Q6 are per team-season points, unaffected.
 
 ## Backlog / Future
 - **P1**: Global filter bar (season/conference/team) that cross-filters every chart.

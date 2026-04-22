@@ -9,7 +9,7 @@ import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 export default function Q2TeamDependency() {
     const { season, conference, team, setTeam } = useFilters();
 
-    // Build per (team, season) aggregates from raw
+    // Build per (team, season) aggregates from raw (used for spotlight per-season breakdown only)
     const teamSeason = useMemo(() => {
         const map = {};
         dataset.raw.forEach((r) => {
@@ -27,36 +27,45 @@ export default function Q2TeamDependency() {
         return Object.values(map);
     }, []);
 
-    const filtered = useMemo(() => {
-        return teamSeason.filter((ts) => {
-            if (season !== "all" && ts.season !== season) return false;
-            if (conference !== "all" && ts.conference !== conference) return false;
-            return true;
-        });
-    }, [teamSeason, season, conference]);
-
-    // Team-level averages across current filter
+    // Team-level averages — Excel-pivot style: average top_player_share across EVERY
+    // raw player-row for that team (implicitly weights each season by its player count).
+    // Houston 41.9%, Washington State 36.2%, Miss State 33.6%, ... all match the
+    // source Excel pivot exactly with this aggregation.
     const teamAvgs = useMemo(() => {
         const grp = {};
-        filtered.forEach((ts) => {
-            if (!grp[ts.team]) grp[ts.team] = { team: ts.team, conference: ts.conference, top: [], top3: [] };
-            grp[ts.team].top.push(ts.top_player_share);
-            grp[ts.team].top3.push(ts.top3_share);
+        dataset.raw.forEach((r) => {
+            if (season !== "all" && r.season !== season) return;
+            if (conference !== "all" && r.conference !== conference) return;
+            if (!grp[r.team]) {
+                grp[r.team] = {
+                    team: r.team,
+                    conference: r.conference,
+                    topSum: 0,
+                    top3Sum: 0,
+                    n: 0,
+                    seasonsSet: new Set(),
+                };
+            }
+            grp[r.team].topSum += r.top_player_share;
+            grp[r.team].top3Sum += r.top3_share;
+            grp[r.team].n += 1;
+            grp[r.team].seasonsSet.add(r.season);
         });
         return Object.values(grp).map((g) => ({
             team: g.team,
             conference: g.conference,
-            avg_top_player: g.top.reduce((a, b) => a + b, 0) / g.top.length,
-            avg_top3: g.top3.reduce((a, b) => a + b, 0) / g.top3.length,
-            seasons: g.top.length,
+            avg_top_player: g.topSum / g.n,
+            avg_top3: g.top3Sum / g.n,
+            seasons: g.seasonsSet.size,
+            rows: g.n,
         }));
-    }, [filtered]);
+    }, [season, conference]);
 
     const makeBars = (arr, dir = "desc", key = "avg_top_player") => {
         const sorted = [...arr].sort((a, b) =>
             dir === "desc" ? b[key] - a[key] : a[key] - b[key]
         );
-        return sorted.slice(0, 12).map((t) => ({
+        return sorted.slice(0, 15).map((t) => ({
             label: t.team,
             value: t[key],
             sub: `${t.conference} · n=${t.seasons}`,
@@ -96,26 +105,28 @@ export default function Q2TeamDependency() {
     const mostBalanced = useMemo(() => makeBars(teamAvgs, "asc", "avg_top_player"), [teamAvgs]);
     const top3Ranking = useMemo(() => makeBars(teamAvgs, "desc", "avg_top3"), [teamAvgs]);
 
-    // Team spotlight metrics when a team is selected
+    // Team spotlight metrics when a team is selected (Excel-weighted, matches charts)
     const spotlight = useMemo(() => {
         if (!team) return null;
-        const sub = teamSeason.filter((t) => t.team === team);
-        if (!sub.length) return null;
-        const avgTop = sub.reduce((a, b) => a + b.top_player_share, 0) / sub.length;
-        const avgTop3 = sub.reduce((a, b) => a + b.top3_share, 0) / sub.length;
-        // rank across all P5
+        const rawRows = dataset.raw.filter((r) => r.team === team);
+        if (!rawRows.length) return null;
+        const avgTop = rawRows.reduce((a, b) => a + b.top_player_share, 0) / rawRows.length;
+        const avgTop3 = rawRows.reduce((a, b) => a + b.top3_share, 0) / rawRows.length;
+        // Per-season breakdown (one value per season)
+        const perSeason = teamSeason.filter((t) => t.team === team);
+        // rank across all P5 (within current filter context)
         const allRanked = teamAvgs
             .slice()
             .sort((a, b) => b.avg_top_player - a.avg_top_player);
         const rank = allRanked.findIndex((t) => t.team === team);
         return {
             team,
-            conference: sub[0].conference,
+            conference: rawRows[0].conference,
             avgTop,
             avgTop3,
             rank: rank >= 0 ? rank + 1 : null,
             total: allRanked.length,
-            seasons: sub.map((s) => ({ s: s.season, top: s.top_player_share })),
+            seasons: perSeason.map((s) => ({ s: s.season, top: s.top_player_share })),
         };
     }, [team, teamSeason, teamAvgs]);
 
@@ -148,14 +159,15 @@ export default function Q2TeamDependency() {
                     Methodology
                 </span>
                 <span>
-                    Every chart on this page aggregates by team first, then ranks. A
-                    team's bar is{" "}
-                    <b className="text-white">
-                        avg(top_player_share) across every season
-                    </b>{" "}
-                    that team appears in the dataset — so one bar = one team, not one
-                    team-season. Hover any bar to see how many seasons were averaged
-                    (shown as <span className="font-mono text-[#ffcc00]">n=</span>).
+                    Every chart on this page aggregates by team over{" "}
+                    <b className="text-white">every raw player-row</b> in the source
+                    dataset — matching the Excel pivot{" "}
+                    <span className="font-mono text-[#ffcc00]">
+                        AVERAGE(Top_Player_Share)
+                    </span>{" "}
+                    grouped by team. Each season is implicitly weighted by its player
+                    count. Hover any bar to see the seasons averaged (
+                    <span className="font-mono text-[#ffcc00]">n=</span> seasons).
                 </span>
             </div>
 

@@ -28,6 +28,45 @@ export default function Q1TopPlayers() {
                     value: p.usage,
                     sub: p.position,
                     color: POSITION_COLORS[p.position],
+                    tooltip: (
+                        <div>
+                            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#71717a]">
+                                {p.position} · {p.conference} · {p.season}
+                            </div>
+                            <div className="font-heading text-lg font-black text-white uppercase leading-tight mt-1">
+                                {p.player}
+                            </div>
+                            <div className="text-sm font-sub text-[#a1a1aa] mt-0.5">
+                                {p.team}
+                            </div>
+                            <div className="mt-2 pt-2 border-t border-white/10 flex gap-4">
+                                <div>
+                                    <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#71717a]">
+                                        Usage
+                                    </div>
+                                    <div className="font-mono text-sm text-[#ffcc00] font-bold">
+                                        {p.usage.toFixed(3)}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#71717a]">
+                                        Team share
+                                    </div>
+                                    <div className="font-mono text-sm text-white font-bold">
+                                        {p.share.toFixed(1)}%
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#71717a]">
+                                        Rank
+                                    </div>
+                                    <div className="font-mono text-sm text-white font-bold">
+                                        #{p.rank}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ),
                 })),
         [filteredRows]
     );

@@ -34,6 +34,9 @@ export default function BarChart({
 
     const ticks = x.ticks(5);
 
+    const hovered = hover !== null ? data[hover] : null;
+    const hoveredY = hover !== null ? padding.top + hover * (barHeight + gap) + barHeight / 2 : 0;
+
     return (
         <div ref={ref} className="relative" data-testid={dataTestId}>
             <svg width="100%" viewBox={`0 0 ${width} ${height}`} className="block">
@@ -135,6 +138,19 @@ export default function BarChart({
                     );
                 })}
             </svg>
+            {hovered?.tooltip && (
+                <div
+                    className="absolute z-20 pointer-events-none bg-[#121215] border border-white/25 p-3 shadow-2xl min-w-[200px]"
+                    style={{
+                        left: `${(padding.left / width) * 100}%`,
+                        top: `${(hoveredY / height) * 100}%`,
+                        transform: "translate(8px, -110%)",
+                    }}
+                    data-testid="bar-tooltip"
+                >
+                    {hovered.tooltip}
+                </div>
+            )}
             {xLabel && (
                 <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#71717a] mt-1 text-center">
                     {xLabel}

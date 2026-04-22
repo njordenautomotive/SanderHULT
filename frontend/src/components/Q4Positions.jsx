@@ -130,7 +130,7 @@ export default function Q4Positions() {
                         {avgBars.length ? (
                             <BarChart
                                 data={avgBars}
-                                valueFormat={(v) => v.toFixed(3)}
+                                valueFormat={(v) => `${(v * 100).toFixed(1)}%`}
                                 barHeight={28}
                                 padding={{ top: 8, right: 70, bottom: 28, left: 50 }}
                                 dataTestId="q4-avg-usage"
@@ -176,7 +176,7 @@ export default function Q4Positions() {
                             avg usage
                         </div>
                         <div className="font-mono text-xl text-white font-bold">
-                            {p.avg.toFixed(3)}
+                            {(p.avg * 100).toFixed(1)}%
                         </div>
                         <div className="mt-2 text-xs text-[#a1a1aa] font-sub">
                             {p.players} player-seasons
@@ -196,9 +196,9 @@ export default function Q4Positions() {
                     <AnswerBlock live testId="q4-answer">
                         Usage is not distributed evenly by position.{" "}
                         <b className="text-[#ffcc00]">{top.position}s</b> carry the
-                        heaviest load (avg {top.avg.toFixed(3)}), while{" "}
+                        heaviest load (avg {(top.avg * 100).toFixed(1)}%), while{" "}
                         <b className="text-white">{bot.position}s</b> sit at the
-                        bottom ({bot.avg.toFixed(3)}) — a{" "}
+                        bottom ({(bot.avg * 100).toFixed(1)}%) — a{" "}
                         <b className="text-[#ffcc00]">{ratio}×</b> structural gap.
                         Any leaderboard that doesn't control for position is ranking
                         positions, not players.

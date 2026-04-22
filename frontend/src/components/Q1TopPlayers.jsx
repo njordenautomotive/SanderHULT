@@ -45,7 +45,7 @@ export default function Q1TopPlayers() {
                                         Usage
                                     </div>
                                     <div className="font-mono text-sm text-[#ffcc00] font-bold">
-                                        {p.usage.toFixed(3)}
+                                        {(p.usage * 100).toFixed(1)}%
                                     </div>
                                 </div>
                                 <div>
@@ -160,7 +160,7 @@ export default function Q1TopPlayers() {
                         <BarChart
                             data={topBars}
                             width={760}
-                            valueFormat={(v) => v.toFixed(3)}
+                            valueFormat={(v) => `${(v * 100).toFixed(1)}%`}
                             xLabel="USAGE OVERALL"
                             padding={{ top: 16, right: 80, bottom: 32, left: 260 }}
                             dataTestId="q1-top-bars"
@@ -185,7 +185,7 @@ export default function Q1TopPlayers() {
                         {positionAvgBars.length ? (
                             <BarChart
                                 data={positionAvgBars}
-                                valueFormat={(v) => v.toFixed(3)}
+                                valueFormat={(v) => `${(v * 100).toFixed(1)}%`}
                                 barHeight={32}
                                 padding={{ top: 12, right: 80, bottom: 32, left: 60 }}
                                 dataTestId="q1-position-avg"
@@ -246,7 +246,7 @@ export default function Q1TopPlayers() {
                         <LineChart
                             series={trendSeries}
                             xFormat={(v) => `'${String(v).slice(2)}`}
-                            yFormat={(v) => v.toFixed(2)}
+                            yFormat={(v) => `${(v * 100).toFixed(0)}%`}
                             dataTestId="q1-trend-line"
                         />
                     ) : (
@@ -265,9 +265,9 @@ export default function Q1TopPlayers() {
                 <b className="text-[#ffcc00]">
                     Will Rogers (Miss. State, 2021)
                 </b>{" "}
-                at 0.744 and{" "}
+                at 74.4% and{" "}
                 <b className="text-[#ffcc00]">D'Eriq King (Miami, 2021)</b> at
-                0.735 — sit more than{" "}
+                73.5% — sit more than{" "}
                 <b className="text-white">3× above the average Power Five skill player</b>.
                 These are dual-threat QBs whose offenses funneled nearly every
                 designed opportunity through one name.

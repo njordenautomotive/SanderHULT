@@ -59,8 +59,36 @@ export default function Q2TeamDependency() {
         return sorted.slice(0, 12).map((t) => ({
             label: t.team,
             value: t[key],
-            sub: t.conference,
+            sub: `${t.conference} · n=${t.seasons}`,
             color: CONFERENCE_COLORS[t.conference],
+            tooltip: (
+                <div>
+                    <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#71717a]">
+                        {t.conference} · {t.seasons} season{t.seasons === 1 ? "" : "s"} averaged
+                    </div>
+                    <div className="font-heading text-lg font-black text-white uppercase leading-tight mt-1">
+                        {t.team}
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-white/10 flex gap-4">
+                        <div>
+                            <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#71717a]">
+                                Avg Top Player
+                            </div>
+                            <div className="font-mono text-sm text-[#ffcc00] font-bold">
+                                {t.avg_top_player.toFixed(2)}%
+                            </div>
+                        </div>
+                        <div>
+                            <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#71717a]">
+                                Avg Top 3
+                            </div>
+                            <div className="font-mono text-sm text-white font-bold">
+                                {t.avg_top3.toFixed(2)}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ),
         }));
     };
 
@@ -111,6 +139,25 @@ export default function Q2TeamDependency() {
                 responsibility evenly or depend heavily on a few key players — which
                 is central to understanding offensive strategy.
             </WhyCallout>
+
+            <div
+                className="mb-6 p-4 bg-[#0a0a0a] border border-white/10 text-xs text-[#a1a1aa] font-sub leading-relaxed flex flex-wrap items-baseline gap-x-3 gap-y-1"
+                data-testid="q2-methodology-note"
+            >
+                <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#ffcc00]">
+                    Methodology
+                </span>
+                <span>
+                    Every chart on this page aggregates by team first, then ranks. A
+                    team's bar is{" "}
+                    <b className="text-white">
+                        avg(top_player_share) across every season
+                    </b>{" "}
+                    that team appears in the dataset — so one bar = one team, not one
+                    team-season. Hover any bar to see how many seasons were averaged
+                    (shown as <span className="font-mono text-[#ffcc00]">n=</span>).
+                </span>
+            </div>
 
             {spotlight && (
                 <div

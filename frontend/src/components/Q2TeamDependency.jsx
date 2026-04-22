@@ -65,10 +65,10 @@ export default function Q2TeamDependency() {
         const sorted = [...arr].sort((a, b) =>
             dir === "desc" ? b[key] - a[key] : a[key] - b[key]
         );
-        return sorted.slice(0, 15).map((t) => ({
+        return sorted.slice(0, 12).map((t) => ({
             label: t.team,
             value: t[key],
-            sub: `${t.conference} · n=${t.seasons}`,
+            sub: t.conference,
             color: CONFERENCE_COLORS[t.conference],
             tooltip: (
                 <div>

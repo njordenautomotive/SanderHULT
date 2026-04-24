@@ -70,20 +70,26 @@ export default function Q5Performance() {
             />
 
             <WhyCallout>
-                This question connects structure to outcomes. It tests whether
-                relying on a few players is associated with better or worse
-                performance — turning descriptive analysis into evaluative insight.
+                Win percentage was calculated from real team-game results by summing
+                wins and games for each team-season. This allows the performance
+                analysis to test whether offensive usage concentration is related to
+                actual team success.
             </WhyCallout>
 
             <div className="mb-4 p-4 bg-[#0a0a0a] border border-[#007aff]/30">
                 <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#007aff] mb-1">
-                    Note on data
+                    Methodology · Win% from real game results
                 </div>
                 <p className="text-xs text-[#a1a1aa] font-sub leading-relaxed">
-                    The raw dataset doesn't carry wins. Win% is stitched in from public
-                    season records (regular + postseason) for each P5 team-season — a
-                    transparent external join. Any team-season without a clean record
-                    match is excluded from these scatters.
+                    Team performance is computed directly from{" "}
+                    <b className="text-white">CLEAN_Win_Data.csv</b> — one row per
+                    team per game — by summing{" "}
+                    <span className="font-mono text-[#ffcc00]">Win</span> and{" "}
+                    <span className="font-mono text-[#ffcc00]">Game</span> per
+                    team-season, then dividing to get win%. No estimates, no
+                    hardcoded values, no simulations. Both the raw game-level file
+                    and the cleaned team-game file are linked at the bottom of the
+                    page.
                 </p>
             </div>
 
@@ -198,10 +204,17 @@ export default function Q5Performance() {
                         Across <b className="text-white">{scope}</b> (
                         {pts1.length} team-seasons), the correlation between top
                         player share and win% is{" "}
-                        <b className="text-[#ffcc00]">r = {r1.toFixed(2)}</b> — {strength}{" "}
-                        {direction} relationship. The top-3 view lands at{" "}
-                        <b className="text-[#ffcc00]">r = {r3.toFixed(2)}</b>. The
-                        conclusion:{" "}
+                        <b className="text-[#ffcc00]">r = {r1.toFixed(3)}</b>{" "}
+                        <span className="text-[#71717a]">
+                            (R² = {(r1 * r1).toFixed(3)})
+                        </span>{" "}
+                        — {strength} {direction} relationship. The top-3 view lands
+                        at{" "}
+                        <b className="text-[#ffcc00]">r = {r3.toFixed(3)}</b>{" "}
+                        <span className="text-[#71717a]">
+                            (R² = {(r3 * r3).toFixed(3)})
+                        </span>
+                        . The conclusion:{" "}
                         <b className="text-white">
                             concentration alone does not predict winning
                         </b>

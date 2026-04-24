@@ -124,6 +124,26 @@ export default function Conclusion() {
                             Cleaned Data <span>→</span>
                         </Link>
                     </div>
+                    <div className="flex flex-wrap gap-2 md:justify-end">
+                        <a
+                            href="/RAW_Win_Data.csv"
+                            download
+                            data-testid="footer-raw-win-data-link"
+                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-white border border-[#ff3b30]/60 px-4 py-2.5 hover:bg-[#ff3b30] hover:text-white transition-colors"
+                            title="Original game-level results used to calculate team performance"
+                        >
+                            Raw Win Data <span>↓</span>
+                        </a>
+                        <a
+                            href="/CLEAN_Win_Data.csv"
+                            download
+                            data-testid="footer-clean-win-data-link"
+                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-white border border-[#ffcc00]/60 px-4 py-2.5 hover:bg-[#ffcc00] hover:text-black transition-colors"
+                            title="Processed team-game dataset used to calculate wins, games, and win%"
+                        >
+                            Clean Win Data <span>↓</span>
+                        </a>
+                    </div>
                     <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
                         Data · 2021–2023 Power Five · QB · RB · WR · TE
                     </div>

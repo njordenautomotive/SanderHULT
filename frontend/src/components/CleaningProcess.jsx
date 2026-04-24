@@ -1,6 +1,6 @@
 import SectionHeader from "./SectionHeader";
 import Funnel from "./charts/Funnel";
-import { cleaningFunnel, summary } from "../lib/data";
+import { cleaningFunnel } from "../lib/data";
 import { motion } from "framer-motion";
 
 const DECISIONS = [
@@ -83,8 +83,8 @@ export default function CleaningProcess() {
         >
             <SectionHeader
                 eyebrow="Ch. 02 · Methodology"
-                title="From 175,453 data points to 62,464."
-                kicker="Two deliberate cuts — one big, one surgical. 8,958 rows were dropped by narrowing the scope to Power Five conferences; 18 more were dropped by removing the fullback position. Nothing else was filtered — the shape of the distribution was left intact."
+                title="From 272,034 data points to 81,496."
+                kicker="Combined unaltered source data (RAW_DATA + RAW_Win_Data) begins at 32,200 rows. 25,917 rows were dropped by narrowing the scope to Power Five conferences; 18 more were dropped by removing the fullback position. Nothing else was filtered — the shape of the distribution was left intact."
             />
 
             {/* Dataset dimensions panel — data points × rows */}
@@ -170,17 +170,17 @@ export default function CleaningProcess() {
                         <Funnel steps={cleaningFunnel} dataTestId="cleaning-funnel" />
                     </div>
 
-                    {/* before / after table */}
+                    {/* before / after — combined (RAW_DATA + RAW_Win_Data) */}
                     <div className="mt-6 grid grid-cols-2 gap-4">
                         <div className="p-5 bg-[#0a0a0a] border border-white/10">
                             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
-                                Before · RAW_DATA
+                                Before · RAW_DATA + RAW_Win_Data
                             </div>
                             <div className="mt-2 font-heading text-4xl font-black text-white leading-none">
-                                175,453
+                                272,034
                             </div>
                             <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#71717a] mt-1">
-                                data points · 12,880 rows
+                                data points · 32,200 rows
                             </div>
                             <div className="mt-2 text-xs text-[#a1a1aa]">
                                 all conferences · all positions · 2021–2023
@@ -188,14 +188,13 @@ export default function CleaningProcess() {
                         </div>
                         <div className="p-5 bg-[#ffcc00]/10 border border-[#ffcc00]/30">
                             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#ffcc00]">
-                                After · CLEAN_DATA
+                                After · CLEAN_DATA + CLEAN_Win_Data
                             </div>
                             <div className="mt-2 font-heading text-4xl font-black text-white leading-none">
-                                62,464
+                                81,496
                             </div>
                             <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#ffcc00] mt-1">
-                                data points ·{" "}
-                                {summary.total_rows.toLocaleString()} rows
+                                data points · 6,265 rows
                             </div>
                             <div className="mt-2 text-xs text-[#a1a1aa]">
                                 P5 · QB/RB/WR/TE · 2021–2023

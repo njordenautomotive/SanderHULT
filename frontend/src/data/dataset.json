@@ -28,19 +28,19 @@
   },
   "cleaningFunnel": [
     {
-      "step": "Raw export",
-      "rows": 12880,
-      "note": "All FBS player-seasons across every conference and position in the source file."
+      "step": "Raw export (RAW_DATA + RAW_Win_Data)",
+      "rows": 32200,
+      "note": "Combined unaltered source data \u2014 RAW_DATA (12,880 player-season rows) + RAW_Win_Data (19,320 team-game rows). Every conference, every position, every game."
     },
     {
       "step": "Drop non-Power-Five conferences",
-      "rows": 3922,
-      "note": "Removed AAC, ASUN, CUSA, Ind, INDAA, MAC, MWC, SBC, WAC + blanks \u2014 10 conference buckets."
+      "rows": 6283,
+      "note": "Restricted both datasets to SEC, ACC, Big Ten, Big 12, and Pac-12 so usage and performance data align on the same team-season universe."
     },
     {
       "step": "Drop FB position",
-      "rows": 3904,
-      "note": "Removed the fullback position; kept QB, RB, WR, TE as the four analytic positions."
+      "rows": 6265,
+      "note": "Removed 18 fullback rows from the usage dataset \u2014 kept QB, RB, WR, TE as the four analytic positions. Final combined table: 6,265 rows / 81,496 data points."
     }
   ],
   "q1": {

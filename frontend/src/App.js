@@ -16,6 +16,8 @@ import Q6Archetypes from "./components/Q6Archetypes";
 import Conclusion from "./components/Conclusion";
 import CleanedData from "./components/CleanedData";
 import RawData from "./components/RawData";
+import RawWinData from "./components/RawWinData";
+import CleanWinData from "./components/CleanWinData";
 import { FilterProvider } from "./lib/filters";
 
 const Home = () => {
@@ -50,6 +52,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/cleaned-data" element={<CleanedData />} />
                 <Route path="/raw-data" element={<RawData />} />
+                <Route path="/raw-win-data" element={<RawWinData />} />
+                <Route path="/clean-win-data" element={<CleanWinData />} />
             </Routes>
         </BrowserRouter>
     );

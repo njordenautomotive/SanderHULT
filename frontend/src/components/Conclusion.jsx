@@ -125,24 +125,20 @@ export default function Conclusion() {
                         </Link>
                     </div>
                     <div className="flex flex-wrap gap-2 md:justify-end">
-                        <a
-                            href="/RAW_Win_Data.csv"
-                            download
+                        <Link
+                            to="/raw-win-data"
                             data-testid="footer-raw-win-data-link"
-                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-white border border-[#ff3b30]/60 px-4 py-2.5 hover:bg-[#ff3b30] hover:text-white transition-colors"
-                            title="Original game-level results used to calculate team performance"
+                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-white bg-[#ff3b30] px-4 py-2.5 hover:bg-white hover:text-black transition-colors"
                         >
-                            Raw Win Data <span>↓</span>
-                        </a>
-                        <a
-                            href="/CLEAN_Win_Data.csv"
-                            download
+                            Raw Win Data <span>→</span>
+                        </Link>
+                        <Link
+                            to="/clean-win-data"
                             data-testid="footer-clean-win-data-link"
-                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-white border border-[#ffcc00]/60 px-4 py-2.5 hover:bg-[#ffcc00] hover:text-black transition-colors"
-                            title="Processed team-game dataset used to calculate wins, games, and win%"
+                            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-black bg-[#ffcc00] px-4 py-2.5 hover:bg-white transition-colors"
                         >
-                            Clean Win Data <span>↓</span>
-                        </a>
+                            Clean Win Data <span>→</span>
+                        </Link>
                     </div>
                     <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
                         Data · 2021–2023 Power Five · QB · RB · WR · TE

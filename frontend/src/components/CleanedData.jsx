@@ -105,9 +105,11 @@ export default function CleanedData() {
                         The data, nothing hidden.
                     </h1>
                     <p className="mt-5 text-base sm:text-lg text-[#a1a1aa] leading-relaxed max-w-3xl font-sub">
-                        Every row that made it through the cleaning funnel — {dataset.summary.total_rows.toLocaleString()} player-seasons
-                        across {dataset.summary.teams} Power Five teams, 2021–2023. Search, sort,
-                        page through, or download the CSV directly.
+                        Every row that made it through the cleaning funnel —{" "}
+                        {dataset.summary.total_rows.toLocaleString()} player-seasons
+                        (62,464 data points) across {dataset.summary.teams} Power Five
+                        teams, 2021–2023. Search, sort, page through, or download the
+                        CSV directly.
                     </p>
                 </div>
 

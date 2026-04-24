@@ -149,7 +149,7 @@ export default function RawData() {
                                 <b className="text-white">
                                     {data.rows.length.toLocaleString()}
                                 </b>{" "}
-                                rows across{" "}
+                                rows (175,453 data points) across{" "}
                                 <b className="text-white">{conferencesInRaw.length}</b>{" "}
                                 conferences.
                             </>

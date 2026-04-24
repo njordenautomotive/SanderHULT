@@ -52,8 +52,20 @@ Audience: course instructor, students, sports-analytics readers.
 - **Q2/Q3 aggregation aligned to source Excel pivot (Feb 2026 patch):**
   team- and conference-level averages now use `AVERAGE(Top_Player_Share)` over
   every raw player-row (weighted by player count per season) — matching the
-  user-provided Excel exactly (Houston 41.9%, Arizona 30.6%, etc.). Q2 now shows
-  Top 15 per ranking. Q5/Q6 are per team-season points, unaffected.
+  user-provided Excel exactly (Houston 41.9%, Arizona 30.6%, etc.).
+- **Q5 rebuilt on real game data (Feb 2026):** scatter + R² now sourced from
+  `CLEAN_Win_Data.csv` (SUM(Win)/SUM(Game) per team-season, 196 team-seasons).
+- **Q6 locked to Excel-fixed thresholds (Feb 2026):** top_player_share median =
+  26.9%, win_pct median = 54%. Classification counts exactly match Excel
+  (Star Winners 55, Balanced Winners 50, Balanced Strugglers 50, Concentrated
+  Strugglers 41, total 196).
+- **CLEAN_DATA refresh (Feb 2026):** new high-precision `cleaned-data.csv`
+  (shares stored as floats instead of percent-strings) now powers every chart,
+  eliminating sub-percent Excel drift. Methodology section now shows all four
+  datasets in "data points × rows" format (RAW_DATA 175,453/12,880,
+  CLEAN_DATA 62,464/3,904, RAW_Win_Data 96,600/19,320,
+  CLEAN_Win_Data 19,032/2,379) plus the 7-step Q5 win-data construction
+  process.
 
 ## Backlog / Future
 - **P1**: Global filter bar (season/conference/team) that cross-filters every chart.

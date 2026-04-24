@@ -39,33 +39,38 @@ const DECISIONS = [
 const WIN_STEPS = [
     {
         tag: "Step 01",
-        title: "Performance Data Construction",
-        body: "To analyze the relationship between offensive usage and team success, raw game-level data was transformed into team-season performance metrics. Each game initially contained two teams (home and away), which required restructuring before analysis.",
+        title: "Performance Data Construction (Q5)",
+        body: "To analyze the relationship between offensive usage and team success, additional performance data was constructed from raw game-level results. The original dataset contained one row per game, with separate home and away team records.",
     },
     {
         tag: "Step 02",
         title: "Game-to-Team Transformation",
-        body: "Each game was split into two rows — one for each team — so that every row represents a single team's performance in a single game. This created a consistent structure where metrics like wins and games could be calculated cleanly.",
+        body: "Each game was split into two observations — one for each team — so that every row represents a single team's performance in a single game. This transformation enabled consistent aggregation and alignment with the usage dataset.",
     },
     {
         tag: "Step 03",
         title: "Scope Alignment",
-        body: "The dataset was filtered to include only Power 5 conferences (SEC, ACC, Big Ten, Big 12, Pac-12), ensuring consistency with the cleaned usage dataset and avoiding noise from external or lower-tier teams.",
+        body: "The dataset was filtered to include only Power 5 conferences (SEC, ACC, Big Ten, Big 12, Pac-12), ensuring consistency with the cleaned usage dataset and removing irrelevant observations.",
     },
     {
         tag: "Step 04",
-        title: "Performance Aggregation",
-        body: "Wins were calculated by comparing points scored versus points allowed for each game. These were then aggregated by team and season to compute total wins and total games played.",
+        title: "Outcome Calculation",
+        body: "Game outcomes were derived by comparing points scored and points allowed. A win was assigned when points_for exceeded points_against. Helper columns were created to track wins and total games.",
     },
     {
         tag: "Step 05",
-        title: "Win Percentage Calculation",
-        body: "Win percentage was calculated as total wins divided by total games for each team-season. This provided a standardized measure of team performance across all observations.",
+        title: "Aggregation to Team-Season Level",
+        body: "The data was aggregated by team and season. Total wins were calculated as the sum of wins, and total games were calculated as the sum of the game indicator column.",
     },
     {
         tag: "Step 06",
-        title: "Data Integration",
-        body: "The resulting team-season performance data was merged with the cleaned usage dataset using team and season as keys. This enabled direct comparison between offensive usage concentration and team success in Q5.",
+        title: "Win Percentage",
+        body: "Win percentage was calculated as total wins divided by total games for each team-season, providing a standardized measure of team performance.",
+    },
+    {
+        tag: "Step 07",
+        title: "Integration with Usage Data",
+        body: "The team-season performance dataset was merged with the cleaned usage dataset using team and season as keys, enabling direct comparison between offensive usage concentration and team success in Q5 and Q6.",
     },
 ];
 
@@ -78,16 +83,84 @@ export default function CleaningProcess() {
         >
             <SectionHeader
                 eyebrow="Ch. 02 · Methodology"
-                title="From 12,880 rows to 3,904."
+                title="From 175,453 data points to 62,464."
                 kicker="Two deliberate cuts — one big, one surgical. 8,958 rows were dropped by narrowing the scope to Power Five conferences; 18 more were dropped by removing the fullback position. Nothing else was filtered — the shape of the distribution was left intact."
             />
 
+            {/* Dataset dimensions panel — data points × rows */}
+            <div
+                className="mb-10 p-6 bg-[#121215] border border-white/10"
+                data-testid="dataset-dimensions"
+            >
+                <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#ffcc00] mb-3">
+                    Datasets · Data Points × Rows
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {[
+                        {
+                            label: "RAW_DATA",
+                            points: "175,453",
+                            rows: "12,880",
+                            caption: "Original player-level dataset.",
+                            accent: "#ff3b30",
+                        },
+                        {
+                            label: "CLEAN_DATA",
+                            points: "62,464",
+                            rows: "3,904",
+                            caption: "Processed player-level dataset used for Q1–Q4.",
+                            accent: "#ffcc00",
+                        },
+                        {
+                            label: "RAW_Win_Data",
+                            points: "96,600",
+                            rows: "19,320",
+                            caption: "Original game-level dataset.",
+                            accent: "#ff3b30",
+                        },
+                        {
+                            label: "CLEAN_Win_Data",
+                            points: "19,032",
+                            rows: "2,379",
+                            caption:
+                                "Processed team-game dataset used to calculate win%.",
+                            accent: "#34c759",
+                        },
+                    ].map((d) => (
+                        <div
+                            key={d.label}
+                            className="p-4 bg-[#0a0a0a] border-t-2 border-white/10 border-t-transparent"
+                            style={{ borderTopColor: d.accent }}
+                            data-testid={`dataset-card-${d.label}`}
+                        >
+                            <div
+                                className="text-[10px] font-mono uppercase tracking-[0.25em]"
+                                style={{ color: d.accent }}
+                            >
+                                {d.label}
+                            </div>
+                            <div className="mt-2 font-heading text-3xl font-black text-white leading-none">
+                                {d.points}
+                            </div>
+                            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#71717a] mt-1">
+                                data points
+                            </div>
+                            <div className="mt-3 pt-3 border-t border-white/10 text-[11px] font-mono text-[#a1a1aa]">
+                                {d.rows} rows
+                            </div>
+                            <p className="mt-2 text-xs text-[#a1a1aa] font-sub leading-relaxed">
+                                {d.caption}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                 <div className="lg:col-span-7">
                     <div className="p-6 bg-[#121215] border border-white/10">
                         <div className="flex items-center justify-between mb-4">
                             <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
-                                Row Reduction Funnel
+                                Data Reduction Funnel
                             </div>
                             <div className="text-[11px] font-mono text-[#ffcc00]">
                                 {cleaningFunnel[0].rows.toLocaleString()} →{" "}
@@ -101,23 +174,30 @@ export default function CleaningProcess() {
                     <div className="mt-6 grid grid-cols-2 gap-4">
                         <div className="p-5 bg-[#0a0a0a] border border-white/10">
                             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#71717a]">
-                                Before
+                                Before · RAW_DATA
                             </div>
-                            <div className="mt-2 font-heading text-4xl font-black text-white">
-                                12,880
+                            <div className="mt-2 font-heading text-4xl font-black text-white leading-none">
+                                175,453
                             </div>
-                            <div className="mt-1 text-xs text-[#a1a1aa]">
+                            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#71717a] mt-1">
+                                data points · 12,880 rows
+                            </div>
+                            <div className="mt-2 text-xs text-[#a1a1aa]">
                                 all conferences · all positions · 2021–2023
                             </div>
                         </div>
                         <div className="p-5 bg-[#ffcc00]/10 border border-[#ffcc00]/30">
                             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#ffcc00]">
-                                After
+                                After · CLEAN_DATA
                             </div>
-                            <div className="mt-2 font-heading text-4xl font-black text-white">
-                                {summary.total_rows.toLocaleString()}
+                            <div className="mt-2 font-heading text-4xl font-black text-white leading-none">
+                                62,464
                             </div>
-                            <div className="mt-1 text-xs text-[#a1a1aa]">
+                            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#ffcc00] mt-1">
+                                data points ·{" "}
+                                {summary.total_rows.toLocaleString()} rows
+                            </div>
+                            <div className="mt-2 text-xs text-[#a1a1aa]">
                                 P5 · QB/RB/WR/TE · 2021–2023
                             </div>
                         </div>
@@ -205,7 +285,7 @@ export default function CleaningProcess() {
                     <b className="text-white">RAW_Win_Data</b> contains the original
                     game-level data, while <b className="text-white">CLEAN_Win_Data</b>{" "}
                     reflects the transformed team-level dataset used to calculate the
-                    performance metrics shown in Q5. The six steps below document
+                    performance metrics shown in Q5. The seven steps below document
                     exactly how one became the other.
                 </p>
 

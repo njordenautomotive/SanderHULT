@@ -40,7 +40,7 @@ export default function Conclusion() {
             <SectionHeader
                 eyebrow="Ch. 04 · Closing"
                 title="Five things the data actually says."
-                kicker="Tying together six research questions, three years, and 3,904 player-seasons."
+                kicker="Tying together six research questions, three years, and 3,904 player-seasons (62,464 data points)."
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

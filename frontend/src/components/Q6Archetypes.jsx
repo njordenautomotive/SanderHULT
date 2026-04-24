@@ -6,17 +6,23 @@ import { useFilters } from "../lib/filters";
 import { ARCHETYPE_COLORS } from "../lib/constants";
 import { WhyBadge, WhyCallout, AnswerBlock } from "./Why";
 
-const median = (arr) => {
-    if (!arr.length) return 0;
-    const s = [...arr].sort((a, b) => a - b);
-    const m = Math.floor(s.length / 2);
-    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
-};
+// ------------------------------------------------------------------
+// Fixed Excel-derived thresholds for Q6.
+// Do NOT recompute these — they are the constants from the source
+// workbook's pivot analysis. Boundary is inclusive on the "balanced"
+// side (<=) and inclusive on "winners" side (>=), which reproduces
+// the Excel counts exactly:
+//   Star Winners 55 · Balanced Winners 50
+//   Balanced Strugglers 50 · Concentrated Strugglers 41
+// Total = 196 team-seasons.
+// ------------------------------------------------------------------
+const TOP_PLAYER_SHARE_MEDIAN = 26.9; // percent (0.269)
+const WIN_PERCENTAGE_MEDIAN = 0.54;
 
 export default function Q6Archetypes() {
     const { season, conference, team } = useFilters();
 
-    // Base joined set (used for medians and counts) — do NOT apply filters to medians
+    // Full joined set (usage × CLEAN_Win_Data) — 196 team-seasons
     const base = useMemo(() => {
         const winMap = {};
         dataset.wins.forEach((w) => {
@@ -40,9 +46,6 @@ export default function Q6Archetypes() {
             .filter((t) => t.win_pct !== undefined);
     }, []);
 
-    const medTop = useMemo(() => median(base.map((b) => b.top_player)), [base]);
-    const medWin = useMemo(() => median(base.map((b) => b.win_pct)), [base]);
-
     const filtered = useMemo(
         () =>
             base.filter((j) => {
@@ -53,15 +56,15 @@ export default function Q6Archetypes() {
         [base, season, conference]
     );
 
-    const classify = useCallback(
-        (t) => {
-            if (t.top_player >= medTop && t.win_pct >= medWin) return "Star-Driven Winners";
-            if (t.top_player < medTop && t.win_pct >= medWin) return "Balanced Winners";
-            if (t.top_player >= medTop && t.win_pct < medWin) return "Concentrated Strugglers";
-            return "Balanced Strugglers";
-        },
-        [medTop, medWin]
-    );
+    // Excel classification — fixed constants, no dynamic medians.
+    const classify = useCallback((t) => {
+        const balanced = t.top_player <= TOP_PLAYER_SHARE_MEDIAN;
+        const winner = t.win_pct >= WIN_PERCENTAGE_MEDIAN;
+        if (balanced && winner) return "Balanced Winners";
+        if (!balanced && winner) return "Star Winners";
+        if (balanced && !winner) return "Balanced Strugglers";
+        return "Concentrated Strugglers";
+    }, []);
 
     const pts = filtered.map((a) => {
         const arch = classify(a);
@@ -124,7 +127,8 @@ export default function Q6Archetypes() {
                             Archetype Quadrants
                         </div>
                         <div className="text-[10px] font-mono text-[#71717a]">
-                            medians · top {medTop.toFixed(1)}% · win {Math.round(medWin * 100)}%
+                            medians · top {TOP_PLAYER_SHARE_MEDIAN.toFixed(1)}% · win{" "}
+                            {Math.round(WIN_PERCENTAGE_MEDIAN * 100)}% (Excel-fixed)
                         </div>
                     </div>
                     <WhyBadge>
@@ -139,7 +143,10 @@ export default function Q6Archetypes() {
                             yLabel="WIN %"
                             xDomain={[15, 45]}
                             yDomain={[0, 1]}
-                            quadrants={{ xMid: medTop, yMid: medWin }}
+                            quadrants={{
+                                xMid: TOP_PLAYER_SHARE_MEDIAN,
+                                yMid: WIN_PERCENTAGE_MEDIAN,
+                            }}
                             showTrend={false}
                             highlightTeam={team}
                             dataTestId="q6-archetypes"
@@ -225,7 +232,7 @@ export default function Q6Archetypes() {
             </div>
 
             {filtered.length > 0 && (() => {
-                const starWinners = counts["Star-Driven Winners"]?.length || 0;
+                const starWinners = counts["Star Winners"]?.length || 0;
                 const balWinners = counts["Balanced Winners"]?.length || 0;
                 const concStrug = counts["Concentrated Strugglers"]?.length || 0;
                 const balStrug = counts["Balanced Strugglers"]?.length || 0;
@@ -236,7 +243,7 @@ export default function Q6Archetypes() {
                         : starWinners === balWinners
                           ? "a dead heat"
                           : starWinners > balWinners
-                            ? "a slight edge to star-driven winners"
+                            ? "a slight edge to star winners"
                             : "a slight edge to balanced winners";
                 const scope = [
                     season !== "all" ? season : "2021–23",
@@ -246,13 +253,13 @@ export default function Q6Archetypes() {
                     <AnswerBlock live testId="q6-answer">
                         Across <b className="text-white">{scope}</b> (
                         {filtered.length} team-seasons),{" "}
-                        <b className="text-[#007aff]">{balWinners}</b> balanced
+                        <b className="text-[#34c759]">{balWinners}</b> balanced
                         winners,{" "}
-                        <b className="text-[#ffcc00]">{starWinners}</b> star-driven
+                        <b className="text-[#007aff]">{starWinners}</b> star
                         winners,{" "}
                         <b className="text-[#ff3b30]">{concStrug}</b> concentrated
                         strugglers, and{" "}
-                        <b className="text-[#34c759]">{balStrug}</b> balanced
+                        <b className="text-[#ffcc00]">{balStrug}</b> balanced
                         strugglers. The verdict: <b className="text-white">{verdict}</b>.
                         Success is not a function of concentration — it's a function of
                         fit between a team's talent and the system running it.

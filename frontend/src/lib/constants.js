@@ -28,7 +28,7 @@ export const CONFERENCE_COLORS = {
 };
 
 export const ARCHETYPE_COLORS = {
-    "Star-Driven Winners": "#007aff",
+    "Star Winners": "#007aff",
     "Balanced Winners": "#34c759",
     "Concentrated Strugglers": "#ff3b30",
     "Balanced Strugglers": "#ffcc00",

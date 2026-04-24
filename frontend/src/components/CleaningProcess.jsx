@@ -36,6 +36,39 @@ const DECISIONS = [
     },
 ];
 
+const WIN_STEPS = [
+    {
+        tag: "Step 01",
+        title: "Performance Data Construction",
+        body: "To analyze the relationship between offensive usage and team success, raw game-level data was transformed into team-season performance metrics. Each game initially contained two teams (home and away), which required restructuring before analysis.",
+    },
+    {
+        tag: "Step 02",
+        title: "Game-to-Team Transformation",
+        body: "Each game was split into two rows — one for each team — so that every row represents a single team's performance in a single game. This created a consistent structure where metrics like wins and games could be calculated cleanly.",
+    },
+    {
+        tag: "Step 03",
+        title: "Scope Alignment",
+        body: "The dataset was filtered to include only Power 5 conferences (SEC, ACC, Big Ten, Big 12, Pac-12), ensuring consistency with the cleaned usage dataset and avoiding noise from external or lower-tier teams.",
+    },
+    {
+        tag: "Step 04",
+        title: "Performance Aggregation",
+        body: "Wins were calculated by comparing points scored versus points allowed for each game. These were then aggregated by team and season to compute total wins and total games played.",
+    },
+    {
+        tag: "Step 05",
+        title: "Win Percentage Calculation",
+        body: "Win percentage was calculated as total wins divided by total games for each team-season. This provided a standardized measure of team performance across all observations.",
+    },
+    {
+        tag: "Step 06",
+        title: "Data Integration",
+        body: "The resulting team-season performance data was merged with the cleaned usage dataset using team and season as keys. This enabled direct comparison between offensive usage concentration and team success in Q5.",
+    },
+];
+
 export default function CleaningProcess() {
     return (
         <section
@@ -132,6 +165,76 @@ export default function CleaningProcess() {
                     extreme would have rewritten the story we set out to tell.
                 </p>
             </motion.div>
+
+            {/* -------- Win Data Methodology -------- */}
+            <div
+                id="win-methodology"
+                data-testid="win-methodology"
+                className="mt-20 pt-12 border-t border-white/10"
+            >
+                <div className="flex flex-wrap items-end justify-between gap-4 mb-3">
+                    <div>
+                        <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#ffcc00] mb-2">
+                            Ch. 02 · Methodology · Part II
+                        </div>
+                        <h3 className="font-heading text-3xl md:text-4xl font-black uppercase text-white leading-tight max-w-3xl">
+                            How win data was built for Q5.
+                        </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                        <a
+                            href="/RAW_Win_Data.csv"
+                            download
+                            data-testid="methodology-raw-win-link"
+                            className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white border border-[#ff3b30]/60 px-3 py-2 hover:bg-[#ff3b30] transition-colors"
+                        >
+                            RAW_Win_Data.csv <span>↓</span>
+                        </a>
+                        <a
+                            href="/CLEAN_Win_Data.csv"
+                            download
+                            data-testid="methodology-clean-win-link"
+                            className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white border border-[#ffcc00]/60 px-3 py-2 hover:bg-[#ffcc00] hover:text-black transition-colors"
+                        >
+                            CLEAN_Win_Data.csv <span>↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p className="text-[#a1a1aa] text-sm md:text-base font-sub leading-relaxed max-w-4xl mb-8">
+                    <b className="text-white">RAW_Win_Data</b> contains the original
+                    game-level data, while <b className="text-white">CLEAN_Win_Data</b>{" "}
+                    reflects the transformed team-level dataset used to calculate the
+                    performance metrics shown in Q5. The six steps below document
+                    exactly how one became the other.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {WIN_STEPS.map((s, i) => (
+                        <motion.div
+                            key={s.title}
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: (i % 6) * 0.06 }}
+                            className="p-5 border border-white/10 bg-[#0a0a0a] hover:border-[#ffcc00]/50 transition-colors"
+                            data-testid={`win-methodology-step-${i}`}
+                        >
+                            <div className="flex items-center gap-2 mb-2">
+                                <span className="inline-block px-2 py-0.5 text-[9px] font-mono uppercase tracking-[0.25em] text-[#ffcc00] border border-[#ffcc00]/40 bg-[#ffcc00]/5">
+                                    {s.tag}
+                                </span>
+                            </div>
+                            <div className="font-sub font-bold text-white text-sm mb-2 uppercase tracking-wide">
+                                {s.title}
+                            </div>
+                            <p className="text-[#a1a1aa] text-sm leading-relaxed">
+                                {s.body}
+                            </p>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
         </section>
     );
 }

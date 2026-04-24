@@ -154,6 +154,74 @@ const COLUMNS = [
     },
 ];
 
+const WIN_COLUMNS = [
+    {
+        column_name: "season",
+        action: "kept",
+        preprocessing: "No transformation required.",
+        reasoning:
+            "Used as a key variable for aggregating team performance and merging with the cleaned usage data.",
+    },
+    {
+        column_name: "team",
+        action: "kept",
+        preprocessing: "Trimmed and standardized.",
+        reasoning:
+            "Primary identifier for aggregation and merging. Naming was aligned with CLEAN_DATA to ensure accurate joins.",
+    },
+    {
+        column_name: "conference",
+        action: "filtered",
+        preprocessing: "Restricted to Power Five (SEC, ACC, Big Ten, Big 12, Pac-12).",
+        reasoning:
+            "Kept the scope consistent with the usage dataset so every Q5 join has a matching team-season on both sides.",
+    },
+    {
+        column_name: "points_for",
+        action: "kept",
+        preprocessing: "Retained; renamed for clarity.",
+        reasoning:
+            "Used to determine the outcome of each game (wins vs losses). No transformation beyond renaming.",
+    },
+    {
+        column_name: "points_against",
+        action: "kept",
+        preprocessing: "Retained; renamed for clarity.",
+        reasoning:
+            "Compared against points_for to determine the outcome of each game.",
+    },
+    {
+        column_name: "win",
+        action: "created",
+        preprocessing:
+            "Derived flag — 1 when points_for > points_against, 0 otherwise.",
+        reasoning:
+            "Enables clean aggregation of team success using SUM() instead of conditional counting.",
+    },
+    {
+        column_name: "game",
+        action: "created",
+        preprocessing: "Constant value of 1 for each row.",
+        reasoning:
+            "Allows total games played to be computed with a simple SUM — consistent with how wins are aggregated.",
+    },
+    {
+        column_name: "loss",
+        action: "created",
+        preprocessing: "Inverse of win — 1 on a loss, 0 on a win.",
+        reasoning:
+            "Improves interpretability and enables quick validation that wins + losses = games.",
+    },
+    {
+        column_name: "win_percentage",
+        action: "created",
+        preprocessing:
+            "Computed post-aggregation as SUM(win) ÷ SUM(game) per team-season.",
+        reasoning:
+            "Performance is only meaningful after aggregation, so win% is derived at the team-season level — not per row.",
+    },
+];
+
 // Group columns by action family for the eyebrow counters
 const groupedCounts = COLUMNS.reduce((acc, c) => {
     const style = ACTION_STYLE[c.action] || { tag: c.action.toUpperCase() };
@@ -257,6 +325,103 @@ export default function ColumnDocumentation() {
                     measuring offensive usage distribution and team dependency.
                 </p>
             </motion.div>
+
+            {/* -------- CLEAN_Win_Data · Column Audit -------- */}
+            <div
+                id="win-columns"
+                data-testid="win-columns"
+                className="mt-20 pt-12 border-t border-white/10"
+            >
+                <div className="flex flex-wrap items-end justify-between gap-4 mb-3">
+                    <div>
+                        <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#ffcc00] mb-2">
+                            Ch. 02.5 · Column Audit · CLEAN_Win_Data
+                        </div>
+                        <h3 className="font-heading text-3xl md:text-4xl font-black uppercase text-white leading-tight max-w-3xl">
+                            Performance columns, accounted for.
+                        </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                        <a
+                            href="/RAW_Win_Data.csv"
+                            download
+                            data-testid="columns-raw-win-link"
+                            className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white border border-[#ff3b30]/60 px-3 py-2 hover:bg-[#ff3b30] transition-colors"
+                        >
+                            RAW_Win_Data.csv <span>↓</span>
+                        </a>
+                        <a
+                            href="/CLEAN_Win_Data.csv"
+                            download
+                            data-testid="columns-clean-win-link"
+                            className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white border border-[#ffcc00]/60 px-3 py-2 hover:bg-[#ffcc00] hover:text-black transition-colors"
+                        >
+                            CLEAN_Win_Data.csv <span>↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p className="text-[#a1a1aa] text-sm md:text-base font-sub leading-relaxed max-w-4xl mb-8">
+                    <b className="text-white">RAW_Win_Data</b> contains the original
+                    game-level data;{" "}
+                    <b className="text-white">CLEAN_Win_Data</b> is the transformed
+                    team-game dataset used to calculate the performance metrics
+                    powering Q5. Each column below is documented in the same style
+                    as the usage-data audit above.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {WIN_COLUMNS.map((c, i) => {
+                        const style =
+                            ACTION_STYLE[c.action] || {
+                                color: "#a1a1aa",
+                                tag: c.action.toUpperCase(),
+                            };
+                        return (
+                            <motion.div
+                                key={c.column_name}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, delay: (i % 8) * 0.04 }}
+                                className="p-5 bg-[#121215] border border-white/10 hover:border-white/30 transition-colors relative"
+                                data-testid={`win-column-card-${c.column_name}`}
+                            >
+                                <div
+                                    className="absolute top-0 left-0 w-12 h-[2px]"
+                                    style={{ background: style.color }}
+                                />
+                                <div className="flex items-center justify-between mb-3">
+                                    <div className="font-mono text-sm text-white font-semibold tracking-tight">
+                                        {c.column_name}
+                                    </div>
+                                    <span
+                                        className="text-[9px] font-mono uppercase tracking-[0.25em] px-2 py-1 border"
+                                        style={{
+                                            color: style.color,
+                                            borderColor: `${style.color}66`,
+                                        }}
+                                    >
+                                        {style.tag}
+                                    </span>
+                                </div>
+                                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#71717a] mb-1">
+                                    Transformation
+                                </div>
+                                <p className="text-sm text-white mb-4 leading-snug">
+                                    {c.preprocessing}
+                                </p>
+                                <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#71717a] mb-1">
+                                    Why
+                                </div>
+                                <p className="text-sm text-[#a1a1aa] leading-relaxed">
+                                    {c.reasoning}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+            </div>
         </section>
     );
 }

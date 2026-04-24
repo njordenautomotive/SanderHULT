@@ -12,145 +12,122 @@ const ACTION_STYLE = {
 
 const COLUMNS = [
     {
-        column_name: "season",
+        column_name: "Season",
         action: "kept",
         preprocessing: "No transformation required.",
         reasoning:
-            "Essential for temporal analysis; enables comparison across 2021–2023 and drives time-based filtering.",
+            "Essential temporal key. Enables 2021–2023 comparisons, drives Season filter, and is one of the join keys for performance (win) data.",
     },
     {
-        column_name: "id",
+        column_name: "Player_ID",
         action: "kept",
         preprocessing: "No transformation required.",
         reasoning:
-            "Uniquely identifies each player; used for deduplication checks and data integrity even though it isn't plotted directly.",
+            "Stable unique identifier per player. Used for deduplication checks and data integrity even though it isn't plotted directly.",
     },
     {
-        column_name: "name",
+        column_name: "Player_Name",
         action: "kept",
-        preprocessing: "Trimmed for formatting consistency.",
+        preprocessing: "Whitespace trimmed for label consistency.",
         reasoning:
-            "Needed to identify top player-seasons and label visualizations. Whitespace trimmed without altering meaning.",
+            "Needed to identify top player-seasons and label visualizations. No semantic change — only formatting.",
     },
     {
-        column_name: "position",
+        column_name: "Position",
         action: "filtered",
         preprocessing: "Only QB, RB, WR, and TE retained; FB and others removed.",
         reasoning:
-            "The analysis focuses on offensive skill positions; keeping other positions would dilute the usage interpretation.",
+            "The analysis focuses on offensive skill positions; keeping FB or others would dilute the usage interpretation.",
     },
     {
-        column_name: "team",
+        column_name: "Team",
         action: "kept",
-        preprocessing: "Trimmed and standardized.",
+        preprocessing: "Trimmed and name-standardized.",
         reasoning:
-            "Core grouping variable for nearly every analysis. Standardization avoids duplicate categories from stray casing or spacing.",
+            "Core grouping variable. Naming was aligned with CLEAN_Win_Data so team+season joins land cleanly.",
     },
     {
-        column_name: "conference",
+        column_name: "Conference",
         action: "filtered and standardized",
-        preprocessing: "Restricted to Power Five (ACC, B1G, B12, PAC, SEC) and renamed for clarity.",
+        preprocessing:
+            "Restricted to Power Five (SEC, ACC, Big Ten, Big 12, Pac-12) and label-standardized.",
         reasoning:
-            "Limits to teams that share comparable competitive environments and scholarship depth; labels standardized for readable legends.",
+            "Limits the universe to teams with comparable schedules and scholarship depth; consistent labels keep legends readable.",
     },
     {
-        column_name: "usage_overall",
+        column_name: "Usage_Overall",
         action: "kept and validated",
-        preprocessing: "Verified as numeric and free of missing values.",
+        preprocessing: "Verified numeric; no missing values.",
         reasoning:
-            "The primary metric of the analysis — it represents player offensive involvement. Type and completeness checks are mandatory upstream.",
+            "Primary metric of the analysis — player offensive involvement per season. Completeness and dtype were confirmed upstream.",
     },
     {
-        column_name: "usage_pass",
-        action: "dropped",
-        preprocessing: "Removed from dataset.",
-        reasoning:
-            "Informative but outside the scope of the research questions, which focus on overall usage rather than play-type breakdowns.",
-    },
-    {
-        column_name: "usage_rush",
-        action: "dropped",
-        preprocessing: "Removed from dataset.",
-        reasoning: "Same reasoning as usage_pass — extra detail not required for the defined scope.",
-    },
-    {
-        column_name: "usage_firstdown",
-        action: "dropped",
-        preprocessing: "Removed from dataset.",
-        reasoning: "Down-specific usage is outside the scope and would add complexity without insight.",
-    },
-    {
-        column_name: "usage_seconddown",
-        action: "dropped",
-        preprocessing: "Removed from dataset.",
-        reasoning: "Removed for the same reason as first-down usage.",
-    },
-    {
-        column_name: "usage_thirddown",
-        action: "dropped",
-        preprocessing: "Removed from dataset.",
-        reasoning: "Down-specific metric excluded to maintain focus and avoid unnecessary complexity.",
-    },
-    {
-        column_name: "usage_standarddowns",
-        action: "dropped",
-        preprocessing: "Removed from dataset.",
-        reasoning: "Not required for the analytical scope; added complexity would not improve insight.",
-    },
-    {
-        column_name: "usage_passingdowns",
-        action: "dropped",
-        preprocessing: "Removed from dataset.",
-        reasoning: "Dropped for consistency with the other down-based variables.",
-    },
-    {
-        column_name: "team_total_usage",
+        column_name: "Team_Total_Usage",
         action: "created",
         preprocessing: "Aggregated total usage per team-season.",
         reasoning:
-            "Enables normalization of individual player usage and within-team comparison.",
+            "Denominator for Player_Usage_Share. Lets per-player metrics be normalized and compared across teams.",
     },
     {
-        column_name: "player_usage_share",
+        column_name: "Player_Usage_Share",
         action: "created",
-        preprocessing: "Computed as player usage ÷ team total usage.",
+        preprocessing:
+            "Computed as Usage_Overall ÷ Team_Total_Usage. Stored as a decimal (0–1).",
         reasoning:
-            "Key derived metric — a player's share of team offensive involvement, comparable across teams.",
+            "Key derived metric — a player's share of the team's offensive involvement, directly comparable across teams and seasons.",
     },
     {
-        column_name: "rank_within_team",
+        column_name: "Rank_Within_Team",
         action: "created",
-        preprocessing: "Ranked by usage inside each team-season.",
+        preprocessing: "Integer rank by Usage_Overall within each team-season.",
         reasoning:
-            "Identifies top contributors and supports concentration / dependency analysis.",
+            "Identifies each team's top contributors and powers the concentration / dependency analyses in Q2.",
     },
     {
-        column_name: "top_player_flag",
+        column_name: "Top_Player_Flag",
         action: "created",
-        preprocessing: "Binary indicator for rank = 1.",
+        preprocessing: "Binary indicator — 1 when Rank_Within_Team = 1, else 0.",
         reasoning:
-            "Isolates the single most-used player per team-season; drives dependency metrics.",
+            "Isolates the single most-used player per team-season so aggregates like Top_Player_Share can be computed cleanly.",
     },
     {
-        column_name: "top_3_flag",
+        column_name: "Top_3_Flag",
         action: "created",
-        preprocessing: "Binary indicator for rank ≤ 3.",
+        preprocessing: "Binary indicator — 1 when Rank_Within_Team ≤ 3, else 0.",
         reasoning:
-            "Supports analysis of how much offense is concentrated in a small group.",
+            "Supports analysis of concentration in a small core rather than on a single star.",
     },
     {
-        column_name: "top_player_share",
+        column_name: "Top_Player_Share",
         action: "created",
-        preprocessing: "Usage share of the top-ranked player per team-season.",
+        preprocessing:
+            "Share of offensive usage carried by the rank-1 player in each team-season (decimal 0–1).",
         reasoning:
-            "Primary metric for measuring team dependency on a single player.",
+            "Primary metric for measuring team dependency on a single player. Drives Q2 rankings and Q5/Q6 x-axis.",
     },
     {
-        column_name: "top_3_share",
+        column_name: "Top_3_Share",
         action: "created",
-        preprocessing: "Combined usage share of the top three players per team-season.",
+        preprocessing:
+            "Combined share of offensive usage carried by the top three players in each team-season (decimal 0–1).",
         reasoning:
-            "Main concentration metric — captures how offensive responsibility is distributed across a team's core.",
+            "Main concentration metric — captures how offensive responsibility is distributed across a team's core. Used in Q2 and Q5.",
+    },
+    {
+        column_name: "Distinct_Season_Count",
+        action: "created",
+        preprocessing:
+            "Count of distinct seasons each player appears in across the cleaned dataset.",
+        reasoning:
+            "Identifies multi-season players for the Q1 longitudinal trend lines. A value of 3 means the player played in 2021, 2022, and 2023.",
+    },
+    {
+        column_name: "Usage_Bin",
+        action: "created",
+        preprocessing:
+            "Usage_Overall discretized into nine ordered buckets (0–5%, 5–10%, 10–15%, 15–20%, 20–25%, 25–30%, 30–40%, 40–50%, 50%+).",
+        reasoning:
+            "Enables histogram views in Q1/Q4 without recomputing bin edges in the client and guarantees every chart uses the same cut points.",
     },
 ];
 
@@ -245,6 +222,7 @@ export default function ColumnDocumentation() {
             <div className="flex flex-wrap gap-3 mb-8" data-testid="columns-legend">
                 {Object.entries(ACTION_STYLE)
                     .filter(([k, v], i, arr) => arr.findIndex((x) => x[1].tag === v.tag) === i)
+                    .filter(([, v]) => (groupedCounts[v.tag] || 0) > 0)
                     .map(([k, v]) => (
                         <div
                             key={v.tag}

@@ -62,6 +62,55 @@ const COLUMNS = [
             "Primary metric of the analysis — player offensive involvement per season. Completeness and dtype were confirmed upstream.",
     },
     {
+        column_name: "Usage_Pass",
+        action: "dropped",
+        preprocessing: "Removed from CLEAN_DATA — column existed in RAW_DATA only.",
+        reasoning:
+            "Usage isolated to passing plays. Outside the scope of the research questions, which intentionally focus on overall usage rather than play-type splits.",
+    },
+    {
+        column_name: "Usage_Rush",
+        action: "dropped",
+        preprocessing: "Removed from CLEAN_DATA — column existed in RAW_DATA only.",
+        reasoning:
+            "Usage isolated to rushing plays. Same scope reasoning as Usage_Pass — kept the analysis focused on overall offensive involvement.",
+    },
+    {
+        column_name: "Usage_FirstDown",
+        action: "dropped",
+        preprocessing: "Removed from CLEAN_DATA — column existed in RAW_DATA only.",
+        reasoning:
+            "Down-specific usage. The questions don't differentiate between downs, so this would add complexity without insight.",
+    },
+    {
+        column_name: "Usage_SecondDown",
+        action: "dropped",
+        preprocessing: "Removed from CLEAN_DATA — column existed in RAW_DATA only.",
+        reasoning:
+            "Same reasoning as Usage_FirstDown — down-by-down breakdowns are outside the analytical scope.",
+    },
+    {
+        column_name: "Usage_ThirdDown",
+        action: "dropped",
+        preprocessing: "Removed from CLEAN_DATA — column existed in RAW_DATA only.",
+        reasoning:
+            "Down-specific metric. Excluded for consistency with the rest of the down-based variables.",
+    },
+    {
+        column_name: "Usage_StandardDowns",
+        action: "dropped",
+        preprocessing: "Removed from CLEAN_DATA — column existed in RAW_DATA only.",
+        reasoning:
+            "Situation-specific usage on standard downs. Not required for measuring overall offensive involvement.",
+    },
+    {
+        column_name: "Usage_PassingDowns",
+        action: "dropped",
+        preprocessing: "Removed from CLEAN_DATA — column existed in RAW_DATA only.",
+        reasoning:
+            "Situation-specific usage on passing downs. Dropped for the same reason as Usage_StandardDowns — kept the table focused on overall usage.",
+    },
+    {
         column_name: "Team_Total_Usage",
         action: "created",
         preprocessing: "Aggregated total usage per team-season.",
